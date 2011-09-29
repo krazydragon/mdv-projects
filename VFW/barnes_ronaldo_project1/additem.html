@@ -6,44 +6,45 @@
 	<head>
 		<meta charset="UTF-8" />	
 		<meta name="description" content="My first HTML5 doc. In VFW at Fullsail Unuversity."/>
-		<meta name="keywords" content="html,drinks, Full Sail University, Mobile Development"/>
+		<meta name="keywords" content="html,drinks, food, Full Sail University, Mobile Development"/>
 		<meta name="robots" content="index, follow"/>
 		<meta name="viewport" content="user-scaleable=no, width=device-width"/>
 		<meta name="viewport" content="target-densitydpi=device-dpi"/>
 		<meta name="HandheldFriendly" content="True"/>
 		<meta name="MobileOptimized" content="320"/>
-		<title>Track a drink</title>
+		<title>Track a Restaurant</title>
 	</head>
 	<body>
-		<header><h1>Track a drink</h1></header>
+		<header><h1>Track a Restaurant</h1></header>
 		<form action="#" method="post">	
 			<fieldset>
-				<legend>Information about the drink&#63;</legend>
+				<legend>Information about the Resturant&#63;</legend>
 				<ul>
-					<li><label for="place">Where are you&#63;</label><input type="text" id="place"</li>
-					<li><label for="drink">Name of the drink?</label><input type="text" id="drink"</li>
+					<li><label for="place">What city are you in&#63;</label><input type="text" id="place"</li>
+					<li><label for="resturant">Name of the Restaurant?</label><input type="text" id="resturant"</li>
 				</ul>
 				<ul>
 					<li>
-						<label for="types">What kind of drink was it&#63;</label> 
+						<label for="types">What kind of Restaurant was it&#63;</label> 
 						<select id="types">
-							<option value="Frozen">Frozen</option>
-							<option value="Shot">Shot</option>
-							<option value="Hot">Hot</option>
-							<option value="Iced">Iced</option>
+							<option value="Family">Family</option>
+							<option value="Sport themed">Sport themed</option>
+							<option value="Bar/Club">Bar/Club</option>
+							<option value="Outside">Outside</option>
+							<option value="Other">Other</option>
 						</select>
 					</li>
 				</ul>
 				
 				<ul>
-					<li>What kind of alcohol is in the drink&#63;
+					<li>What did you have&#63;
 						<ul>
-							<li><input type="checkbox" checked value="Vodka" id="Vodka" name="type"/><label for="Vodka">Vodka</label></li>
-							<li><input type="checkbox" value="Rum" id="Rum" name="type"/><label for="Rum">Rum</label></li>
-							<li><input type="checkbox" value="Tequila" id="Tequila" name="type"/><label for="Tequila">Tequila</label></li>
-							<li><input type="checkbox" value="Gin" id="Gin" name="type"/><label for="Gin">Gin</label></li>
-							<li><input type="checkbox" value="Beer" id="Beer" name="type"/><label for="Beer">Beer</label></li>
-							<li><input type="checkbox" value="Wine" id="Wine" name="type"/><label for="Wine">Wine</label></li>
+							<li><input type="checkbox" checked value="Appetizer" id="Appetizer" name="type"/><label for="Appetizer">Appetizer</label></li>
+							<li><input type="checkbox" value="Meat" id="Meat" name="type"/><label for="Meat">Meat</label></li>
+							<li><input type="checkbox" value="Seafood" id="Seafood" name="type"/><label for="Seafood">Seafood</label></li>
+							<li><input type="checkbox" value="Vegetables" id="Vegetables" name="type"/><label for="Vegetables">Vegetables</label></li>
+							<li><input type="checkbox" value="Grain" id="Grain" name="type"/><label for="Grain">Grain</label></li>
+							<li><input type="checkbox" value="Dessert" id="Dessert" name="type"/><label for="Dessert">Dessert</label></li>
 							<li><input type="checkbox" value="Other" id="Other" name="type"/><label for="Other">Other</label></li>
 							<li><label for="OtherInput">If you marked other please describe</label><input type="text" id="OtherInput"</li>
 						</ul>
@@ -53,7 +54,7 @@
 					<li><label for="likeScale">On a scale of 1 &#45; 10 how was it&#63;</label><input name="likeScale" type="range" min="1" max="10" value="7"></li>
 				</ul>
 				<ul>
-					<li><label for="comments">What would you say about the drink&#63;</label><textarea id="comments"></textarea></li>
+					<li><label for="comments">What would you say about the food&#63;</label><textarea id="comments"></textarea></li>
 					<li><input type="hidden" value="systemTime"</li>
 				</ul>
 				<input type="submit" value="Submit"/>
