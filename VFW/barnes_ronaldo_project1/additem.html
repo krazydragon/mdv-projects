@@ -18,14 +18,14 @@
 		<header><h1>Track a drink</h1></header>
 		<form action="#" method="post">	
 			<fieldset>
-				<legend>Information about the drink?</legend>
+				<legend>Information about the drink&#63;</legend>
 				<ul>
-					<li><label for="place">Where are you?</label><input type="text" id="place"</li>
+					<li><label for="place">Where are you&#63;</label><input type="text" id="place"</li>
 					<li><label for="drink">Name of the drink?</label><input type="text" id="drink"</li>
 				</ul>
 				<ul>
 					<li>
-						<label for="types">What kind of drink was it?</label> 
+						<label for="types">What kind of drink was it&#63;</label> 
 						<select id="types">
 							<option value="Frozen">Frozen</option>
 							<option value="Shot">Shot</option>
@@ -34,17 +34,29 @@
 						</select>
 					</li>
 				</ul>
+				
 				<ul>
-					<li>What kind of alcohol is in the drink?
+					<li>What kind of alcohol is in the drink&#63;
 						<ul>
 							<li><input type="checkbox" checked value="Vodka" id="Vodka" name="type"/><label for="Vodka">Vodka</label></li>
 							<li><input type="checkbox" value="Rum" id="Rum" name="type"/><label for="Rum">Rum</label></li>
 							<li><input type="checkbox" value="Tequila" id="Tequila" name="type"/><label for="Tequila">Tequila</label></li>
 							<li><input type="checkbox" value="Gin" id="Gin" name="type"/><label for="Gin">Gin</label></li>
+							<li><input type="checkbox" value="Beer" id="Beer" name="type"/><label for="Beer">Beer</label></li>
+							<li><input type="checkbox" value="Wine" id="Wine" name="type"/><label for="Wine">Wine</label></li>
 							<li><input type="checkbox" value="Other" id="Other" name="type"/><label for="Other">Other</label></li>
+							<li><label for="OtherInput">If you marked other please describe</label><input type="text" id="OtherInput"</li>
 						</ul>
 					</li>
 				</ul>
+				<ul>
+					<li><label for="likeScale">On a scale of 1 &#45; 10 how was it&#63;</label><input name="likeScale" type="range" min="1" max="10" value="7"></li>
+				</ul>
+				<ul>
+					<li><label for="comments">What would you say about the drink&#63;</label><textarea id="comments"></textarea></li>
+					<li><input type="hidden" value="systemTime"</li>
+				</ul>
+				<input type="submit" value="Submit"/>
 			</fieldset>
 		</form>	
 	</body>
