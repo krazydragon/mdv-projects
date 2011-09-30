@@ -17,14 +17,16 @@
 	<body>
 		<header><h1>Track a Restaurant</h1></header>
 		<form action="#" method="post">	
+			<!-- This is where we are going to get the Restaurant info from the user -->
 			<fieldset>
 				<legend>Information about the Restaurant&#63;</legend>
 				<ul>
 					<li><label for="place">What city are you in&#63;</label><input type="text" id="place"></li>
-					<li><label for="resturant">Name of the Restaurant?</label><input type="text" id="resturant"></li>
-					<li><input type="hidden" value="systemDate"></li>
+					<li><label for="resturant">Name of the Restaurant&#63</label><input type="text" id="resturant"></li>
+					<li><label for="date">Date&#63</label><input type="date" id="date"></li>
 				</ul>
 			</fieldset>
+			<!-- This is where we find out what the user has eaten and what type of Restaurant -->
 			<fieldset>
 				<legend>Type of Restaurant</legend>
 				<ul>
@@ -54,6 +56,7 @@
 					</li>
 				</ul>
 			</fieldset>
+			<!-- This is where the user lets us know how there trip was -->
 			<fieldset>
 				<legend>Impression of Restaurant</legend>
 				<ul>
