@@ -18,11 +18,15 @@
 		<header><h1>Track a Restaurant</h1></header>
 		<form action="#" method="post">	
 			<fieldset>
-				<legend>Information about the Resturant&#63;</legend>
+				<legend>Information about the Restaurant&#63;</legend>
 				<ul>
 					<li><label for="place">What city are you in&#63;</label><input type="text" id="place"</li>
 					<li><label for="resturant">Name of the Restaurant?</label><input type="text" id="resturant"</li>
+					<li><input type="hidden" value="systemDate"</li>
 				</ul>
+			</fieldset>
+			<fieldset>
+				<legend>Type of Restaurant</legend>
 				<ul>
 					<li>
 						<label for="types">What kind of Restaurant was it&#63;</label> 
@@ -35,7 +39,6 @@
 						</select>
 					</li>
 				</ul>
-				
 				<ul>
 					<li>What did you have&#63;
 						<ul>
@@ -50,15 +53,25 @@
 						</ul>
 					</li>
 				</ul>
+			</fieldset>
+			<fieldset>
+				<legend>Impression of Restaurant</legend>
 				<ul>
 					<li><label for="likeScale">On a scale of 1 &#45; 10 how was it&#63;</label><input name="likeScale" type="range" min="1" max="10" value="7"></li>
 				</ul>
 				<ul>
 					<li><label for="comments">What would you say about the food&#63;</label><textarea id="comments"></textarea></li>
-					<li><input type="hidden" value="systemTime"</li>
 				</ul>
-				<input type="submit" value="Submit"/>
 			</fieldset>
+			<input type="submit" value="Submit"/>
 		</form>	
+		<footer>
+			<nav>
+				<ul>
+					<li><a href="#">Clear tracker</a></li>
+					<li><a href="#">Display information</a></li>
+				</ul>
+			</nav>
+		</footer>
 	</body>
 </html>
