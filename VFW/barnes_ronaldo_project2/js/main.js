@@ -7,20 +7,30 @@
 window.addEventListener("DOMContentLoaded", function() {
 
 	//Retrieve element function
-	function $(k) {
+	function a(k) {
 		var theElm = document.getElementById(k);
 		return theElm;
 	}
-
+	
+	//Retrieve checked status
+	function b(foodCheck){
+		if (a(foodCheck).checked){
+       		message = "Yes"
+ 		} else {
+ 			message = "No"
+ 		};
+		msg = message;
+		return msg   
+	}
 	//Restaurant Populater function
 	function createRestTypes() {
 		var formTag = document.getElementsByTagName("form"),
-			pickLi = $("pick"),
+			pickLi = a("pick"),
 			createType = document.createElement("select");
 			createType.setAttribute("id","types");
-			for (var b=0, c=restTypes.length; b<c; b++){
+			for (var d=0, c=restTypes.length; d<c; d++){
 				var createOption = document.createElement("option");
-				var optText = restTypes[b];
+				var optText = restTypes[d];
 				createOption.setAttribute("value", optText);
 				createOption.innerHTML = optText;
 				createType.appendChild(createOption);
@@ -28,10 +38,54 @@ window.addEventListener("DOMContentLoaded", function() {
 			pickLi.appendChild(createType);
 		}
 
+	//Save data to local storage
+	
+	function saveLocal(){
+		var num = Math.floor(Math.random()*20023002341),
+			val = {};
+			val.place = ["Location", a("place").value]; 
+			val.resturant = ["Name of Restaurant", a("restaurant").value];
+			val.date = ["Date", a("date").value];
+			val.types = ["Type of Restaurant", a("types").value];
+			val.what = ["The following is what you ate…"];
+			b(appetizer);
+			val.appetizer = ["Appetizer", msg];
+			b(meat);
+			val.meat = ["Meat", msg ];
+			b(seafood);
+			val.seafood = ["Seafood", msg];
+			b(vegeables);
+			val.vegetables = ["Vegetables", msg];
+			b(grain);
+			val.grain = ["Grain", msg];
+			b(dessert);
+			val.dessert = ["Dessert", msg];
+			b(other);
+			val.other = ["Other", msg];
+			val.numScale = ["How good it was on a scale of 1-10", a("numScale").value];
+			val.comments = ["Comments", a("comments")];
+		localStorage.setItem(num, JSON.stringify(val));
+		alert("Restaurant Tracked!!! ");
+	}
+
+
+
+
 	//Varibles 
 	
-	var restTypes = [ "---Pick A Restaurant Type---", "Sports Themed", "Bar/Club", "Outside", "Other" ];
+	var restTypes = [ "---Pick A Type of Restaurant---", "Sports Themed", "Bar/Club", "Outside", "Other" ],
+		showInfo = a("showInfo"),
+		wipeInfo = a("wipeInfo"),
+		save = a("submit");
+	
+	
+	
+	
+	
+	
 	createRestTypes();
+	save.addEventListener("click", saveLocal);
+	
 	
 	
 
