@@ -74,10 +74,11 @@ window.addEventListener("DOMContentLoaded", function() {
 			newList = document.createElement("ul");
 		newDiv.setAttribute("id", "items");
 		newDiv.appendChild(newList);
+		document.body.appendChild(newDiv);
 		for(var d=0, l=localStorage.length; d<l; d++){
 			var makeLi = document.createElement("li"),
-				k = localStorage.key(d),
-				v = localStorage.getItem(k),
+				key = localStorage.key(d),
+				v = localStorage.getItem(key),
 				storageVal = JSON.parse(v),
 				makeSub = document.createElement("ul");
 			newList.appendChild(makeLi);
