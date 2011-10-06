@@ -41,30 +41,31 @@ window.addEventListener("DOMContentLoaded", function() {
 	//Save data to local storage
 	
 	function saveLocal(){
-		var num = Math.floor(Math.random()*20023002341),
-			val = {};
-			val.place = ["Location", a("place").value]; 
-			val.resturant = ["Name of Restaurant", a("restaurant").value];
-			val.date = ["Date", a("date").value];
-			val.types = ["Type of Restaurant", a("types").value];
-			val.what = ["The following is what you ate…"];
-			b(appetizer);
-			val.appetizer = ["Appetizer", msg];
+
+		var num = Math.floor(Math.random()*7463778270);
+		var	v = {};
+			v.place = ["Location", a("place").value]; 
+			v.resturant = ["Name of Restaurant", a("restaurant").value];
+			v.date = ["Date", a("date").value];
+			v.types = ["Type of Restaurant", a("types").value];
+			v.what = ["The following is what you ate…"];
+			/*b(appetizer);
+			v.appetizer = ["Appetizer", msg];
 			b(meat);
-			val.meat = ["Meat", msg ];
+			v.meat = ["Meat", msg];
 			b(seafood);
-			val.seafood = ["Seafood", msg];
+			v.seafood = ["Seafood", msg];
 			b(vegeables);
-			val.vegetables = ["Vegetables", msg];
-			b(grain);
-			val.grain = ["Grain", msg];
-			b(dessert);
-			val.dessert = ["Dessert", msg];
-			b(other);
-			val.other = ["Other", msg];
-			val.numScale = ["How good it was on a scale of 1-10", a("numScale").value];
-			val.comments = ["Comments", a("comments")];
-		localStorage.setItem(num, JSON.stringify(val));
+			v.vegetables = ["Vegetables", msg];
+			//b(grain);
+			*/	//v.grain = ["Grain", msg];
+			//(dessert);
+			//v.dessert = ["Dessert", msg];
+			//b(other);
+			//v.other = ["Other", msg];
+			v.numScale = ["How good it was on a scale of 1-10", a("numScale").value];
+			v.comments = ["Comments", a("comments").value];
+		localStorage.setItem(num, JSON.stringify(v));
 		alert("Restaurant Tracked!!! ");
 	}
 
@@ -122,10 +123,6 @@ window.addEventListener("DOMContentLoaded", function() {
 	showInfo.addEventListener("click", viewData);
 	wipeInfo.addEventListener("click", emptyStorage);
 	
-
-	
-
-
 
 
 
