@@ -68,7 +68,41 @@ window.addEventListener("DOMContentLoaded", function() {
 		alert("Restaurant Tracked!!! ");
 	}
 
-
+	function viewData(){
+		var newDiv = document.createElement("div"),
+			newList = document.createElement("ul");
+		newDiv.setAttribute("id", "items");
+		newDiv.appendChild(newList);
+		for(var d=0, l=localStorage.length; d<l; d++){
+			var makeLi = document.createElement("li"),
+				k = localStorage.key(d),
+				v = localStorage.getItem(k),
+				storageVal = JSON.parse(v),
+				makeSub = document.createElement("ul");
+			newList.appendChild(makeLi);
+			makeLi.appendChild(makeSub);
+			for(var z in storageVal){
+				var makeSubLi = document.createElement("li"),
+					y = storageVal[z][0]+" "+storageVal[z][1];
+				makeSub.appendChild(makeSubLi);
+				makeSubLi.innerHTML = y;
+				
+			} 
+		}
+	}
+	
+	//Wipe Storage
+	
+	function emptyStorage(){
+		if(localStorage.length === 0) {
+			alert("Nothing to Clear!")
+		}else{
+			localStorage.clear();
+			alert("Tracker is empty now.");
+			window.location.reload();
+			return false;
+		}
+	}
 
 
 	//Varibles 
@@ -85,8 +119,10 @@ window.addEventListener("DOMContentLoaded", function() {
 	
 	createRestTypes();
 	save.addEventListener("click", saveLocal);
+	showInfo.addEventListener("click", viewData);
+	wipeInfo.addEventListener("click", emptyStorage);
 	
-	
+
 	
 
 
