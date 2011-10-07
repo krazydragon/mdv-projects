@@ -2,7 +2,6 @@
 Project 2
 Author: Ronaldo Barnes
 Created for: VFW Online 1110
-0B61A4	25567B	033E6B	3F92D2	66A3D2
 */
 
 body {
@@ -15,7 +14,6 @@ body {
 	height: 690px;
 	overflow: scroll;
 	}
-
 h1 {
 	color: white;
 	background-color: #25567B;
@@ -42,7 +40,6 @@ fieldset {
 	border:5px solid white;
 	background-color: #3F92D2;
 	}
-
 legend {
 	padding: 2px 5px;
 	border:2.5px solid white;
@@ -50,15 +47,15 @@ legend {
  	font-size:90%;
  	text-align:center;
  	background-color: white;
-  }
-  
+	}
 a {
+	padding: 10px;
 	text-align: center;
 	display: inline;
 	color: black;
 	font-size: large;
 	font-weight: bold;
-}
+	}
 a:hover {
 	text-decoration: underline;
 	color: #66A3D2;
@@ -71,7 +68,6 @@ a:hover {
 textarea {
 	margin:3px;
 	height:75px;
-	width:150px; }
-.button {
-}
+	width:150px; 
+	}
 div {border: dashed;}
