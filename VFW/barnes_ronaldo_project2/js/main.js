@@ -117,7 +117,7 @@ window.addEventListener("DOMContentLoaded", function() {
 
 	//Varibles 
 	
-	var restTypes = [ "---Pick A Type of Restaurant---", "Sports Themed", "Bar/Club", "Outside", "Other" ],
+	var restTypes = [ "---Pick A Type of Restaurant---", "Family", "Sports Themed", "Bar/Club", "Outside", "Other" ],
 		showInfo = a("showInfo"),
 		wipeInfo = a("wipeInfo"),
 		save = a("submit");
