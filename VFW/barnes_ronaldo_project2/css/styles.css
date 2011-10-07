@@ -24,6 +24,7 @@ form {
 	color: white;
 	background-color: #033E6B;
 	padding: 10px;
+	margin-top: 8px;
 	}
 #submit {
 	margin-top: 7px;
@@ -73,3 +74,4 @@ textarea {
 	width:150px; }
 .button {
 }
+div {border: dashed;}

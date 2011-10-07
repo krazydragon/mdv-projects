@@ -20,7 +20,7 @@ window.addEventListener("DOMContentLoaded", function() {
  			message = "No"
  		};
 		msg = message;
-		return msg   
+		return msg; 
 	}
 	
 	//Toggle controls
@@ -40,7 +40,7 @@ window.addEventListener("DOMContentLoaded", function() {
 				a("info").style.display = "none";			
 				break;
 			default:
-				return false:
+				return false;
 		}
 	}
 	
@@ -64,29 +64,14 @@ window.addEventListener("DOMContentLoaded", function() {
 	//Save data to local storage
 	
 	function saveLocal(){
-
 		var num = Math.floor(Math.random()*7463778270);
 		var	v = {};
-			v.place = ["Location", a("place").value]; 
-			v.resturant = ["Name of Restaurant", a("restaurant").value];
-			v.date = ["Date", a("date").value];
-			v.types = ["Type of Restaurant", a("types").value];
-			/*b(appetizer);
-			v.appetizer = ["Appetizer", msg];
-			b(meat);
-			v.meat = ["Meat", msg];
-			b(seafood);
-			v.seafood = ["Seafood", msg];
-			b(vegeables);
-			v.vegetables = ["Vegetables", msg];
-			//b(grain);
-			*/	//v.grain = ["Grain", msg];
-			//(dessert);
-			//v.dessert = ["Dessert", msg];
-			//b(other);
-			//v.other = ["Other", msg];
-			v.numScale = ["How good it was on a scale of 1-10", a("numScale").value];
-			v.comments = ["Comments", a("comments").value];
+			v.place = ["Location :  ", a("place").value]; 
+			v.resturant = ["Name of Restaurant :  ", a("restaurant").value];
+			v.date = ["Date :  ", a("date").value];
+			v.types = ["Type of Restaurant :  ", a("types").value];
+			v.numScale = ["How good it was on a scale of 1-10 :  ", a("numScale").value];
+			v.comments = ["Comments :  ", a("comments").value];
 		localStorage.setItem(num, JSON.stringify(v));
 		alert("Restaurant Tracked!!! ");
 	}
