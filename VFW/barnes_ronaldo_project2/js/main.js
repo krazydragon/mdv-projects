@@ -97,7 +97,6 @@ window.addEventListener("DOMContentLoaded", function() {
 					y = storageVal[z][0]+" "+storageVal[z][1];
 				makeSub.appendChild(makeSubLi);
 				makeSubLi.innerHTML = y;
-				
 			} 
 		}
 	}
