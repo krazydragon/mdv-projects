@@ -16,6 +16,11 @@
 		<link rel="stylesheet" href="css/styles.css" type="text/css" />
 	</head>
 	<body>
+		<nav>
+			<a href="#" id="wipeInfo">Clear tracker</a>
+			<a href="#" id="showInfo">Display information</a>
+			<a href="additem.html" id="new" style="display:none;">Add Restauant</a>
+		</nav>
 		<header><h1>Track a Restaurant</h1></header>
 		<form action="#" method="post">	
 			<!-- This is where we are going to get the Restaurant info from the user -->
@@ -36,14 +41,13 @@
 				<ul>
 					<li>What did you have&#63;
 						<ul>
-							<li><input type="checkbox" checked value="Appetizer" id="appetizer" name="type"/><label for="Appetizer">Appetizer</label></li>
-							<li><input type="checkbox" value="Meat" id="meat" name="type"/><label for="Meat">Meat</label></li>
-							<li><input type="checkbox" value="Seafood" id="seafood" name="type"/><label for="Seafood">Seafood</label></li>
-							<li><input type="checkbox" value="Vegetables" id="vegetables" name="type"/><label for="Vegetables">Vegetables</label></li>
-							<li><input type="checkbox" value="Grain" id="grain" name="type"/><label for="Grain">Grain</label></li>
-							<li><input type="checkbox" value="Dessert" id="dessert" name="type"/><label for="Dessert">Dessert</label></li>
-							<li><input type="checkbox" value="Other" id="other" name="type"/><label for="Other">Other</label></li>
-							<li><label for="OtherInput">If you marked other please describe</label><input type="text" id="OtherInput"></li>
+							<li><label for="Appetizer">Appetizer</label><input type="checkbox" checked value="Appetizer" id="appetizer" name="type"/></li>
+							<li><label for="Meat">Meat</label><input type="checkbox" value="Meat" id="meat" name="type"/></li>
+							<li><label for="Seafood">Seafood</label><input type="checkbox" value="Seafood" id="seafood" name="type"/></li>
+							<li><label for="Vegetables">Vegetables</label><input type="checkbox" value="Vegetables" id="vegetables" name="type"/></li>
+							<li><label for="Grain">Grain</label><input type="checkbox" value="Grain" id="grain" name="type"/></li>
+							<li><label for="Dessert">Dessert</label><input type="checkbox" value="Dessert" id="dessert" name="type"/></li>
+							<li><label for="Other">Other</label><input type="checkbox" value="Other" id="other" name="type"/></li>
 						</ul>
 					</li>
 				</ul>
@@ -60,14 +64,6 @@
 			</fieldset>
 			<input type="submit" value="Submit" id="submit"/>
 		</form>	
-		<footer>
-			<nav>
-				<ul>
-					<li><a href="#" id="wipeInfo">Clear tracker</a></li>
-					<li><a href="#" id="showInfo">Display information</a></li>
-				</ul>
-			</nav>
-		</footer>
 		<script src="js/main.js" type="text/javascript"></script>
 	</body>
 </html>

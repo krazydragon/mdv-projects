@@ -48,7 +48,6 @@ window.addEventListener("DOMContentLoaded", function() {
 			v.resturant = ["Name of Restaurant", a("restaurant").value];
 			v.date = ["Date", a("date").value];
 			v.types = ["Type of Restaurant", a("types").value];
-			v.what = ["The following is what you ate…"];
 			/*b(appetizer);
 			v.appetizer = ["Appetizer", msg];
 			b(meat);
