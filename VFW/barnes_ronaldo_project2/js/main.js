@@ -22,6 +22,29 @@ window.addEventListener("DOMContentLoaded", function() {
 		msg = message;
 		return msg   
 	}
+	
+	//Toggle controls
+	function controls(k){
+		switch (k){
+			case "on":
+				a("tracker").style.display = "none";
+				a("wipeInfo").style.display = "inline";
+				a("showInfo").style.display = "none";
+				a("new").style.display = "inline";
+				break;
+			case "off":
+				a("tracker").style.display = "block";
+				a("wipeInfo").style.display = "inline";
+				a("showInfo").style.display = "inline";
+				a("new").style.display = "none";
+				a("info").style.display = "none";			
+				break;
+			default:
+				return false:
+		}
+	}
+	
+	
 	//Restaurant Populater function
 	function createRestTypes() {
 		var formTag = document.getElementsByTagName("form"),
@@ -69,11 +92,13 @@ window.addEventListener("DOMContentLoaded", function() {
 	}
 
 	function viewData(){
+		controls("on");
 		var newDiv = document.createElement("div"),
 			newList = document.createElement("ul");
-		newDiv.setAttribute("id", "items");
+		newDiv.setAttribute("id", "info");
 		newDiv.appendChild(newList);
 		document.body.appendChild(newDiv);
+		a("info").style.display = "block";		
 		for(var d=0, l=localStorage.length; d<l; d++){
 			var makeLi = document.createElement("li"),
 				key = localStorage.key(d),

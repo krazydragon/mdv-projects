@@ -26,9 +26,10 @@ form {
 	padding: 10px;
 	}
 #submit {
+	margin-top: 7px;
 	color: black; 
 	background-color:#66a3d2;
-    font-size: 15px;
+    font-size: 12px;
     font-family: Arial, Helvetica, Geneva, sans-serif;
     cursor: pointer;
     padding: 8px 13px;
@@ -42,7 +43,7 @@ fieldset {
 	}
 
 legend {
-	padding: 0.2em 0.5em;
+	padding: 2px 5px;
 	border:2.5px solid white;
 	color:#0B61A4;
  	font-size:90%;
