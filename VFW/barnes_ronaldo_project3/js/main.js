@@ -123,7 +123,7 @@ window.addEventListener("DOMContentLoaded", function() {
 			delInfo = "Delete Information";
 		delLink.href = "#";
 		delLink.key = key;
-		//delLink.addEventListener("click","delItem");
+		delLink.addEventListener("click",delItem);
 		delLink.innerHTML = delInfo;
 		linkLi.appendChild(delLink);		
 		
@@ -140,9 +140,26 @@ window.addEventListener("DOMContentLoaded", function() {
 		a("date").value = v.date[1];  
 		a("types").value = v.types[1];   
 		a("numScale").value = v.numScale[1];  
-		a("comments").value = v.comments[1];  
+		a("comments").value = v.comments[1]; 
+		
+		//remove previous event listener
+		 save.removeEventListener("click", saveLocal);	
+		 // change submit button name
+		 a("submit").value = "Edit Restaurant";
+		 var changeSubmit = a("submit");
+		 changeSubmit.addEventListener("click", validate);
+		 changeSubmit.key = this.key;
 	}
 	
+	function delItem(){
+		var check = confirm("Are you sure you want to delete the information?")
+		if(check){
+			localStorage.removeItem(this.key);
+			alert("Information was deleted!");
+		}else{
+			alert("Information was not deleted.")
+		}
+	}
 	//Wipe Storage
 	
 	function emptyStorage(){
@@ -156,6 +173,9 @@ window.addEventListener("DOMContentLoaded", function() {
 		}
 	}
 
+	function vaildate(){
+	
+	}
 
 	//Varibles 
 	
@@ -170,7 +190,7 @@ window.addEventListener("DOMContentLoaded", function() {
 	
 	
 	createRestTypes();
-	save.addEventListener("click", saveLocal);
+	save.addEventListener("click", vaildate);
 	showInfo.addEventListener("click", viewData);
 	wipeInfo.addEventListener("click", emptyStorage);
 	
