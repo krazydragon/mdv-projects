@@ -173,8 +173,55 @@ window.addEventListener("DOMContentLoaded", function() {
 		}
 	}
 
-	function vaildate(){
-	
+	function vaildate(e){
+		var getPlace = a("place"),
+			getRestaurant = a("restaurant"),
+			getDate =  a("date"),
+			getType = a("types"),
+			// this is going to be an array of error messages.
+			invaildAry = [];
+
+		//reset errors
+		erMsg.innerHTML = "";
+		getPlace.style.border = "none";
+		getRestaurant.style.border = "none";
+		getDate.style.border = "none";
+		getType.style.border = "none"; 
+				
+			
+		if(getPlace.value === "") {
+			var placeError = "Please enter the city and state."
+			getPlace.style.border = "5px solid blue";
+			invaildAry.push(placeError);
+		}	
+		
+		if(getRestaurant.value === "") {
+			var restaurantError = "Please enter the Restaurant Name."
+			getRestaurant.style.border = "5px solid blue";
+			invaildAry.push(restaurantError);
+		}	
+		
+		if(getDate.value === "") {
+			var dateError = "Please enter the date."
+			getDate.style.border = "5px solid blue";
+			invaildAry.push(dateError);
+		}	
+		
+		if(getType.value === "---Pick A Type of Restaurant---") {
+			var typeError = "Please choose a Restaurant type."
+			getType.style.border = "5px solid blue";
+			invaildAry.push(typeError);
+		}	
+		
+		if(invaildAry.length >= 1){
+			for(var d=0, h=invaildAry.length; d < h; d++){
+				var text = document.createElement("li");
+				text.innerHTML = invaildAry[d];
+				erMsg.appendChild(text);
+			}
+		}
+		e.preventDefault();
+		return false;
 	}
 
 	//Varibles 
@@ -182,7 +229,8 @@ window.addEventListener("DOMContentLoaded", function() {
 	var restTypes = [ "---Pick A Type of Restaurant---", "Family", "Sports Themed", "Bar/Club", "Outside", "Other" ],
 		showInfo = a("showInfo"),
 		wipeInfo = a("wipeInfo"),
-		save = a("submit");
+		save = a("submit"),
+		erMsg = a("error");
 	
 	
 	
