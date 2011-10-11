@@ -112,7 +112,7 @@ window.addEventListener("DOMContentLoaded", function() {
 			changeInfo = "Change Information";
 		changeLink.href = "#";
 		changeLink.key = key;
-		//changeLink.addEventListener("click","changeItem");
+		changeLink.addEventListener("click",changeItem);
 		changeLink.innerHTML = changeInfo;
 		linkLi.appendChild(changeLink);
 		
@@ -129,6 +129,19 @@ window.addEventListener("DOMContentLoaded", function() {
 		
 	}
 	
+	function changeItem() {
+		var value = localStorage.getItem(this.key),
+			v = JSON.parse(value);
+			
+		controls("off");
+		
+		a("place").value = v.place[1]; 
+		a("restaurant").value = v.resturant[1]; 
+		a("date").value = v.date[1];  
+		a("types").value = v.types[1];   
+		a("numScale").value = v.numScale[1];  
+		a("comments").value = v.comments[1];  
+	}
 	
 	//Wipe Storage
 	
