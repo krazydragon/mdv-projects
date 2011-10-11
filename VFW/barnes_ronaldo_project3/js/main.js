@@ -1,4 +1,4 @@
-// Project 2
+// Project 3
 // Author: Ronaldo Barnes
 // Created for: VFW Online 1110
 
@@ -75,7 +75,9 @@ window.addEventListener("DOMContentLoaded", function() {
 		localStorage.setItem(num, JSON.stringify(v));
 		alert("Restaurant Tracked!!! ");
 	}
-
+	
+	
+	// Displays the saved data in local storage on the screen
 	function viewData(){
 		controls("on");
 		var newDiv = document.createElement("div"),
@@ -86,6 +88,7 @@ window.addEventListener("DOMContentLoaded", function() {
 		a("info").style.display = "block";		
 		for(var d=0, l=localStorage.length; d<l; d++){
 			var makeLi = document.createElement("li"),
+				linkLi = document.createElement("li"),
 				key = localStorage.key(d),
 				v = localStorage.getItem(key),
 				storageVal = JSON.parse(v),
@@ -97,9 +100,35 @@ window.addEventListener("DOMContentLoaded", function() {
 					y = storageVal[z][0]+" "+storageVal[z][1];
 				makeSub.appendChild(makeSubLi);
 				makeSubLi.innerHTML = y;
+				makeSub.appendChild(linkLi);
 			} 
+			createItemLinks(localStorage.key(d), linkLi);
 		}
 	}
+	
+	// makes links to edit and delete saved data
+	function createItemLinks(key, linkLi){
+		var changeLink = document.createElement("a"),
+			changeInfo = "Change Information";
+		changeLink.href = "#";
+		changeLink.key = key;
+		//changeLink.addEventListener("click","changeItem");
+		changeLink.innerHTML = changeInfo;
+		linkLi.appendChild(changeLink);
+		
+		var lineBreak = document.createElement("br");
+		linkLi.appendChild(lineBreak);
+		
+		var delLink = document.createElement("a"),
+			delInfo = "Delete Information";
+		delLink.href = "#";
+		delLink.key = key;
+		//delLink.addEventListener("click","delItem");
+		delLink.innerHTML = delInfo;
+		linkLi.appendChild(delLink);		
+		
+	}
+	
 	
 	//Wipe Storage
 	
