@@ -63,8 +63,12 @@ window.addEventListener("DOMContentLoaded", function() {
 
 	//Save data to local storage
 	
-	function saveLocal(){
-		var num = Math.floor(Math.random()*7463778270);
+	function saveLocal(key){
+		if(!key){
+			var num = Math.floor(Math.random()*7463778270);
+		}else{
+			num = key;
+		}
 		var	v = {};
 			v.place = ["Location :  ", a("place").value]; 
 			v.resturant = ["Name of Restaurant :  ", a("restaurant").value];
@@ -147,8 +151,9 @@ window.addEventListener("DOMContentLoaded", function() {
 		 // change submit button name
 		 a("submit").value = "Edit Restaurant";
 		 var changeSubmit = a("submit");
-		 changeSubmit.addEventListener("click", validate);
 		 changeSubmit.key = this.key;
+		 changeSubmit.addEventListener("click", validate);
+		 
 	}
 	
 	function delItem(){
@@ -156,6 +161,7 @@ window.addEventListener("DOMContentLoaded", function() {
 		if(check){
 			localStorage.removeItem(this.key);
 			alert("Information was deleted!");
+			window.location.reload();
 		}else{
 			alert("Information was not deleted.")
 		}
@@ -219,9 +225,11 @@ window.addEventListener("DOMContentLoaded", function() {
 				text.innerHTML = invaildAry[d];
 				erMsg.appendChild(text);
 			}
+			e.preventDefault();
+			return false;
+		}else{
+		saveLocal(this.key);
 		}
-		e.preventDefault();
-		return false;
 	}
 
 	//Varibles 
