@@ -6,6 +6,17 @@
 // wait until DOM loads
 window.addEventListener("DOMContentLoaded", function() {
 
+	//Varibles 
+	
+	var restTypes = [ "---Pick A Type of Restaurant---", "Family", "Sports Themed", "Bar/Club", "Outside", "Other" ],
+		showInfo = a("showInfo"),
+		wipeInfo = a("wipeInfo"),
+		save = a("submit"),
+		erMsg = a("error"),
+		foodTag = document.getElementsByName("food"),
+		msg = ""
+	;
+
 	//Retrieve element function
 	function a(k) {
 		var theElm = document.getElementById(k);
@@ -13,16 +24,15 @@ window.addEventListener("DOMContentLoaded", function() {
 	}
 	
 	//Retrieve checked status
-	function b(foodCheck){
-		if (a(foodCheck).checked){
-       		message = "Yes"
- 		} else {
- 			message = "No"
- 		};
-		msg = message;
-		return msg; 
-	}
-	
+	function b(){
+		var message = [];
+		for(var i = 0; i < foodTag.length; i++){
+			if(foodTag[i].checked) {
+				message += " " + foodTag[i].value; 
+			}
+		}
+		return msg = message;
+	}	
 	//Toggle controls
 	function controls(k){
 		switch (k){
@@ -50,16 +60,71 @@ window.addEventListener("DOMContentLoaded", function() {
 		var formTag = document.getElementsByTagName("form"),
 			pickLi = a("pick"),
 			createType = document.createElement("select");
-			createType.setAttribute("id","types");
-			for (var d=0, c=restTypes.length; d<c; d++){
-				var createOption = document.createElement("option");
-				var optText = restTypes[d];
-				createOption.setAttribute("value", optText);
-				createOption.innerHTML = optText;
-				createType.appendChild(createOption);
+		createType.setAttribute("id","types");
+		for (var d=0, c=restTypes.length; d<c; d++){
+			var createOption = document.createElement("option");
+			var optText = restTypes[d];
+			createOption.setAttribute("value", optText);
+			createOption.innerHTML = optText;
+			createType.appendChild(createOption);
 			}
 			pickLi.appendChild(createType);
 		}
+
+	function vaildate(e){
+		var getPlace = a("place"),
+			getRestaurant = a("restaurant"),
+			getDate =  a("date"),
+			getType = a("types"),
+			// this is going to be an array of error messages.
+			invaildAry = [];
+
+		//reset errors
+		erMsg.innerHTML = "";
+		getPlace.style.border = "none";
+		getRestaurant.style.border = "none";
+		getDate.style.border = "none";
+		getType.style.border = "none"; 
+				
+			
+		if(getPlace.value === "") {
+			var placeError = "Please enter the city and state."
+			getPlace.style.border = "5px solid blue";
+			invaildAry.push(placeError);
+		}	
+		
+		if(getRestaurant.value === "") {
+			var restaurantError = "Please enter the Restaurant Name."
+			getRestaurant.style.border = "5px solid blue";
+			invaildAry.push(restaurantError);
+		}	
+		
+		if(getDate.value === "") {
+			var dateError = "Please enter the date."
+			getDate.style.border = "5px solid blue";
+			invaildAry.push(dateError);
+		}	
+		
+		if(getType.value === "---Pick A Type of Restaurant---") {
+			var typeError = "Please choose a Restaurant type."
+			getType.style.border = "5px solid blue";
+			invaildAry.push(typeError);
+		}	
+		
+		
+		
+		if(invaildAry.length >= 1){
+			for(var d=0, h=invaildAry.length; d < h; d++){
+				var text = document.createElement("li");
+				text.innerHTML = invaildAry[d];
+				erMsg.appendChild(text);
+			}
+			e.preventDefault();
+			return false;
+		}else{
+		saveLocal(this.key);
+		}
+	}
 
 	//Save data to local storage
 	
@@ -69,13 +134,15 @@ window.addEventListener("DOMContentLoaded", function() {
 		}else{
 			num = key;
 		}
+		b();
 		var	v = {};
-			v.place = ["Location :  ", a("place").value]; 
-			v.resturant = ["Name of Restaurant :  ", a("restaurant").value];
-			v.date = ["Date :  ", a("date").value];
-			v.types = ["Type of Restaurant :  ", a("types").value];
-			v.numScale = ["How good it was on a scale of 1-10 :  ", a("numScale").value];
-			v.comments = ["Comments :  ", a("comments").value];
+		v.place = ["Location :  ", a("place").value]; 
+		v.resturant = ["Name of Restaurant :  ", a("restaurant").value];
+		v.date = ["Date :  ", a("date").value];
+		v.types = ["Type of Restaurant :  ", a("types").value];
+		v.numScale = ["How good it was on a scale of 1-10 :  ", a("numScale").value];
+		v.comments = ["Comments :  ", a("comments").value];
+		v.food = ["What did you have?", msg];
 		localStorage.setItem(num, JSON.stringify(v));
 		alert("Restaurant Tracked!!! ");
 	}
@@ -135,16 +202,30 @@ window.addEventListener("DOMContentLoaded", function() {
 	
 	function changeItem() {
 		var value = localStorage.getItem(this.key),
-			v = JSON.parse(value);
+			v = JSON.parse(value),
+			foodAry = v.food[1].split(" ");
+			foodAry.reverse();
+			foodAry.pop();
+			foodAry.reverse();
+		console.log(foodAry);	
 			
 		controls("off");
-		
+
 		a("place").value = v.place[1]; 
 		a("restaurant").value = v.resturant[1]; 
 		a("date").value = v.date[1];  
 		a("types").value = v.types[1];   
 		a("numScale").value = v.numScale[1];  
 		a("comments").value = v.comments[1]; 
+		
+		for(var d=0; d<foodAry.length; d++){
+			var f = JSON.stringify(foodAry[d]);
+			if(f=="Restaurant"){
+				a(f).setAttribute("checked", "checked");
+			}
+		}
+		
+
 		
 		//remove previous event listener
 		 save.removeEventListener("click", saveLocal);	
@@ -170,7 +251,8 @@ window.addEventListener("DOMContentLoaded", function() {
 	
 	function emptyStorage(){
 		if(localStorage.length === 0) {
-			alert("Nothing to Clear!")
+			alert("Nothing to Clear!");
+			window.location.reload();
 		}else{
 			localStorage.clear();
 			alert("Tracker is empty now.");
@@ -179,67 +261,7 @@ window.addEventListener("DOMContentLoaded", function() {
 		}
 	}
 
-	function vaildate(e){
-		var getPlace = a("place"),
-			getRestaurant = a("restaurant"),
-			getDate =  a("date"),
-			getType = a("types"),
-			// this is going to be an array of error messages.
-			invaildAry = [];
-
-		//reset errors
-		erMsg.innerHTML = "";
-		getPlace.style.border = "none";
-		getRestaurant.style.border = "none";
-		getDate.style.border = "none";
-		getType.style.border = "none"; 
-				
-			
-		if(getPlace.value === "") {
-			var placeError = "Please enter the city and state."
-			getPlace.style.border = "5px solid blue";
-			invaildAry.push(placeError);
-		}	
 		
-		if(getRestaurant.value === "") {
-			var restaurantError = "Please enter the Restaurant Name."
-			getRestaurant.style.border = "5px solid blue";
-			invaildAry.push(restaurantError);
-		}	
-		
-		if(getDate.value === "") {
-			var dateError = "Please enter the date."
-			getDate.style.border = "5px solid blue";
-			invaildAry.push(dateError);
-		}	
-		
-		if(getType.value === "---Pick A Type of Restaurant---") {
-			var typeError = "Please choose a Restaurant type."
-			getType.style.border = "5px solid blue";
-			invaildAry.push(typeError);
-		}	
-		
-		if(invaildAry.length >= 1){
-			for(var d=0, h=invaildAry.length; d < h; d++){
-				var text = document.createElement("li");
-				text.innerHTML = invaildAry[d];
-				erMsg.appendChild(text);
-			}
-			e.preventDefault();
-			return false;
-		}else{
-		saveLocal(this.key);
-		}
-	}
-
-	//Varibles 
-	
-	var restTypes = [ "---Pick A Type of Restaurant---", "Family", "Sports Themed", "Bar/Club", "Outside", "Other" ],
-		showInfo = a("showInfo"),
-		wipeInfo = a("wipeInfo"),
-		save = a("submit"),
-		erMsg = a("error");
-	
 	
 	
 	
