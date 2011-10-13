@@ -15,6 +15,7 @@ window.addEventListener("DOMContentLoaded", function() {
 		erMsg = a("error"),
 		foodTag = document.getElementsByName("food"),
 		msg = ""
+		aryFood = ["Appetizers", "Meat", "Seafood", "Vegetables", "Grain", "Dessert", "Other"]
 	;
 
 	//Retrieve element function
@@ -26,9 +27,9 @@ window.addEventListener("DOMContentLoaded", function() {
 	//Retrieve checked status
 	function b(){
 		var message = [];
-		for(var i = 0; i < foodTag.length; i++){
-			if(foodTag[i].checked) {
-				message += " " + foodTag[i].value; 
+		for(var d = 0; d < foodTag.length; d++){
+			if(foodTag[d].checked) {
+				message += " " + foodTag[d].value; 
 			}
 		}
 		return msg = message;
@@ -71,13 +72,18 @@ window.addEventListener("DOMContentLoaded", function() {
 			pickLi.appendChild(createType);
 		}
 
+	
+	// Function to make sure for is filled out
 	function vaildate(e){
 		var getPlace = a("place"),
 			getRestaurant = a("restaurant"),
 			getDate =  a("date"),
 			getType = a("types"),
+			getFood = a("FOOD")
 			// this is going to be an array of error messages.
 			invaildAry = [];
+		b();
+		console.log(getDate);
 
 		//reset errors
 		erMsg.innerHTML = "";
@@ -85,6 +91,7 @@ window.addEventListener("DOMContentLoaded", function() {
 		getRestaurant.style.border = "none";
 		getDate.style.border = "none";
 		getType.style.border = "none"; 
+		getFood.style.border = "none";
 				
 			
 		if(getPlace.value === "") {
@@ -107,11 +114,16 @@ window.addEventListener("DOMContentLoaded", function() {
 		
 		if(getType.value === "---Pick A Type of Restaurant---") {
 			var typeError = "Please choose a Restaurant type."
-			getType.style.border = "5px solid blue";
+			getType.style.backgroundColor = "solid blue";
 			invaildAry.push(typeError);
 		}	
 		
-		
+		if(msg.length === 0 ) {
+			var foodError = "Please select a type of food."
+			getFood.style.border = "5px solid blue";
+			invaildAry.push(foodError);
+		} 
+
 		
 		if(invaildAry.length >= 1){
 			for(var d=0, h=invaildAry.length; d < h; d++){
@@ -205,9 +217,7 @@ window.addEventListener("DOMContentLoaded", function() {
 			v = JSON.parse(value),
 			foodAry = v.food[1].split(" ");
 			foodAry.reverse();
-			foodAry.pop();
-			foodAry.reverse();
-		console.log(foodAry);	
+			foodAry.pop();	
 			
 		controls("off");
 
@@ -219,9 +229,9 @@ window.addEventListener("DOMContentLoaded", function() {
 		a("comments").value = v.comments[1]; 
 		
 		for(var d=0; d<foodAry.length; d++){
-			var f = JSON.stringify(foodAry[d]);
-			a(f).setAttribute("checked", "checked");
-		}
+			var f = foodAry[d];
+		a(f).setAttribute("checked", "checked");
+		}	
 		
 
 		
