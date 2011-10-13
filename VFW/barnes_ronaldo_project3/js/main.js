@@ -220,9 +220,7 @@ window.addEventListener("DOMContentLoaded", function() {
 		
 		for(var d=0; d<foodAry.length; d++){
 			var f = JSON.stringify(foodAry[d]);
-			if(f=="Restaurant"){
-				a(f).setAttribute("checked", "checked");
-			}
+			a(f).setAttribute("checked", "checked");
 		}
 		
 
