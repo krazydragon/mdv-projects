@@ -83,7 +83,6 @@ window.addEventListener("DOMContentLoaded", function() {
 			// this is going to be an array of error messages.
 			invaildAry = [];
 		b();
-		console.log(getDate);
 
 		//reset errors
 		erMsg.innerHTML = "";
@@ -112,9 +111,16 @@ window.addEventListener("DOMContentLoaded", function() {
 			invaildAry.push(dateError);
 		}	
 		
+		var dRE = /^[0-9]{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])/;
+  		if(!(dRE.exec(getDate.value))){
+			var dateError = "Please enter the date in this format 'YYYY-MM-DD'."
+			getDate.style.border = "5px solid blue";
+			invaildAry.push(dateError);
+ 		}
+		
 		if(getType.value === "---Pick A Type of Restaurant---") {
 			var typeError = "Please choose a Restaurant type."
-			getType.style.backgroundColor = "solid blue";
+			getType.style.border = "solid blue";
 			invaildAry.push(typeError);
 		}	
 		
@@ -152,9 +158,9 @@ window.addEventListener("DOMContentLoaded", function() {
 		v.resturant = ["Name of Restaurant :  ", a("restaurant").value];
 		v.date = ["Date :  ", a("date").value];
 		v.types = ["Type of Restaurant :  ", a("types").value];
+		v.food = ["What did you have?", msg];
 		v.numScale = ["How good it was on a scale of 1-10 :  ", a("numScale").value];
 		v.comments = ["Comments :  ", a("comments").value];
-		v.food = ["What did you have?", msg];
 		localStorage.setItem(num, JSON.stringify(v));
 		alert("Restaurant Tracked!!! ");
 	}
@@ -208,10 +214,15 @@ window.addEventListener("DOMContentLoaded", function() {
 		delLink.key = key;
 		delLink.addEventListener("click",delItem);
 		delLink.innerHTML = delInfo;
-		linkLi.appendChild(delLink);		
+		linkLi.appendChild(delLink);	
 		
+		var lineBreak = document.createElement("br");
+		linkLi.appendChild(lineBreak);	
+		var lineBreak = document.createElement("br");
+		linkLi.appendChild(lineBreak);
 	}
 	
+	//Edit saved items
 	function changeItem() {
 		var value = localStorage.getItem(this.key),
 			v = JSON.parse(value),
@@ -241,10 +252,11 @@ window.addEventListener("DOMContentLoaded", function() {
 		 a("submit").value = "Edit Restaurant";
 		 var changeSubmit = a("submit");
 		 changeSubmit.key = this.key;
-		 changeSubmit.addEventListener("click", validate);
+		 changeSubmit.addEventListener("click", vaildate);
 		 
 	}
 	
+	//Delete saved item
 	function delItem(){
 		var check = confirm("Are you sure you want to delete the information?")
 		if(check){

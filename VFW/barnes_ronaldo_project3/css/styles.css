@@ -48,6 +48,10 @@ legend {
  	text-align:center;
  	background-color: white;
 	}
+div a {
+	font-size: smaller;
+	color: white;
+	}
 a {
 	padding: 10px;
 	text-align: center;
