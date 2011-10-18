@@ -1,0 +1,78 @@
+/*
+Project 4
+Author: Ronaldo Barnes
+Created for: VFW Online 1110
+*/
+
+body {
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	font-size:60%;
+	margin:50px;
+	color: #f7fbff; 
+	background-color: #0B61A4;
+	width: 480px;
+	height: 690px;
+	overflow: scroll;
+	}
+h1 {
+	color: white;
+	background-color: #25567B;
+	}
+form {
+	color: white;
+	background-color: #033E6B;
+	padding: 10px;
+	margin-top: 8px;
+	}
+#submit {
+	margin-top: 7px;
+	color: black; 
+	background-color:#66a3d2;
+    font-size: 12px;
+    font-family: Arial, Helvetica, Geneva, sans-serif;
+    cursor: pointer;
+    padding: 8px 13px;
+    font-weight: bold;
+	}
+ul{list-style-type: none}
+li{list-style-type: none}
+fieldset { 
+	border:5px solid white;
+	background-color: #3F92D2;
+	}
+legend {
+	padding: 2px 5px;
+	border:2.5px solid white;
+	color:#0B61A4;
+ 	font-size:90%;
+ 	text-align:center;
+ 	background-color: white;
+	}
+div a {
+	font-size: smaller;
+	color: white;
+	}
+a {
+	padding: 10px;
+	text-align: center;
+	display: inline;
+	color: black;
+	font-size: large;
+	font-weight: bold;
+	}
+a:hover {
+	text-decoration: underline;
+	color: #66A3D2;
+	}
+#place {display: block;}
+#restaurant {display: block;}
+#date {display: block;}
+#comments {display: block;}
+#numScale {display: block;}
+textarea {
+	margin:3px;
+	height:75px;
+	width:150px; 
+	}
+h3{border: dotted;}
+
