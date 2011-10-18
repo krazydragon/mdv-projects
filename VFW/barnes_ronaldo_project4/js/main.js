@@ -15,7 +15,6 @@ window.addEventListener("DOMContentLoaded", function() {
 		erMsg = a("error"),
 		foodTag = document.getElementsByName("food"),
 		msg = ""
-		aryFood = ["Appetizers", "Meat", "Seafood", "Vegetables", "Grain", "Dessert", "Other"]
 	;
 
 	//Retrieve element function
@@ -153,9 +152,10 @@ window.addEventListener("DOMContentLoaded", function() {
 			num = key;
 		}
 		b();
+		alert(msg);
 		var	v = {};
 		v.place = ["Location :  ", a("place").value]; 
-		v.resturant = ["Name of Restaurant :  ", a("restaurant").value];
+		v.restaurant = ["Name of Restaurant :  ", a("restaurant").value];
 		v.date = ["Date :  ", a("date").value];
 		v.types = ["Type of Restaurant :  ", a("types").value];
 		v.food = ["What did you have?", msg];
@@ -168,6 +168,10 @@ window.addEventListener("DOMContentLoaded", function() {
 	
 	// Displays the saved data in local storage on the screen
 	function viewData(){
+		if(localStorage.length === 0){
+			autoLoadData();
+			alert("There was no restaurant information saved. Default information will be loaded.")
+		}
 		controls("on");
 		var newDiv = document.createElement("div"),
 			newList = document.createElement("ul");
@@ -192,6 +196,43 @@ window.addEventListener("DOMContentLoaded", function() {
 				makeSub.appendChild(linkLi);
 			} 
 			createItemLinks(localStorage.key(d), linkLi);
+		}
+	}
+	
+	//JSON Object
+	function autoLoadData(){
+		var json = {
+			"Restaurant1" : {
+				"place" : ["Location :  ", "Honolulu, HI"],
+				"restaurant" : ["Name of Restaurant :  ", "Dagon's Bar & Grill" ],
+				"date" : ["Date :  ", "2008-10-29" ],
+				"types" : ["Type of Restaurant :  ", "Bar/Club"],
+				"food" : ["What did you have?: ", " Appetizers Other"  ],
+				"numScale" : ["How good it was on a scale of 1-10 :  ", "9" ],
+				"comments" : ["Comments :  ", "A great night out I have to go again!"]
+			},
+			"Restaurant2" : {
+				"place" : ["Location :  ", "Dallas, TX"],
+				"restaurant" : ["Name of Restaurant :  ", "Anthony's Seafood" ],
+				"date" : ["Date :  ", "2009-03-04" ],
+				"types" : ["Type of Restaurant :  ", "Family"],
+				"food" : ["What did you have?: ", " Appetizers Seafood Dessert"  ],
+				"numScale" : ["How good it was on a scale of 1-10 :  ", "10" ],
+				"comments" : ["Comments :  ", "Best seafood in the world!"]
+			},
+			"Restaurant3" : {
+				"place" : ["Location :  ", "Federal Way, WA"],
+				"restaurant" : ["Name of Restaurant :  ", "Odin's Fire" ],
+				"date" : ["Date :  ", "2010-06-07" ],
+				"types" : ["Type of Restaurant :  ", "Sports Themed"],
+				"food" : ["What did you have?: ", " Meat Vegetables Grain"  ],
+				"numScale" : ["How good it was on a scale of 1-10 :  ", "8" ],
+				"comments" : ["Comments :  ", "The food was amazing!"]
+			}
+		}
+		for(var n in json){	
+			var num = Math.floor(Math.random()*7463778270);
+			localStorage.setItem(num,  JSON.stringify(json[n]));
 		}
 	}
 	
@@ -231,7 +272,7 @@ window.addEventListener("DOMContentLoaded", function() {
 		controls("off");
 
 		a("place").value = v.place[1]; 
-		a("restaurant").value = v.resturant[1]; 
+		a("restaurant").value = v.restaurant[1]; 
 		a("date").value = v.date[1];  
 		a("types").value = v.types[1];   
 		a("numScale").value = v.numScale[1];  
