@@ -196,6 +196,8 @@ window.addEventListener("DOMContentLoaded", function() {
 				makeSub.appendChild(linkLi);
 			} 
 			createItemLinks(localStorage.key(d), linkLi);
+		var borderLine = document.createElement("h3");
+		linkLi.appendChild(borderLine);		
 		}
 	}
 	
@@ -257,8 +259,7 @@ window.addEventListener("DOMContentLoaded", function() {
 		delLink.innerHTML = delInfo;
 		linkLi.appendChild(delLink);	
 		
-		var lineBreak = document.createElement("h3");
-		linkLi.appendChild(lineBreak);	
+	
 	}
 	
 	//Edit saved items
