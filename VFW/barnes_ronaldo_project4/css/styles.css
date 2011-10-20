@@ -51,6 +51,8 @@ legend {
 div a {
 	font-size: small;
 	color: white;
+	padding: 0px;
+	text-align: left;
 	}
 a {
 	padding: 10px;
@@ -124,4 +126,8 @@ div ul ul{
 	padding: 25px;
 	font-size: small;
 	font-weight: 700;
+	}
+textarea:focus, input:focus, range:focus, checkbox:focus {
+	border: 3px solid blue;
+	background-color: #C1D7E8;
 	}
