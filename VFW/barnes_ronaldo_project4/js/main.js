@@ -8,7 +8,7 @@ window.addEventListener("DOMContentLoaded", function() {
 
 	//Varibles 
 	
-	var restTypes = [ "---Pick A Type of Restaurant---", "Family", "Sports Themed", "Bar/Club", "Outside", "Other" ],
+	var restTypes = [ "---Pick A Type of Restaurant---", "Family", "Sports", "Bar", "Outside", "Other" ],
 		showInfo = a("showInfo"),
 		wipeInfo = a("wipeInfo"),
 		save = a("submit"),
@@ -188,7 +188,7 @@ window.addEventListener("DOMContentLoaded", function() {
 				makeSub = document.createElement("ul");
 			newList.appendChild(makeLi);
 			makeLi.appendChild(makeSub);
-			getImage(makeSub);
+			getImage(storageVal.types[1], makeSub);
 			for(var z in storageVal){
 				var makeSubLi = document.createElement("li"),
 					y = storageVal[z][0]+" "+storageVal[z][1];
@@ -202,11 +202,12 @@ window.addEventListener("DOMContentLoaded", function() {
 		}
 	}
 	
-	function getImage(makeSub){
+	function getImage(types, makeSub){
 		var pngLi = document.createElement("li");
 		makeSub.appendChild(pngLi);
-		var newImage = document.createElement("img");
-		var setSource = newImage.setAttribute("src", "images/p4icons.png");
+		var newImage = document.createElement("img"),
+			setId = newImage.setAttribute("id", types + "png");
+		
 		pngLi.appendChild(newImage);
 		
 		

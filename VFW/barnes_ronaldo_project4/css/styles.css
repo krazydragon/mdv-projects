@@ -75,4 +75,48 @@ textarea {
 	width:150px; 
 	}
 h3{border: dotted;}
-
+#Familypng{
+  width:55px;
+  height:55px;
+  background-image:url(../images/p4icons.png);
+  background-repeat: no-repeat; 
+  background-color: transparent;
+  border: 2.5px solid black;
+  background-position: -165px 0;
+  }
+#Sportspng{
+  width:55px;
+  height:55px;
+  background-image:url(../images/p4icons.png);
+  background-repeat: no-repeat; 
+  background-color: transparent;
+  border: 2.5px solid black;
+  background-position: 0 0;
+  }
+#Barpng{
+  width:55px;
+  height:55px;
+  background-image:url(../images/p4icons.png);
+  background-repeat: no-repeat; 
+  background-color: transparent;
+  border: 2.5px solid black;
+  background-position: -55px 0;
+  }    
+#Outsidepng{
+  width:55px;
+  height:55px;
+  background-image:url(../images/p4icons.png);
+  background-repeat: no-repeat; 
+  background-color: transparent;
+  border: 2.5px solid black;
+  background-position: -110px 0;
+  }
+#Otherpng{
+  width:55px;
+  height:55px;
+  background-image:url(../images/p4icons.png);
+  background-repeat: no-repeat; 
+  background-color: transparent;
+  border: 2.5px solid black;
+  background-position: -220px 0;
+  }    
