@@ -152,7 +152,6 @@ window.addEventListener("DOMContentLoaded", function() {
 			num = key;
 		}
 		b();
-		alert(msg);
 		var	v = {};
 		v.place = ["Location :  ", a("place").value]; 
 		v.restaurant = ["Name of Restaurant :  ", a("restaurant").value];

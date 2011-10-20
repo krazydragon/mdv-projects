@@ -80,7 +80,7 @@ textarea {
   background-image:url(../images/p4icons.png);
   background-repeat: no-repeat; 
   background-color: transparent;
-  border: 2.5px solid black;
+  border: 2.5px solid white;
   background-position: -165px 0;
   }
 #Sportspng{
@@ -89,7 +89,7 @@ textarea {
   background-image:url(../images/p4icons.png);
   background-repeat: no-repeat; 
   background-color: transparent;
-  border: 2.5px solid black;
+  border: 2.5px solid white;
   background-position: 0 0;
   }
 #Barpng{
@@ -98,7 +98,7 @@ textarea {
   background-image:url(../images/p4icons.png);
   background-repeat: no-repeat; 
   background-color: transparent;
-  border: 2.5px solid black;
+  border: 2.5px solid white;
   background-position: -55px 0;
   }    
 #Outsidepng{
@@ -107,7 +107,7 @@ textarea {
   background-image:url(../images/p4icons.png);
   background-repeat: no-repeat; 
   background-color: transparent;
-  border: 2.5px solid black;
+  border: 2.5px solid white;
   background-position: -110px 0;
   }
 #Otherpng{
@@ -116,10 +116,12 @@ textarea {
   background-image:url(../images/p4icons.png);
   background-repeat: no-repeat; 
   background-color: transparent;
-  border: 2.5px solid black;
+  border: 2.5px solid white;
   background-position: -220px 0;
   }    
 div ul ul{
 	border: solid white;
 	padding: 25px;
+	font-size: small;
+	font-weight: 700;
 	}
