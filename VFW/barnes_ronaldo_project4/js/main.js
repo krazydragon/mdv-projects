@@ -220,7 +220,7 @@ window.addEventListener("DOMContentLoaded", function() {
 				"place" : ["Location :  ", "Honolulu, HI"],
 				"restaurant" : ["Name of Restaurant :  ", "Dagon's Bar & Grill" ],
 				"date" : ["Date :  ", "2008-10-29" ],
-				"types" : ["Type of Restaurant :  ", "Bar/Club"],
+				"types" : ["Type of Restaurant :  ", "Outside"],
 				"food" : ["What did you have?: ", " Appetizers Other"  ],
 				"numScale" : ["How good it was on a scale of 1-10 :  ", "9" ],
 				"comments" : ["Comments :  ", "A great night out I have to go again!"]
@@ -238,7 +238,7 @@ window.addEventListener("DOMContentLoaded", function() {
 				"place" : ["Location :  ", "Federal Way, WA"],
 				"restaurant" : ["Name of Restaurant :  ", "Odin's Fire" ],
 				"date" : ["Date :  ", "2010-06-07" ],
-				"types" : ["Type of Restaurant :  ", "Sports Themed"],
+				"types" : ["Type of Restaurant :  ", "Sports"],
 				"food" : ["What did you have?: ", " Meat Vegetables Grain"  ],
 				"numScale" : ["How good it was on a scale of 1-10 :  ", "8" ],
 				"comments" : ["Comments :  ", "The food was amazing!"]
