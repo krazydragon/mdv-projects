@@ -9,7 +9,7 @@ body {
 	font-size:60%;
 	margin:50px;
 	color: #f7fbff; 
-	background-color: #0B61A4;
+	 background: -webkit-linear-gradient(left, #0B61A4, #66A3D2);
 	width: 480px;
 	height: 690px;
 	overflow: scroll;
@@ -127,7 +127,7 @@ div ul ul{
 	font-size: small;
 	font-weight: 700;
 	}
-textarea:focus, input:focus, range:focus, checkbox:focus {
+input:focus {
 	border: 3px solid blue;
 	background-color: #C1D7E8;
 	}
