@@ -66,11 +66,7 @@ a:hover {
 	text-decoration: underline;
 	color: #66A3D2;
 	}
-#place {display: block;}
-#restaurant {display: block;}
-#date {display: block;}
-#comments {display: block;}
-#numScale {display: block;}
+#place, #restaurant, #date, #comments, #numScale {display: block;}
 textarea {
 	margin:3px;
 	height:75px;
@@ -131,3 +127,48 @@ input:focus {
 	border: 3px solid blue;
 	background-color: #C1D7E8;
 	}
+#familyButton {
+    background-image:url(../images/family.png);
+    display:block;
+    height:100px;
+    width:440px;
+    margin: 10px;
+}
+#outdoorButton {
+    background-image:url(../images/outdoor.png);
+    display:block;
+    height:100px;
+    width:440px;
+    margin: 10px;
+}#sportsButton {
+    background-image:url(../images/sports.png);
+    display:block;
+    height:100px;
+    width:440px;
+    margin: 10px;
+}#otherButton {
+    background-image:url(../images/other.png);
+    display:block;
+    height:100px;
+    width:440px;
+    margin: 10px;
+}
+#barButton {
+    background-image:url(../images/bar.png);
+    display:block;
+    height:100px;
+    width:440px;
+    margin: 10px;
+}
+#mainFeatureImage {
+    background-image:url(../images/RTFeature.jpg);
+    display:block;
+    height:200px;
+    width:440px;
+    margin: 10px;
+}
+#searchInput {
+	height:15px;
+    width:350px;
+    margin: 10px;
+}
