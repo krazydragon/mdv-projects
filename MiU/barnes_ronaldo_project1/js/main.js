@@ -14,6 +14,7 @@ window.addEventListener("DOMContentLoaded", function() {
 		save = a("submit"),
 		erMsg = a("error"),
 		foodTag = document.getElementsByName("food"),
+		//BAR = a("barButton"),
 		msg = ""
 	;
 
@@ -37,7 +38,7 @@ window.addEventListener("DOMContentLoaded", function() {
 	function controls(k){
 		switch (k){
 			case "on":
-				a("tracker").style.display = "none";
+				a("browseButtons").style.display = "none";
 				a("wipeInfo").style.display = "inline";
 				a("showInfo").style.display = "none";
 				a("new").style.display = "inline";
@@ -394,7 +395,7 @@ window.addEventListener("DOMContentLoaded", function() {
 				"food" : ["What did you have?: ", " Appetizers Other"  ],
 				"numScale" : ["How good it was on a scale of 1-10 :  ", "1" ],
 				"comments" : ["Comments :  ", ""]
-			},
+			}
 		}
 		
 		for(var n in json){	
@@ -487,8 +488,21 @@ window.addEventListener("DOMContentLoaded", function() {
 	}
 
 
+	//Category Buttons
 	
-	
+	function buttonPress(){
+		viewData();
+		for(d=0; d<localStorage.length; d++){
+			var key = localStorage.key(d),
+				val = localStorage.getItem(key),
+				v = JSON.parse(val);
+			if("Sports" === v.types[1]){
+				for (z in v){
+					console.log(v[z][1]);
+				}
+			}
+		}	
+	}
 	
 	
 	
@@ -496,7 +510,9 @@ window.addEventListener("DOMContentLoaded", function() {
 	save.addEventListener("click", vaildate);
 	showInfo.addEventListener("click", viewData);
 	wipeInfo.addEventListener("click", emptyStorage);
-	
+	/* Trying to get buttons to work. 
+	BAR.addEventListener("click", buttonPress);
+	*/
 
 
 
