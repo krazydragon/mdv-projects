@@ -1,0 +1,73 @@
+<!doctype html>
+<!--Project 2 -->
+<!--Author: Ronaldo Barnes -->
+<!--Created for:MiU Online 1111 -->	  
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+	
+	<title>Mobile Site Template</title>
+	
+	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Mobile IE needs ClearType for smoothing fonts -->
+	<meta http-equiv="cleartype" content="on">
+	
+	<!-- StyleSheets under here -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.css" />
+	<link rel="stylesheet" href="css/styles.css" type="text/css" />
+	
+	
+	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.js"></script>
+	<script src="js/libs/modernizr.custom.min.js"></script>
+
+</head>
+<body>
+
+	<div data-role="page" id="main">
+		
+		<div data-role="header" data-position="fixed">
+			<h1>My Restaurant Tracker</h1>
+		</div>
+		
+		<div data-role="content">
+		<p><a href="#familyPage" Data-role="button" title="Family" id="familyButton" data-icon="arrow-r" data-iconpos="right">Family</a></p>
+		</div>
+		
+		<div data-role="footer" data-position="fixed">
+			<h4>Footer</h4>
+		</div>
+	
+	
+	
+	</div>
+	
+	<div data-role="page" id="familyPage" data-add-back-btn="true">
+		
+		<div data-role="header" data-position="fixed">
+			<h1>Family Groups</h1>
+		</div>
+		
+		<div data-role="content">
+		
+		</div>
+		
+		<div data-role="footer" data-position="fixed">
+			<h4>Footer</h4>
+		</div>
+	
+	
+	
+	</div>
+
+	<!-- JavaScript under here -->
+	<script src="js/main.js" type="text/javascript"></script>
+
+</body>
+</html>
