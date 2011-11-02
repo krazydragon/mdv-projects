@@ -3,9 +3,24 @@
 // Created for: MiU Online 1111
 
 
+	
 
-//JSON Object
+	
+	
+	//Retrieve element function
+	function a(k) {
+		var theElm = document.getElementById(k);
+		return theElm;
+	}
+	
+	var famButton = a("FamilyButton"),
+		wipeInfo = a("wipeInfo")
+	;
+	
+	
+	//JSON Object	
 	function autoLoadData(){
+	
 		var json = {
 			"Restaurant1" : {
 				"place" : ["Location :  ", "Honolulu, HI"],
@@ -194,9 +209,12 @@
 			localStorage.setItem(num,  JSON.stringify(json[n]));
 		}
 	}
+		
 	
 	function buttonPress(){
-		viewData();
+		if(localStorage.length === 0){
+			autoLoadData();
+		}
 		for(d=0; d<localStorage.length; d++){
 			var key = localStorage.key(d),
 				val = localStorage.getItem(key),
@@ -207,6 +225,21 @@
 				}
 			}
 		}	
+	}
+	
+		function emptyStorage(){
+		if(localStorage.length === 0) {
+			alert("Nothing to Clear!");
+			window.location.reload();
+		}else{
+			localStorage.clear();
+			alert("Tracker is empty now.");
+			window.location.reload();
+			return false;
+		}
 	}	
 	
 	autoLoadData();
+	famButton.addEventListener("click", buttonPress);
+	wipeInfo.addEventListener("click", emptyStorage);
+	
