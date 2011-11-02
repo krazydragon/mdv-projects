@@ -14,6 +14,10 @@
 	}
 	
 	var famButton = a("FamilyButton"),
+		baButton = a("BarButton"),
+		outButton = a("OutsideButton"),
+		spoButton = a("SportsButton"),
+		othButton = a("OtherButton"),
 		wipeInfo = a("wipeInfo")
 	;
 	
@@ -210,8 +214,8 @@
 		}
 	}
 		
-	
-	function buttonPress(){
+	//Poulate correct info when button is pressed
+	function buttonPress(Button){
 		if(localStorage.length === 0){
 			autoLoadData();
 		}
@@ -219,7 +223,7 @@
 			var key = localStorage.key(d),
 				val = localStorage.getItem(key),
 				v = JSON.parse(val);
-			if("Family" === v.types[1]){
+			if(Button === v.types[1]){
 				for (z in v){
 					console.log(v[z][1]);
 				}
@@ -227,7 +231,28 @@
 		}	
 	}
 	
-		function emptyStorage(){
+	function fButton(){
+		buttonPress("Family");
+	}
+	
+	function bButton(){
+		buttonPress("Bar");
+	}
+	
+	function oButton(){
+		buttonPress("Outside");
+	}
+	
+	function sButton(){
+		buttonPress("Sports");
+	}
+	
+	function OButton(){
+		buttonPress("Other");
+	}
+	
+	//Wipe local storage
+	function emptyStorage(){
 		if(localStorage.length === 0) {
 			alert("Nothing to Clear!");
 			window.location.reload();
@@ -240,6 +265,10 @@
 	}	
 	
 	autoLoadData();
-	famButton.addEventListener("click", buttonPress);
+	famButton.addEventListener("click", fButton);
+	baButton.addEventListener("click", bButton);
+	outButton.addEventListener("click", oButton);
+	spoButton.addEventListener("click", sButton);
+	othButton.addEventListener("click", OButton);
 	wipeInfo.addEventListener("click", emptyStorage);
 	
