@@ -5,14 +5,7 @@ Created for: MiU Online 1111
 */
 
 body {
-	font-family:Verdana, Arial, Helvetica, sans-serif;
-	font-size:60%;
-	margin:50px;
-	color: #f7fbff; 
-	 background: -webkit-linear-gradient(left, #0B61A4, #66A3D2);
-	width: 480px;
-	height: 690px;
-	overflow: scroll;
+	background: black;
 	}
 h1 {
 	color: white;

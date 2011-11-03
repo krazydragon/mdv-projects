@@ -244,7 +244,6 @@
 				newP4 = document.createElement("p"),
 				newP5 = document.createElement("p"),
 				newP6 = document.createElement("p");
-			newDiv.setAttribute("data-role", "collapsible");
 			newDiv.appendChild(newH3);
 			newH3.innerHTML = info[d].restaurant;
 			newDiv.appendChild(newP1);
@@ -290,7 +289,7 @@
 	}
 	
 	function buttonPress(info, BUTTON){
-		var sortArr = info.sort(u);
+		var sortArr = info.sort(i);
 		viewData(info, BUTTON);
 		
 	}
