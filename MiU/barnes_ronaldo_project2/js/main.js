@@ -18,193 +18,206 @@
 		outButton = a("OutsideButton"),
 		spoButton = a("SportsButton"),
 		othButton = a("OtherButton"),
-		wipeInfo = a("wipeInfo")
+		wipeInfo = a("wipeInfo"),
+		info = new Array()
 	;
 	
 	
-	//JSON Object	
+	//JSON Object
+	function i(b, a){
+		return a.numScale-b.numScale
+	}
+	
+	function u(a, b){
+		var restA = a.restaurant.toLowerCase( );
+			restB = b.restaurant.toLowerCase( );
+		if (restA < restB) {return -1}
+		if (restA > restB) {return 1}
+		return 0;
+	}
+	
 	function autoLoadData(){
 	
 		var json = {
 			"Restaurant1" : {
-				"place" : ["Location :  ", "Honolulu, HI"],
-				"restaurant" : ["Name of Restaurant :  ", "Dagon's Bar & Grill" ],
-				"date" : ["Date :  ", "2008-10-29" ],
-				"types" : ["Type of Restaurant :  ", "Outside"],
-				"food" : ["What did you have?: ", " Appetizers Other"  ],
-				"numScale" : ["How good it was on a scale of 1-10 :  ", "9" ],
-				"comments" : ["Comments :  ", "A great night out I have to go again!"]
+				"place" : "Honolulu, HI",
+				"restaurant" :"Dagon's Bar & Grill",
+				"date" :"10-29-2008",
+				"types" :"Outside",
+				"food" : " Appetizers Other",
+				"numScale" : "9",
+				"comments" : "A great night out I have to go again!"
 			},
 			"Restaurant2" : {
-				"place" : ["Location :  ", "Dallas, TX"],
-				"restaurant" : ["Name of Restaurant :  ", "Anthony's Seafood" ],
-				"date" : ["Date :  ", "2009-03-04" ],
-				"types" : ["Type of Restaurant :  ", "Family"],
-				"food" : ["What did you have?: ", " Appetizers Seafood Dessert"  ],
-				"numScale" : ["How good it was on a scale of 1-10 :  ", "10" ],
-				"comments" : ["Comments :  ", "Best seafood in the world!"]
+				"place" : "Dallas, TX",
+				"restaurant" : "Anthony's Seafood",
+				"date" : "03-04-2009",
+				"types" : "Family",
+				"food" : "Appetizers Seafood Dessert",
+				"numScale" : "10",
+				"comments" : "Best seafood in the world!"
 			},
 			"Restaurant3" : {
-				"place" : ["Location :  ", "Federal Way, WA"],
-				"restaurant" : ["Name of Restaurant :  ", "Odin's Fire" ],
-				"date" : ["Date :  ", "2010-06-07" ],
-				"types" : ["Type of Restaurant :  ", "Sports"],
-				"food" : ["What did you have?: ", " Meat Vegetables Grain"  ],
-				"numScale" : ["How good it was on a scale of 1-10 :  ", "8" ],
-				"comments" : ["Comments :  ", "The food was amazing!"]
+				"place" : "Federal Way, WA",
+				"restaurant" :"Odin's Fire",
+				"date" : "06-07-2010",
+				"types" : "Sports",
+				"food" : "Meat Vegetables Grain",
+				"numScale" : "8",
+				"comments" : "The food was amazing!"
 			},
 			"Restaurant4" : {
-				"place" : ["Location :  ", "Buffalo, N.Y."],
-				"restaurant" : ["Name of Restaurant :  ", "McDonalds’" ],
-				"date" : ["Date :  ", "2001-11-19" ],
-				"types" : ["Type of Restaurant :  ", "Outside"],
-				"food" : ["What did you have?: ", " Meat Vegetables Grain Appetizers Other"  ],
-				"numScale" : ["How good it was on a scale of 1-10 :  ", "1" ],
-				"comments" : ["Comments :  ", "Will not try again"]
+				"place" : "Buffalo, N.Y.",
+				"restaurant" : "McDonalds’",
+				"date" : "11-19-2001",
+				"types" : "Outside",
+				"food" : "Meat Vegetables Grain Appetizers Other",
+				"numScale" : "1",
+				"comments" : "Will not try again"
 			},
 			"Restaurant5" : {
-				"place" : ["Location :  ", " Fort Myers, FL"],
-				"restaurant" : ["Name of Restaurant :  ", "Chuck E Chesse" ],
-				"date" : ["Date :  ", "2011-01-09" ],
-				"types" : ["Type of Restaurant :  ", "Outside"],
-				"food" : ["What did you have?: ", " Vegetables Grain Other"  ],
-				"numScale" : ["How good it was on a scale of 1-10 :  ", "3" ],
-				"comments" : ["Comments :  ", "Food was ok."]
+				"place" : "Fort Myers, FL",
+				"restaurant" : "Chuck E Chesse",
+				"date" : "01-09-2011",
+				"types" :"Outside",
+				"food" : "Vegetables Grain Other",
+				"numScale" : "3",
+				"comments" : "Food was ok."
 			},
 			"Restaurant6" : {
-				"place" : ["Location :  ", "Appleton, WI"],
-				"restaurant" : ["Name of Restaurant :  ", "Jack in the Box" ],
-				"date" : ["Date :  ", "2006-10-15" ],
-				"types" : ["Type of Restaurant :  ", "Outside"],
-				"food" : ["What did you have?: ", " Meat Vegetables Other"  ],
-				"numScale" : ["How good it was on a scale of 1-10 :  ", "5" ],
-				"comments" : ["Comments :  ", "Food was good service not so much"]
+				"place" : "Appleton, WI",
+				"restaurant" : "Jack in the Box",
+				"date" : "10-15-2006",
+				"types" : "Outside",
+				"food" : " Meat Vegetables Other",
+				"numScale" : "5",
+				"comments" : "Food was good service not so much"
 			},
 			"Restaurant7" : {
-				"place" : ["Location :  ", "Rapid City, S.D"],
-				"restaurant" : ["Name of Restaurant :  ", "Burger King" ],
-				"date" : ["Date :  ", "2009-06-10" ],
-				"types" : ["Type of Restaurant :  ", "Family"],
-				"food" : ["What did you have?: ", " Appetizers Other"  ],
-				"numScale" : ["How good it was on a scale of 1-10 :  ", "7" ],
-				"comments" : ["Comments :  ", "We had a great time"]
+				"place" : "Rapid City, S.D",
+				"restaurant" : "Burger King",
+				"date" : "06-10-2009",
+				"types" : "Family",
+				"food" : "Appetizers Other",
+				"numScale" : "7",
+				"comments" : "We had a great time"
 			},
 			"Restaurant8" : {
-				"place" : ["Location :  ", "Lincoln, Neb"],
-				"restaurant" : ["Name of Restaurant :  ", "Old Country Buffet" ],
-				"date" : ["Date :  ", "2005-10-01" ],
-				"types" : ["Type of Restaurant :  ", "Family"],
-				"food" : ["What did you have?: ", " Appetizers Other"  ],
-				"numScale" : ["How good it was on a scale of 1-10 :  ", "9" ],
-				"comments" : ["Comments :  ", "Will come back next time I’m in town."]
+				"place" : "Lincoln, Neb",
+				"restaurant" : "Old Country Buffet",
+				"date" : "10-01-2005",
+				"types" : "Family",
+				"food" : "Appetizers Other",
+				"numScale" : "9",
+				"comments" : "Will come back next time I’m in town."
 			},
 			"Restaurant9" : {
-				"place" : ["Location :  ", "Green Bay, Wis"],
-				"restaurant" : ["Name of Restaurant :  ", "Cheese head Bar" ],
-				"date" : ["Date :  ", "2000-12-31" ],
-				"types" : ["Type of Restaurant :  ", "Family"],
-				"food" : ["What did you have?: ", " Appetizers Other"  ],
-				"numScale" : ["How good it was on a scale of 1-10 :  ", "10" ],
-				"comments" : ["Comments :  ", "Outstanding!!!"]
+				"place" : "Green Bay, Wis",
+				"restaurant" : "Cheese head Bar",
+				"date" : "12-31-2000",
+				"types" : "Family",
+				"food" : " Appetizers Other",
+				"numScale" : "10",
+				"comments" : "Outstanding!!!"
 			},
 			"Restaurant10" : {
-				"place" : ["Location :  ", "Tupelo, Miss"],
-				"restaurant" : ["Name of Restaurant :  ", "Bubas Grill" ],
-				"date" : ["Date :  ", "2002-05-04" ],
-				"types" : ["Type of Restaurant :  ", "Sports"],
-				"food" : ["What did you have?: ", " Appetizers Other"  ],
-				"numScale" : ["How good it was on a scale of 1-10 :  ", "8" ],
-				"comments" : ["Comments :  ", "I thank my friend for recommending it!"]
+				"place" : "Tupelo, Miss",
+				"restaurant" : "Bubas Grill",
+				"date" : "05-04-2002",
+				"types" : "Sports",
+				"food" : "Appetizers Other",
+				"numScale" :"8",
+				"comments" : "I thank my friend for recommending it!"
 			},
 			"Restaurant11" : {
-				"place" : ["Location :  ", "Denver, CO"],
-				"restaurant" : ["Name of Restaurant :  ", "Papadaux" ],
-				"date" : ["Date :  ", "2007-02-14" ],
-				"types" : ["Type of Restaurant :  ", "Sports"],
-				"food" : ["What did you have?: ", " Appetizers Other"  ],
-				"numScale" : ["How good it was on a scale of 1-10 :  ", "6" ],
-				"comments" : ["Comments :  ", "Food was ok. Service was good."]
+				"place" : "Denver, CO",
+				"restaurant" : "Papadaux",
+				"date" : "02-14-2007",
+				"types" : "Sports",
+				"food" : "Appetizers Other",
+				"numScale" : "6",
+				"comments" : "Food was ok. Service was good."
 			},
 			"Restaurant12" : {
-				"place" : ["Location :  ", "Beaverton, OR"],
-				"restaurant" : ["Name of Restaurant :  ", "Old Chicago" ],
-				"date" : ["Date :  ", "2006-09-19" ],
-				"types" : ["Type of Restaurant :  ", "Sports"],
-				"food" : ["What did you have?: ", " Appetizers Other"  ],
-				"numScale" : ["How good it was on a scale of 1-10 :  ", "4" ],
-				"comments" : ["Comments :  ", "I will not go back!"]
+				"place" : "Beaverton, OR",
+				"restaurant" : "Old Chicago",
+				"date" : "09-19-2006",
+				"types" : "Sports",
+				"food" : "Appetizers Other",
+				"numScale" :  "4" ,
+				"comments" : "I will not go back!"
 			},
 			"Restaurant13" : {
-				"place" : ["Location :  ", "Spanaway, WA"],
-				"restaurant" : ["Name of Restaurant :  ", "The Rock" ],
-				"date" : ["Date :  ", "2007-12-09" ],
-				"types" : ["Type of Restaurant :  ", "Bar"],
-				"food" : ["What did you have?: ", " Appetizers Other"  ],
-				"numScale" : ["How good it was on a scale of 1-10 :  ", "2" ],
-				"comments" : ["Comments :  ", "Never again!"]
+				"place" : "Spanaway, WA",
+				"restaurant" : "The Rock",
+				"date" : "12-09-2007",
+				"types" : "Bar",
+				"food" :  "Appetizers Other",
+				"numScale" : "2",
+				"comments" : "Never again!"
 			},
 			"Restaurant14" : {
-				"place" : ["Location :  ", "Lakewood, WA"],
-				"restaurant" : ["Name of Restaurant :  ", "Ivars" ],
-				"date" : ["Date :  ", "2011-10-15" ],
-				"types" : ["Type of Restaurant :  ", "Bar"],
-				"food" : ["What did you have?: ", " Appetizers Other"  ],
-				"numScale" : ["How good it was on a scale of 1-10 :  ", "7" ],
-				"comments" : ["Comments :  ", "Great food. Bad service"]
+				"place" : "Lakewood, WA",
+				"restaurant" : "Ivars",
+				"date" : "10-15-2011",
+				"types" : "Bar",
+				"food" : "Appetizers Other",
+				"numScale" : ["  ", "7" ],
+				"comments" : "Great food. Bad service"
 			},
 			"Restaurant15" : {
-				"place" : ["Location :  ", "Lakewood, CO"],
-				"restaurant" : ["Name of Restaurant :  ", "PF Changs" ],
-				"date" : ["Date :  ", "2011-07-05" ],
-				"types" : ["Type of Restaurant :  ", "Bar"],
-				"food" : ["What did you have?: ", " Appetizers Other"  ],
-				"numScale" : ["How good it was on a scale of 1-10 :  ", "8" ],
-				"comments" : ["Comments :  ", "One of my favs!"]
+				"place" : "Lakewood, CO",
+				"restaurant" : "PF Changs",
+				"date" : "07-05-2011",
+				"types" : "Bar",
+				"food" : "Appetizers Other",
+				"numScale" : "8",
+				"comments" : "One of my favs!"
 			},
 			"Restaurant16" : {
-				"place" : ["Location :  ", "Las Vegas, NV"],
-				"restaurant" : ["Name of Restaurant :  ", "Pizzeria and Cucina" ],
-				"date" : ["Date :  ", "2010-08-20" ],
-				"types" : ["Type of Restaurant :  ", "Bar"],
-				"food" : ["What did you have?: ", " Appetizers Other"  ],
-				"numScale" : ["How good it was on a scale of 1-10 :  ", "10" ],
-				"comments" : ["Comments :  ", "The best ever."]
+				"place" : "Las Vegas, NV",
+				"restaurant" : "Pizzeria and Cucina",
+				"date" : "08-20-2010",
+				"types" : "Bar",
+				"food" : "Appetizers Other",
+				"numScale" : "10",
+				"comments" : "The best ever."
 			},
 			"Restaurant17" : {
-				"place" : ["Location :  ", "Reno, NV"],
-				"restaurant" : ["Name of Restaurant :  ", "Lucky Food" ],
-				"date" : ["Date :  ", "2011-06-12" ],
-				"types" : ["Type of Restaurant :  ", "Other"],
-				"food" : ["What did you have?: ", " Appetizers Other"  ],
-				"numScale" : ["How good it was on a scale of 1-10 :  ", "6" ],
-				"comments" : ["Comments :  ", "Great service bad food."]
+				"place" : "Reno, NV",
+				"restaurant" :"Lucky Food",
+				"date" : "06-12-2011" ,
+				"types" : "Other",
+				"food" : "Appetizers Other",
+				"numScale" : "6",
+				"comments" :"Great service bad food."
 			},
 			"Restaurant18" : {
-				"place" : ["Location :  ", "Kihei, HI"],
-				"restaurant" : ["Name of Restaurant :  ", "Tha Beach" ],
-				"date" : ["Date :  ", "2010-04-20" ],
-				"types" : ["Type of Restaurant :  ", "Other"],
-				"food" : ["What did you have?: ", " Appetizers Other"  ],
-				"numScale" : ["How good it was on a scale of 1-10 :  ", "9" ],
-				"comments" : ["Comments :  ", "The best view"]
+				"place" : "Kihei, HI",
+				"restaurant" : "Tha Beach",
+				"date" : "04-20-2010",
+				"types" : "Other",
+				"food" : "Appetizers Other",
+				"numScale" : "9",
+				"comments" : "The best view"
 			},
 			"Restaurant19" : {
-				"place" : ["Location :  ", "Kahakuloa, HI"],
-				"restaurant" : ["Name of Restaurant :  ", "Oceanside" ],
-				"date" : ["Date :  ", "2010-11-11" ],
-				"types" : ["Type of Restaurant :  ", "Other"],
-				"food" : ["What did you have?: ", " Appetizers Other"  ],
-				"numScale" : ["How good it was on a scale of 1-10 :  ", "10" ],
-				"comments" : ["Comments :  ", ""]
+				"place" : "Kahakuloa, HI",
+				"restaurant" : "Oceanside",
+				"date" : "11-11-2010",
+				"types" : "Other",
+				"food" : "Appetizers Other",
+				"numScale" : "10",
+				"comments" : "The best!"
 			},
 			"Restaurant20" : {
-				"place" : ["Location :  ", "Maunaloa, HI"],
-				"restaurant" : ["Name of Restaurant :  ", "Dave’s Grill" ],
-				"date" : ["Date :  ", "2011-07-11" ],
-				"types" : ["Type of Restaurant :  ", "Other"],
-				"food" : ["What did you have?: ", " Appetizers Other"  ],
-				"numScale" : ["How good it was on a scale of 1-10 :  ", "1" ],
-				"comments" : ["Comments :  ", ""]
+				"place" : "Maunaloa, HI",
+				"restaurant" : "Dave’s Grill",
+				"date" : "07-11-2011",
+				"types" : "Other",
+				"food" : "Appetizers Other",
+				"numScale" : "1",
+				"comments" : "Never again!"
 			}
 		}
 
@@ -215,40 +228,63 @@
 	}
 		
 	//Poulate correct info when button is pressed
-	function buttonPress(Button){
+	function processLocal(Button){
 		if(localStorage.length === 0){
 			autoLoadData();
 		}
-		for(d=0; d<localStorage.length; d++){
+		var restArr= new Array();
+		for(d=0; d<localStorage.length; d++){;
 			var key = localStorage.key(d),
 				val = localStorage.getItem(key),
 				v = JSON.parse(val);
-			if(Button === v.types[1]){
-				for (z in v){
-					console.log(v[z][1]);
-				}
+			restArr.push(v);						
+		}
+		return info = restArr;	
+		console.log(info);
+	}
+	
+	function getTypes(v, b){
+		var restArr= new Array()
+		for(d=0; d<info.length; d++){
+			if(b === v[d].types){
+				restArr.push(v[d]);
 			}
-		}	
+		}
+		return info = restArr;
+	}
+	
+	function buttonPress(info){
+		console.log(info.sort(u));
 	}
 	
 	function fButton(){
-		buttonPress("Family");
+		processLocal();
+		getTypes(info, "Family");
+		buttonPress(info);
 	}
 	
 	function bButton(){
-		buttonPress("Bar");
+		processLocal();
+		getTypes(info, "Bar");
+		buttonPress(info);
 	}
 	
 	function oButton(){
-		buttonPress("Outside");
+		processLocal();
+		getTypes(info, "Outside");
+		buttonPress(info);
 	}
 	
 	function sButton(){
-		buttonPress("Sports");
+		processLocal();
+		getTypes(info, "Sports");
+		buttonPress(info);
 	}
 	
 	function OButton(){
-		buttonPress("Other");
+		processLocal();
+		getTypes(info, "Other");
+		buttonPress(info);
 	}
 	
 	//Wipe local storage
@@ -264,11 +300,11 @@
 		}
 	}	
 	
-	autoLoadData();
 	famButton.addEventListener("click", fButton);
 	baButton.addEventListener("click", bButton);
 	outButton.addEventListener("click", oButton);
 	spoButton.addEventListener("click", sButton);
 	othButton.addEventListener("click", OButton);
 	wipeInfo.addEventListener("click", emptyStorage);
+
 	
