@@ -12,7 +12,7 @@
 		var theElm = document.getElementById(k);
 		return theElm;
 	}
-	
+	//Varibles 
 	var famButton = a("FamilyButton"),
 		baButton = a("BarButton"),
 		outButton = a("OutsideButton"),
@@ -281,6 +281,7 @@
 		console.log(info);
 	}
 	
+	//Picks proper groups
 	function getTypes(v, b){
 		var restArr= new Array()
 		for(d=0; d<info.length; d++){
@@ -291,46 +292,54 @@
 		return info = restArr;
 	}
 	
+	//Sorts info
 	function buttonPress(info, BUTTON){
 		var sortArr = info.sort(i);
 		viewData(info, BUTTON);
 		
 	}
 	
+	//Populates Family Group Screen
 	function fButton(){
 		processLocal();
 		getTypes(info, "Family");
 		buttonPress(info, FAM);
 	}
 	
+	//Populates Bar Group Screen
 	function bButton(){
 		processLocal();
 		getTypes(info, "Bar");
 		buttonPress(info, BAR);
 	}
 	
+	//Populates Outside Group Screen
 	function oButton(){
 		processLocal();
 		getTypes(info, "Outside");
 		buttonPress(info, OUT);
 	}
 	
+	//Populates Sports Group Screen
 	function sButton(){
 		processLocal();
 		getTypes(info, "Sports");
 		buttonPress(info, SPO);
 	}
 	
+	//Populates Other Group Screen
 	function OButton(){
 		processLocal();
 		getTypes(info, "Other");
 		buttonPress(info, OTH);
 	}
 	
+	//Populates All Groups Screen
 	function aButton(){
 		processLocal();
 		buttonPress(info, ALL);
 	}
+
 	
 	//Wipe local storage
 	function emptyStorage(){
@@ -343,6 +352,7 @@
 		}
 	}	
 	
+	//Event Listeners
 	famButton.addEventListener("click", fButton);
 	baButton.addEventListener("click", bButton);
 	outButton.addEventListener("click", oButton);
