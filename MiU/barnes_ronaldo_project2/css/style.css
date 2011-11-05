@@ -21,6 +21,7 @@ div p {
     display:block;
     height:145px;
     width:320px;
+    position: absolute: left 0px;
 }
 #searchInput {
 	height:15px;
