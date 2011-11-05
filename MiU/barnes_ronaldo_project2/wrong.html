@@ -41,41 +41,46 @@
 
 
 			<ul data-role="listview" data-inset="true" data-theme="a">
-				<li><a href="#familyPage" id="FamilyButton">
-					<img src="images/family.png"/>
-					<h3>Family</h3>
-					<p>Family oriented restaurants.</p>
-					<span id="FAMpage"></span>
-				</a></li>
-				<li><a href="#outsidePage" id="OutsideButton">
-					<img src="images/outside.png" />
-					<h3>Outside</h3>
-					<p>Places to eat outside</p>
-				</a></li>
-				<li><a href="#barPage" id="BarButton">
-					<img src="images/bar.png"/>
-					<h3>Bar</h3>
-					<p>No kids allowed</p>
-				</a></li>
-				<li><a href="#sportsPage" id="SportsButton">
-					<img src="images/sports.png"/>
-					<h3>Sports</h3>
-					<p>Places to watch the game.</p>
-				</a></li>
-				<li><a href="#otherPage" id="OtherButton">
-					<img src="images/other.png"/>
-					<h3>Other</h3>
-					<p>Unique Restaurants. </p>
-				</a></li>
-			
+				<div class="ui-grid-b">
+					<div class="ui-block-a">
+						<li><a href="#familyPage" id="FamilyButton">
+							<img src="images/wFamily.png"/>
+						</a></li>
+					</div>
+					<div class="ui-block-b">
+						<li><a href="#outsidePage" id="OutsideButton">
+							<img src="images/wOut.png" />
+						</a></li>
+					</div>
+					<div class="ui-block-c">
+						<li><a href="#barPage" id="BarButton">
+							<img src="images/wBar.png"/>
+						</a></li>
+					</div>
+					<div class="ui-block-a">
+						<li><a href="#sportsPage" id="SportsButton">
+							<img src="images/wSports.png"/>
+						</a></li>
+					</div>
+					<div class="ui-block-b">
+						<li><a href="#otherPage" id="OtherButton">
+							<img src="images/wOther.png"/>
+						</a></li>
+					</div>
+					<div class="ui-block-c">
+						<li><a href="#allPages" id="AllButton">
+							<img src="images/wAll.png"/>
+						</a></li>
+					</div>
+				</div><!-- /grid-b -->
 			</ul>
 		</div>
 		
-		<div data-role="footer" data-position="fixed">
+		<div data-role="footer" data-position="fixed"  data-theme="b">
 			<div data-role="navbar">
 				<ul>
-					<li><a href="index.html" data-ajax="false" >Right App</a></li>
-					<li><a href="#main" id="wipeInfo">Clear</a></li>
+					<li><a href="index.html" data-ajax="false" data-icon="check">Right App</a></li>
+					<li><a href="#main" id="wipeInfo" data-icon="delete">Clear</a></li>
 				</ul>
 			</div><!-- /navbar -->
 		</div>
@@ -84,26 +89,28 @@
 	
 	</div>
 	
+	<div data-role="page" id="familyPage" data-add-back-btn="true" data-theme="a">
 		
-	<div data-role="page" id="outsidePage" data-add-back-btn="true" data-theme="b">
+		<div data-role="header" data-position="fixed">
+			<h1>Family Groups</h1>
+		</div>
 		
+		<div data-role="content" id="FAMpage">
+			
+		</div>
+		
+	</div>
+	
+	<div data-role="page" id="outsidePage" data-add-back-btn="true" data-theme="a">
 		<div data-role="header" data-position="fixed">
 			<h1>Outside Groups</h1>
 		</div>
-		
 		<div data-role="content" id="OUTpage">
-		
 		</div>
 		
-		<div data-role="footer" data-position="fixed">
-			<h4>Footer</h4>
-		</div>
-	
-	
-	
 	</div>
 
-	<div data-role="page" id="barPage" data-add-back-btn="true" data-theme="b">
+	<div data-role="page" id="barPage" data-add-back-btn="true" data-theme="a">
 		
 		<div data-role="header" data-position="fixed">
 			<h1>Bar Groups</h1>
@@ -113,15 +120,11 @@
 		
 		</div>
 		
-		<div data-role="footer" data-position="fixed">
-			<h4>Footer</h4>
-		</div>
-	
 	
 	
 	</div>
 	
-	<div data-role="page" id="sportsPage" data-add-back-btn="true" data-theme="b">
+	<div data-role="page" id="sportsPage" data-add-back-btn="true" data-theme="a">
 		
 		<div data-role="header" data-position="fixed">
 			<h1>Sports Groups</h1>
@@ -131,15 +134,12 @@
 		
 		</div>
 		
-		<div data-role="footer" data-position="fixed">
-			<h4>Footer</h4>
-		</div>
-	
+			
 	
 	
 	</div>
 	
-	<div data-role="page" id="otherPage" data-add-back-btn="true" data-theme="b">
+	<div data-role="page" id="otherPage" data-add-back-btn="true" data-theme="a">
 		
 		<div data-role="header" data-position="fixed">
 			<h1>Other Groups</h1>
@@ -149,11 +149,23 @@
 		
 		</div>
 		
-		<div data-role="footer" data-position="fixed">
-			<h4>Footer</h4>
+		
+	
+	
+	
+	</div>
+	
+	<div data-role="page" id="allPages" data-add-back-btn="true" data-theme="a">
+		
+		<div data-role="header" data-position="fixed">
+			<h1>All Groups</h1>
 		</div>
-	
-	
+		
+		<div data-role="content" id="ALLpage">
+			
+		</div>
+		
+		
 	
 	</div>
 

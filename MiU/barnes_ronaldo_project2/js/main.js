@@ -18,12 +18,14 @@
 		outButton = a("OutsideButton"),
 		spoButton = a("SportsButton"),
 		othButton = a("OtherButton"),
+		allButton = a("AllButton"),
 		wipeInfo = a("wipeInfo"),
 		FAM = a("FAMpage"),
 		BAR = a("BARpage"),
 		SPO = a("SPOpage"),
 		OUT = a("OUTpage"),
 		OTH = a("OTHpage"),
+		ALL = a("ALLpage"),
 		info = new Array(),
 		restInfo = ("place", "date", "types", "food", "numScale", "comments")
 	;
@@ -245,6 +247,7 @@
 				newP5 = document.createElement("p"),
 				newP6 = document.createElement("p");
 			newDiv.setAttribute("data-role", "collapsible");
+			//newDiv.data-role = "collapsible";
 			newDiv.appendChild(newH3);
 			newH3.innerHTML = info[d].restaurant;
 			newDiv.appendChild(newP1);
@@ -325,6 +328,11 @@
 		buttonPress(info, OTH);
 	}
 	
+	function aButton(){
+		processLocal();
+		buttonPress(info, ALL);
+	}
+	
 	//Wipe local storage
 	function emptyStorage(){
 		if(localStorage.length === 0) {
@@ -341,6 +349,7 @@
 	outButton.addEventListener("click", oButton);
 	spoButton.addEventListener("click", sButton);
 	othButton.addEventListener("click", OButton);
+	allButton.addEventListener("click", aButton);
 	wipeInfo.addEventListener("click", emptyStorage);
 
 	
