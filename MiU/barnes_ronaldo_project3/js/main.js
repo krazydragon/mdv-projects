@@ -1,4 +1,4 @@
-// Project 2
+// Project 3
 // Author: Ronaldo Barnes
 // Created for: MiU Online 1111
 
@@ -18,7 +18,7 @@
 		outButton = a("OutsideButton"),
 		spoButton = a("SportsButton"),
 		othButton = a("OtherButton"),
-		allButton = a("AllButton")
+		allButton = a("AllButton"),
 		wipeInfo = a("wipeInfo"),
 		FAM = a("FAMpage"),
 		BAR = a("BARpage"),
@@ -32,9 +32,8 @@
 	
 	
 	//JSON Object
-	function i(a, b){
-		var date1 = a.date, date2 = b.date
-		return date1-date2
+	function i(b, a){
+		return a.numScale-b.numScale
 	}
 	
 	function u(a, b){
@@ -246,13 +245,14 @@
 				newP3 = document.createElement("p"),
 				newP4 = document.createElement("p"),
 				newP5 = document.createElement("p"),
-				newP6 = document.createElement("p");	
+				newP6 = document.createElement("p");
+			newDiv.setAttribute("data-role", "collapsible");
 			newDiv.appendChild(newH3);
 			newH3.innerHTML = info[d].restaurant;
 			newDiv.appendChild(newP1);
-			newP1.innerHTML = "Date : " + info[d].date;
+			newP1.innerHTML = "Location : " + info[d].place;
 			newDiv.appendChild(newP2);
-			newP2.innerHTML = "Location : " + info[d].place;
+			newP2.innerHTML = "Date : " + info[d].date;
 			newDiv.appendChild(newP3);
 			newP3.innerHTML = "Type of Restaurant : " + info[d].types;
 			newDiv.appendChild(newP4);
@@ -262,7 +262,7 @@
 			newDiv.appendChild(newP6);
 			newP6.innerHTML = "Comments : " + info[d].comments;
 			BUTTON.appendChild(newDiv);
-		}		
+		}			
 	}
 
 	//Poulate correct info when button is pressed
@@ -294,7 +294,7 @@
 	
 	//Sorts info
 	function buttonPress(info, BUTTON){
-		var sortArr = info.sort(i);
+		var sortArr = info.sort(u);
 		viewData(info, BUTTON);
 		
 	}
@@ -339,7 +339,6 @@
 		processLocal();
 		buttonPress(info, ALL);
 	}
-
 	
 	//Wipe local storage
 	function emptyStorage(){
@@ -352,7 +351,6 @@
 		}
 	}	
 	
-	//Event Listeners
 	famButton.addEventListener("click", fButton);
 	baButton.addEventListener("click", bButton);
 	outButton.addEventListener("click", oButton);

@@ -1,0 +1,135 @@
+<!doctype html>
+<!--Project 3 -->
+<!--Author: Ronaldo Barnes -->
+<!--Created for:MiU Online 1111 -->	  
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+	
+	<title>wrong</title>
+	
+	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Mobile IE needs ClearType for smoothing fonts -->
+	<meta http-equiv="cleartype" content="on">
+	
+	<!-- StyleSheets under here -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.css" />
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
+	
+	
+	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+	<script src="js/libs/modernizr.custom.min.js"></script>
+
+</head>
+<body>
+	<!--Main Page-->
+	<div data-role="page" id="main">
+		<div data-role="header">
+			<h1>My Restaurant Tracker</h1>	
+		</div>
+		<div data-role="content">
+			<div id="mainFeature">
+				<a href="#" title="Main Feature" id="mainFeatureImage"></a>
+			</div>
+			<div data-role="fieldcontain">
+				<input type="search" id="search"/>	
+			</div>
+			<ul data-role="listview" data-inset="true" data-theme="a">
+				<div class="ui-grid-b">
+					<div class="ui-block-a">
+						<li><a href="#familyPage" id="FamilyButton">
+							<img src="images/wFamily.png"/>
+						</a></li>
+					</div>
+					<div class="ui-block-b">
+						<li><a href="#outsidePage" id="OutsideButton">
+							<img src="images/wOut.png" />
+						</a></li>
+					</div>
+					<div class="ui-block-c" id="BARpage">
+						<li><a href="#" id="BarButton">
+							<img src="images/wBar.png"/>
+						</a></li>
+					</div>
+					<div class="ui-block-a">
+						<li><a href="#sportsPage" id="SportsButton">
+							<img src="images/wSports.png"/>
+						</a></li>
+					</div>
+					<div class="ui-block-b">
+						<li><a href="#otherPage" id="OtherButton">
+							<img src="images/wOther.png"/>
+						</a></li>
+					</div>
+					<div class="ui-block-c">
+						<li><a href="#allPages" id="AllButton">
+							<img src="images/wAll.png"/>
+						</a></li>
+					</div>
+				</div><!-- /grid-b -->
+			</ul>
+		</div>
+		
+		<div data-role="footer" data-position="fixed"  data-theme="b">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="index.html" data-ajax="false" data-icon="check">Right App</a></li>
+					<li><a href="#main" id="wipeInfo" data-icon="delete">Clear</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+	</div>
+	<!--Family Page-->
+	<div data-role="page" id="familyPage" data-add-back-btn="true" data-theme="a">
+		<div data-role="header" data-position="fixed">
+			<h1>Family Groups</h1>
+		</div>
+		<div data-role="content" id="FAMpage">
+		</div>
+	</div>
+	<!--Outside Page-->
+	<div data-role="page" id="outsidePage" data-add-back-btn="true" data-theme="a">
+		<div data-role="header" data-position="fixed">
+			<h1>Outside Groups</h1>
+		</div>
+		<div data-role="content" id="OUTpage">
+		</div>
+	</div>
+	<!--Sports Page-->
+	<div data-role="page" id="sportsPage" data-add-back-btn="true" data-theme="a">
+		<div data-role="header" data-position="fixed">
+			<h1>Sports Groups</h1>
+		</div>
+		<div data-role="content" id="SPOpage">
+		</div>
+	</div>
+	<!--Other Page-->
+	<div data-role="page" id="otherPage" data-add-back-btn="true" data-theme="a">
+		<div data-role="header" data-position="fixed">
+			<h1>Other Groups</h1>
+		</div>
+		<div data-role="content" id="OTHpage">
+		</div>
+	</div>
+	<!--All Page-->
+	<div data-role="page" id="allPages" data-add-back-btn="true" data-theme="a">
+		<div data-role="header" data-position="fixed">
+			<h1>All Groups</h1>
+		</div>
+		<div data-role="content" id="ALLpage">
+		</div>
+	</div>
+
+
+	<!-- JavaScript under here -->
+	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.js"></script>
+	<script src="js/wrong.js" type="text/javascript"></script>
+
+</body>
+</html>

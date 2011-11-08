@@ -1,0 +1,31 @@
+/*
+Project 3
+Author: Ronaldo Barnes
+Created for: MiU Online 1111
+*/
+
+
+
+div ul {
+	background-color: : #3f92d2;
+	}
+div a {
+	font-size: small;
+	}
+div p {
+	font-size: small;
+	}
+
+#mainFeatureImage {
+    background-image:url(../images/RTFeature.jpg);
+    display:block;
+    height:145px;
+    width:320px;
+    position: absolute: left 0px;
+}
+#searchInput {
+	height:15px;
+    width:350px;
+    margin: 10px;
+}
+# main {background: black;}
