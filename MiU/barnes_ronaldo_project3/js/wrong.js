@@ -31,10 +31,18 @@
 	;
 	
 	
-	//JSON Object
+	//JSON Object	
 	function i(a, b){
-		var date1 = a.date, date2 = b.date
-		return date1-date2
+		var a = a.date, b = b.date
+		if (a < b) {
+      		return 1;
+   		}
+   		if (a > b) {
+      		return -1;
+   		}
+   		if (a == b) {
+     		return 0;
+   		}
 	}
 	
 	function u(a, b){
@@ -51,7 +59,7 @@
 			"Restaurant1" : {
 				"place" : "Honolulu, HI",
 				"restaurant" :"Dagon's Bar & Grill",
-				"date" :"10-29-2008",
+				"date" :"2008-10-29",
 				"types" :"Outside",
 				"food" : " Appetizers Other",
 				"numScale" : "9",
@@ -60,7 +68,7 @@
 			"Restaurant2" : {
 				"place" : "Dallas, TX",
 				"restaurant" : "Anthony's Seafood",
-				"date" : "03-04-2009",
+				"date" : "2009-03-04",
 				"types" : "Family",
 				"food" : "Appetizers Seafood Dessert",
 				"numScale" : "10",
@@ -69,7 +77,7 @@
 			"Restaurant3" : {
 				"place" : "Federal Way, WA",
 				"restaurant" :"Odin's Fire",
-				"date" : "06-07-2010",
+				"date" : "2010-06-07",
 				"types" : "Sports",
 				"food" : "Meat Vegetables Grain",
 				"numScale" : "8",
@@ -78,7 +86,7 @@
 			"Restaurant4" : {
 				"place" : "Buffalo, N.Y.",
 				"restaurant" : "McDonalds’",
-				"date" : "11-19-2001",
+				"date" : "2001-11-19",
 				"types" : "Outside",
 				"food" : "Meat Vegetables Grain Appetizers Other",
 				"numScale" : "1",
@@ -87,7 +95,7 @@
 			"Restaurant5" : {
 				"place" : "Fort Myers, FL",
 				"restaurant" : "Chuck E Chesse",
-				"date" : "01-09-2011",
+				"date" : "2011-01-09",
 				"types" :"Outside",
 				"food" : "Vegetables Grain Other",
 				"numScale" : "3",
@@ -96,7 +104,7 @@
 			"Restaurant6" : {
 				"place" : "Appleton, WI",
 				"restaurant" : "Jack in the Box",
-				"date" : "10-15-2006",
+				"date" : "2006-10-15",
 				"types" : "Outside",
 				"food" : " Meat Vegetables Other",
 				"numScale" : "5",
@@ -105,7 +113,7 @@
 			"Restaurant7" : {
 				"place" : "Rapid City, S.D",
 				"restaurant" : "Burger King",
-				"date" : "06-10-2009",
+				"date" : "2009-06-10",
 				"types" : "Family",
 				"food" : "Appetizers Other",
 				"numScale" : "7",
@@ -114,7 +122,7 @@
 			"Restaurant8" : {
 				"place" : "Lincoln, Neb",
 				"restaurant" : "Old Country Buffet",
-				"date" : "10-01-2005",
+				"date" : "2005-10-01",
 				"types" : "Family",
 				"food" : "Appetizers Other",
 				"numScale" : "9",
@@ -123,7 +131,7 @@
 			"Restaurant9" : {
 				"place" : "Green Bay, Wis",
 				"restaurant" : "Cheese head Bar",
-				"date" : "12-31-2000",
+				"date" : "2000-12-31",
 				"types" : "Family",
 				"food" : " Appetizers Other",
 				"numScale" : "10",
@@ -132,7 +140,7 @@
 			"Restaurant10" : {
 				"place" : "Tupelo, Miss",
 				"restaurant" : "Bubas Grill",
-				"date" : "05-04-2002",
+				"date" : "2002-05-04",
 				"types" : "Sports",
 				"food" : "Appetizers Other",
 				"numScale" :"8",
@@ -141,7 +149,7 @@
 			"Restaurant11" : {
 				"place" : "Denver, CO",
 				"restaurant" : "Papadaux",
-				"date" : "02-14-2007",
+				"date" : "2007-02-14",
 				"types" : "Sports",
 				"food" : "Appetizers Other",
 				"numScale" : "6",
@@ -150,7 +158,7 @@
 			"Restaurant12" : {
 				"place" : "Beaverton, OR",
 				"restaurant" : "Old Chicago",
-				"date" : "09-19-2006",
+				"date" : "2006-09-19",
 				"types" : "Sports",
 				"food" : "Appetizers Other",
 				"numScale" :  "4" ,
@@ -159,7 +167,7 @@
 			"Restaurant13" : {
 				"place" : "Spanaway, WA",
 				"restaurant" : "The Rock",
-				"date" : "12-09-2007",
+				"date" : "2007-12-09",
 				"types" : "Bar",
 				"food" :  "Appetizers Other",
 				"numScale" : "2",
@@ -168,7 +176,7 @@
 			"Restaurant14" : {
 				"place" : "Lakewood, WA",
 				"restaurant" : "Ivars",
-				"date" : "10-15-2011",
+				"date" : "2011-10-15",
 				"types" : "Bar",
 				"food" : "Appetizers Other",
 				"numScale" : ["  ", "7" ],
@@ -177,7 +185,7 @@
 			"Restaurant15" : {
 				"place" : "Lakewood, CO",
 				"restaurant" : "PF Changs",
-				"date" : "07-05-2011",
+				"date" : "2011-07-05",
 				"types" : "Bar",
 				"food" : "Appetizers Other",
 				"numScale" : "8",
@@ -186,7 +194,7 @@
 			"Restaurant16" : {
 				"place" : "Las Vegas, NV",
 				"restaurant" : "Pizzeria and Cucina",
-				"date" : "08-20-2010",
+				"date" : "2010-08-20",
 				"types" : "Bar",
 				"food" : "Appetizers Other",
 				"numScale" : "10",
@@ -195,7 +203,7 @@
 			"Restaurant17" : {
 				"place" : "Reno, NV",
 				"restaurant" :"Lucky Food",
-				"date" : "06-12-2011" ,
+				"date" : "2011-06-12" ,
 				"types" : "Other",
 				"food" : "Appetizers Other",
 				"numScale" : "6",
@@ -204,7 +212,7 @@
 			"Restaurant18" : {
 				"place" : "Kihei, HI",
 				"restaurant" : "Tha Beach",
-				"date" : "04-20-2010",
+				"date" : "2010-04-20",
 				"types" : "Other",
 				"food" : "Appetizers Other",
 				"numScale" : "9",
@@ -213,7 +221,7 @@
 			"Restaurant19" : {
 				"place" : "Kahakuloa, HI",
 				"restaurant" : "Oceanside",
-				"date" : "11-11-2010",
+				"date" : "2010-11-11",
 				"types" : "Other",
 				"food" : "Appetizers Other",
 				"numScale" : "10",
@@ -222,7 +230,7 @@
 			"Restaurant20" : {
 				"place" : "Maunaloa, HI",
 				"restaurant" : "Dave’s Grill",
-				"date" : "07-11-2011",
+				"date" : "2011-07-11",
 				"types" : "Other",
 				"food" : "Appetizers Other",
 				"numScale" : "1",
