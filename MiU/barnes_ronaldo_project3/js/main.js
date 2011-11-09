@@ -19,6 +19,7 @@
 		spoButton = a("SportsButton"),
 		othButton = a("OtherButton"),
 		allButton = a("AllButton"),
+		addEntry = a("addEntry"),
 		wipeInfo = a("wipeInfo"),
 		FAM = a("FAMpage"),
 		BAR = a("BARpage"),
@@ -299,6 +300,18 @@
 		
 	}
 	
+	function today(){
+		var now = new Date(),
+   			year =now.getFullYear(),
+   			month = now.getMonth() + 1, 
+   			day = now.getDate();
+   		if(day < 10){
+   			day = "0" + day
+   		}
+		var rv = year + "-" + month + "-" + day
+		return rv;
+	}
+	
 	//Populates Family Group Screen
 	function fButton(){
 		processLocal();
@@ -340,6 +353,11 @@
 		buttonPress(info, ALL);
 	}
 	
+	//Populates All Groups Screen
+	function addItems(){
+		a("date").value = today();
+	}
+
 	//Wipe local storage
 	function emptyStorage(){
 		if(localStorage.length === 0) {
@@ -357,6 +375,7 @@
 	spoButton.addEventListener("click", sButton);
 	othButton.addEventListener("click", OButton);
 	allButton.addEventListener("click", aButton);
+	addEntry.addEventListener("click", addItems);
 	wipeInfo.addEventListener("click", emptyStorage);
 
 	

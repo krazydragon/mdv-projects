@@ -34,7 +34,7 @@
 			<h1>My Restaurant Tracker</h1>	
 		</div>		
 		<div id="mainFeature">
-				<a href="#addRest" title="Main Feature" id="mainFeatureImage"></a>
+				<a href="#addRest" title="Main Feature" id="addEntry"></a>
 			</div>
 		<div data-role="content">
 			<div data-role="fieldcontain">
@@ -162,15 +162,15 @@
 		<div data-role="content" >
 			<div data-role="fieldcontain">
 				<label for="place">*What city are you in&#63;</label>
-				<input type="text" name="place" id="place"/>
+				<input type="text" name="place" id="place">
 			</div>
 			<div data-role="fieldcontain">
 				<label for="resturant">*Name of the Restaurant&#63</label>
-				<input type="text" name="restaurant" id="restaurant"/>
+				<input type="text" name="restaurant" id="restaurant">
 			</div>
 			<div data-role="fieldcontain">
-				<label for="restdate">*Date&#63</label>
-				<input name="restdate" id="restdate" type="date" data-role="datebox" data-options='{"mode": "calbox", "disableManualInput": true}'>
+				<label for="date">*Date&#63</label>
+				<input name="date" id="date" type="date">
 			</div>
 			<div data-role="fieldcontain">
 				<label for="types">*What kind of Restaurant was it&#63;</label>
@@ -211,6 +211,17 @@
 			<div data-role="fieldcontain">
 				<label for="comments">What would you say about the food&#63;</label>
 				<textarea name="comments" id="comments"></textarea>
+			</div>
+			<div data-role="fieldcontain">
+				<label for="favorite">Add to favorites&#63;</label>
+				<select data-role="slider">
+					<option value="Yes">Yes</option>
+					<option value="No">No</option>
+				</select>
+			</div>
+			<div data-role="fieldcontain">
+				<input type="reset" value="Reset">
+				<input type="submit" value="Submit">
 			</div>
 		</div>
 		<div data-role="footer" data-position="fixed">

@@ -29,9 +29,7 @@
 		info = new Array(),
 		restInfo = ("place", "date", "types", "food", "numScale", "comments")
 	;
-	
-	
-	//JSON Object	
+	//Sort function	
 	function i(a, b){
 		var a = a.date, b = b.date
 		if (a < b) {
@@ -44,15 +42,7 @@
      		return 0;
    		}
 	}
-	
-	function u(a, b){
-		var restA = a.restaurant.toLowerCase( );
-			restB = b.restaurant.toLowerCase( );
-		if (restA < restB) {return -1}
-		if (restA > restB) {return 1}
-		return 0;
-	}
-	
+	//JSON Object	
 	function autoLoadData(){
 	
 		var json = {
