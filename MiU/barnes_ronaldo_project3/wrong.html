@@ -34,7 +34,7 @@
 		</div>
 		<div data-role="content">
 			<div id="mainFeature">
-				<a href="#" title="Main Feature" id="mainFeatureImage"></a>
+				<a href="#addRest" title="Main Feature" id="addEntry"></a>
 			</div>
 			<div data-role="fieldcontain">
 				<input type="search" id="search"/>	
@@ -124,11 +124,86 @@
 		<div data-role="content" id="ALLpage">
 		</div>
 	</div>
-
+		<!--Tracker Page-->	
+	<div data-role="page" id="addRest" data-add-back-btn="true">
+		<div data-role="header" data-position="fixed">
+			<h1>New Entry</h1>
+		</div>
+		<div data-role="content" >
+			<form action="" method="post" id="restForm">
+				<div data-role="fieldcontain">
+					<label for="place">What city are you in&#63;</label>
+					<input type="text" name="place" id="place" class="required">
+				</div>
+				<div data-role="fieldcontain">
+					<label for="resturant">Name of the Restaurant&#63</label>
+					<input type="text" name="restaurant" id="restaurant" class="required">
+				</div>
+				<div data-role="fieldcontain">
+					<label for="date">Date&#63</label>
+					<input name="date" id="date" type="date" class="required">
+				</div>
+				<div data-role="fieldcontain">
+					<label for="types">What kind of Restaurant was it&#63;</label>
+					<select name="types" id="types" data-native-menu=false>
+	   					<option data-placeholder="true">---Pick A Type of Restaurant---</option>	
+	   					<optgroup label="Restarurant Types">			
+	   						<option value="Family">Family</option>
+	  						<option value="Sports">Sports</option>
+	   						<option value="Bar">Bar</option>
+	  						<option value="Outside">Outside</option>
+	  						<option value="Other">Other</option>
+	  					</optgroup>
+					</select>
+				</div>
+				<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup">
+	   				<legend>*What did you have&#63</legend>
+	   				<input  name="food" type="checkbox" value="Appetizers" checked id="Appetizers"/>
+	   				<label for="Appetizers">Appetizer</label>
+	   				<input  name="food" type="checkbox" value="Meat" id="Meat"/>
+	   				<label for="Meat">Meat</label>
+	   				<input  name="food" type="checkbox" value="Seafood" id="Seafood"/>
+	   				<label for="Seafood">Seafood</label>
+	   				<input  name="food" type="checkbox" value="Vegetables" id="Vegetables"/>
+	   				<label for="Vegetables">Vegetables</label>
+	   				<input  name="food" type="checkbox" value="Grain" id="Grain"/>
+	   				<label for="Grain">Grain</label>
+	   				<input  name="food" type="checkbox" value="Dessert" checked id="Dessert"/>
+	   				<label for="Dessert">Dessert</label>
+	   				<input  name="food" type="checkbox" value="Other" id="Other"/>
+	   				<label for="Other">Other</label>
+    			</fieldset>
+			</div>
+				<div data-role="fieldcontain">
+					<label for="numScale">On a scale of 1 &#45; 10 how was it&#63;</label>
+					<input name="numScale" id="numScale" type="range" min="1" max="10" value="7"/>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="comments">What would you say about the food&#63;</label>
+					<textarea name="comments" id="comments"></textarea>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="favorite">Add to favorites&#63;</label>
+					<select data-role="slider">
+						<option value="No">No</option>
+						<option value="Yes">Yes</option>
+					</select>
+				</div>
+				<div data-role="fieldcontain">
+					<input type="reset" value="Reset">
+					<input type="submit" value="Submit">
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed">
+			</div>
+		</form>
+	</div>
 
 	<!-- JavaScript under here -->
 	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.js"></script>
+	<script src="js/libs/jquery.validate.min.js"></script>
 	<script src="js/wrong.js" type="text/javascript"></script>
 
 </body>

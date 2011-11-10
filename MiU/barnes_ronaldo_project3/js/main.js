@@ -354,7 +354,7 @@ $(document).ready(function(){
 		buttonPress(info, ALL);
 	}
 	
-	//Populates All Groups Screen
+	
 	function addItems(){
 		a("date").value = today();
 	}
@@ -371,7 +371,10 @@ $(document).ready(function(){
 	}	
 	
 	function parseRestForm(info){
-		console.log(info);
+		for(d=0; d<info.length; d++){
+			var val = info[d];
+ 			console.log(val.place);
+		}
 	}
 	
 	restForm.validate({

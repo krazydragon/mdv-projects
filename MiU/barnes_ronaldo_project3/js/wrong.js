@@ -4,8 +4,7 @@
 
 
 	
-
-	
+$(document).ready(function(){	
 	
 	//Retrieve element function
 	function a(k) {
@@ -18,8 +17,10 @@
 		outButton = a("OutsideButton"),
 		spoButton = a("SportsButton"),
 		othButton = a("OtherButton"),
-		allButton = a("AllButton")
+		allButton = a("AllButton"),
+		addEntry = a("addEntry"),
 		wipeInfo = a("wipeInfo"),
+		restForm = $("#restForm"),
 		FAM = a("FAMpage"),
 		BAR = a("BARpage"),
 		SPO = a("SPOpage"),
@@ -29,6 +30,7 @@
 		info = new Array(),
 		restInfo = ("place", "date", "types", "food", "numScale", "comments")
 	;
+
 	//Sort function	
 	function i(a, b){
 		var a = a.date, b = b.date
@@ -279,6 +281,18 @@
 		console.log(info);
 	}
 	
+	function today(){
+		var now = new Date(),
+   			year =now.getFullYear(),
+   			month = now.getMonth() + 1, 
+   			day = now.getDate();
+   		if(day < 10){
+   			day = "0" + day
+   		}
+		var rv = year + "-" + month + "-" + day
+		return rv;
+	}
+	
 	//Picks proper groups
 	function getTypes(v, b){
 		var restArr= new Array()
@@ -338,6 +352,9 @@
 		buttonPress(info, ALL);
 	}
 
+	function addItems(){
+		a("date").value = today();
+	}
 	
 	//Wipe local storage
 	function emptyStorage(){
@@ -349,14 +366,28 @@
 			return false;
 		}
 	}	
+	function parseRestForm(info){
+		for(d=0; d<info.length; d++){
+			var val = info[d];
+ 			console.log(val.place);
+		}
+	}
 	
-	//Event Listeners
+	restForm.validate({
+		submitHandler: function(){
+			var info = restForm.serializeArray();
+			parseRestForm(info);
+		}
+	})
+	
 	famButton.addEventListener("click", fButton);
 	baButton.addEventListener("click", bButton);
 	outButton.addEventListener("click", oButton);
 	spoButton.addEventListener("click", sButton);
 	othButton.addEventListener("click", OButton);
 	allButton.addEventListener("click", aButton);
+	addEntry.addEventListener("click", addItems);
 	wipeInfo.addEventListener("click", emptyStorage);
 
+});
 	
