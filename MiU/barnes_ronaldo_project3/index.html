@@ -161,20 +161,21 @@
 		</div>
 		<div data-role="content" >
 			<form action="" method="post" id="restForm">
+				<em>* Required</em>
 				<div data-role="fieldcontain">
-					<label for="place">What city are you in&#63;</label>
-					<input type="text" name="place" id="place" class="required">
+					<label for="place"><em>* </em>What city are you in&#63;</label>
+					<input type="text" name="place" id="place" placeholder="Tacoma,WA" class="required">
 				</div>
 				<div data-role="fieldcontain">
-					<label for="resturant">Name of the Restaurant&#63</label>
-					<input type="text" name="restaurant" id="restaurant" class="required">
+					<label for="resturant"><em>* </em>Name of the Restaurant&#63</label>
+					<input type="text" name="restaurant" placeholder="The Rock" id="restaurant" class="required">
 				</div>
 				<div data-role="fieldcontain">
-					<label for="date">Date&#63</label>
+					<label for="date"><em>* </em>Date&#63</label>
 					<input name="date" id="date" type="date" class="required" data-role="datebox" data-options='{"mode": "calbox", "disableManualInput": true}'>
 				</div>
 				<div data-role="fieldcontain">
-					<label for="types">What kind of Restaurant was it&#63;</label>
+					<label for="types"><em>* </em>What kind of Restaurant was it&#63;</label>
 					<select name="types" id="types" data-native-menu=false class="required">
 	   					<option data-placeholder="true">---Pick A Type of Restaurant---</option>	
 	   					<optgroup label="Restarurant Types">			
@@ -187,7 +188,7 @@
 					</select>
 				</div>
 				<div data-role="fieldcontain">
-					<label for="food">What did you have&#63;</label>
+					<label for="food"><em>* </em>What did you have&#63;</label>
 					<select name="food" id="food" multiple="multiple" data-native-menu=false class="required">
 	   					<option data-placeholder="true">---What did you have?---</option>	
 	   					<optgroup label="Restarurant Types">			
@@ -217,7 +218,7 @@
 				</div>
 				<div data-role="fieldcontain">
 					<input type="reset" value="Reset">
-					<input type="submit" value="Submit">
+					<input type="submit" value="Submit" data-theme="b">
 				</div>
 			</div>
 			<div data-role="footer" data-position="fixed">

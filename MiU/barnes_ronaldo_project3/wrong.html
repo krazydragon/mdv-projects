@@ -32,10 +32,10 @@
 		<div data-role="header">
 			<h1>My Restaurant Tracker</h1>	
 		</div>
-		<div data-role="content">
-			<div id="mainFeature">
+		<div id="mainFeature">
 				<a href="#addRest" title="Main Feature" id="addEntry"></a>
 			</div>
+		<div data-role="content">
 			<div data-role="fieldcontain">
 				<input type="search" id="search"/>	
 			</div>
@@ -134,18 +134,21 @@
 				<div data-role="fieldcontain">
 					<label for="place">What city are you in&#63;</label>
 					<input type="text" name="place" id="place" class="required">
+					<p>Example: Tacoma, Wa</p>
 				</div>
 				<div data-role="fieldcontain">
 					<label for="resturant">Name of the Restaurant&#63</label>
 					<input type="text" name="restaurant" id="restaurant" class="required">
+					<p>Example: The Rock</p>
 				</div>
 				<div data-role="fieldcontain">
 					<label for="date">Date&#63</label>
-					<input name="date" id="date" type="date" class="required">
+					<input name="date" id="date" type="text" class="required dateISO">
+					<p>Example: 2011-09-15</p>
 				</div>
 				<div data-role="fieldcontain">
 					<label for="types">What kind of Restaurant was it&#63;</label>
-					<select name="types" id="types" data-native-menu=false>
+					<select name="types" id="types" class="required">
 	   					<option data-placeholder="true">---Pick A Type of Restaurant---</option>	
 	   					<optgroup label="Restarurant Types">			
 	   						<option value="Family">Family</option>
@@ -192,7 +195,7 @@
 				</div>
 				<div data-role="fieldcontain">
 					<input type="reset" value="Reset">
-					<input type="submit" value="Submit">
+					<input type="submit" value="Submit" data-theme="a">
 				</div>
 			</div>
 			<div data-role="footer" data-position="fixed">
