@@ -5,7 +5,7 @@
 
 	
 
-	
+$(document).ready(function(){	
 	
 	//Retrieve element function
 	function a(k) {
@@ -21,6 +21,7 @@
 		allButton = a("AllButton"),
 		addEntry = a("addEntry"),
 		wipeInfo = a("wipeInfo"),
+		restForm = $("#restForm"),
 		FAM = a("FAMpage"),
 		BAR = a("BARpage"),
 		SPO = a("SPOpage"),
@@ -369,6 +370,17 @@
 		}
 	}	
 	
+	function parseRestForm(info){
+		console.log(info);
+	}
+	
+	restForm.validate({
+		submitHandler: function(){
+			var info = restForm.serializeArray();
+			parseRestForm(info);
+		}
+	})
+	
 	famButton.addEventListener("click", fButton);
 	baButton.addEventListener("click", bButton);
 	outButton.addEventListener("click", oButton);
@@ -378,4 +390,5 @@
 	addEntry.addEventListener("click", addItems);
 	wipeInfo.addEventListener("click", emptyStorage);
 
+});
 	
