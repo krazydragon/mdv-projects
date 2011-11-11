@@ -40,5 +40,6 @@ em {
     color: red; 
     font-weight: bold; 
     padding-right: .25em; 
+    font-size: x-small;
 }
-#submit {margin-left: : 150px}
+.ui-page {}

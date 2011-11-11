@@ -29,7 +29,7 @@
 </head>
 <body>
 	<!--Main Page-->
-	<div data-role="page" id="main">
+	<div data-role="page" id="main" data-theme="b">
 		<div data-role="header" data-theme="b">
 			<h1>My Restaurant Tracker</h1>	
 		</div>		
@@ -37,10 +37,7 @@
 				<a href="#addRest" title="Main Feature" id="addEntry"></a>
 			</div>
 		<div data-role="content">
-			<div data-role="fieldcontain">
-			<input type="search" id="search"/>	
-		</div>
-			<ul data-role="listview" data-inset="true" data-theme="b">
+			<ul data-role="listview" data-inset="true" data-theme="b"  data-filter="true">
 				<li><a href="#familyPage" id="FamilyButton">
 					<img src="images/family.png"/>
 					<h3>Family</h3>
@@ -148,31 +145,36 @@
 			<h1>All Groups</h1>
 		</div>
 		<div data-role="content" >
-			<div data-role="collapsible-set" id="ALLpage">
+			<div>
+				<ul data-role="listview" id="ALLpage" data-filter="true">
+				</ul>
 			</div>
 		</div>
 		<div data-role="footer" data-position="fixed">
 		</div>
 	</div>
 	<!--Tracker Page-->	
-	<div data-role="page" id="addRest" data-add-back-btn="true">
-		<div data-role="header" data-position="fixed">
+	<div data-role="page" id="addRest" data-add-back-btn="true" data-theme="b">
+		<div data-role="header" data-position="fixed"  data-theme="b" >
 			<h1>New Entry</h1>
 		</div>
 		<div data-role="content" >
 			<form action="" method="post" id="restForm">
+				<h2>Track A New Restaurant</h2>
 				<em>* Required</em>
 				<div data-role="fieldcontain">
 					<label for="place"><em>* </em>What city are you in&#63;</label>
 					<input type="text" name="place" id="place" placeholder="Tacoma,WA" class="required">
+					<p>Example: Tacoma, Wa</p>
 				</div>
 				<div data-role="fieldcontain">
 					<label for="resturant"><em>* </em>Name of the Restaurant&#63</label>
 					<input type="text" name="restaurant" placeholder="The Rock" id="restaurant" class="required">
+					<p>Example: The Rock</p>
 				</div>
 				<div data-role="fieldcontain">
 					<label for="date"><em>* </em>Date&#63</label>
-					<input name="date" id="date" type="date" class="required" data-role="datebox" data-options='{"mode": "calbox", "disableManualInput": true}'>
+					<input name="date" id="date" type="date" class="required" data-role="datebox" data-options='{"mode": "calbox", "disableManualInput": true}'  data-theme="b">
 				</div>
 				<div data-role="fieldcontain">
 					<label for="types"><em>* </em>What kind of Restaurant was it&#63;</label>
@@ -218,8 +220,8 @@
 				</div>
 				<div data-role="fieldcontain">
 					<div class="ui-grid-a">
-						<div class="ui-block-a"><input type="submit" value="Submit" data-theme="b" id="submit"></div>
-						<div class="ui-block-b"><input type="reset" value="Reset" data-corners="false"></div>
+						<div class="ui-block-a"><input type="submit" value="Submit" id="submit"></div>
+						<div class="ui-block-b"><input type="reset" value="Reset" data-corners="false" data-theme="c" data-shadow="false"></div>
 					</div><!-- /grid-a -->
 				</div>
 			</div>

@@ -240,7 +240,8 @@ $(document).ready(function(){
 	// Displays the saved data in local storage on the screen
 	function viewData(info, BUTTON){
 		for (var d=0; d<info.length; d++){	
-			var newDiv = document.createElement("div"),
+			var newLi = document.createElement("li"),
+				newDiv = document.createElement("div"),
 				newH3 = document.createElement("h3"),
 				newP1 = document.createElement("p"),
 				newP2 = document.createElement("p"),
@@ -263,7 +264,8 @@ $(document).ready(function(){
 			newP5.innerHTML = "On a scale of 1-10 how good was it? : " + info[d].numScale;
 			newDiv.appendChild(newP6);
 			newP6.innerHTML = "Comments : " + info[d].comments;
-			BUTTON.appendChild(newDiv);
+			newLi.appendChild(newDiv);
+			BUTTON.appendChild(newLi);
 		}			
 	}
 
