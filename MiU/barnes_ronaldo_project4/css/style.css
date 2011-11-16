@@ -1,0 +1,53 @@
+/*
+Project 4
+Author: Ronaldo Barnes
+Created for: MiU Online 1111
+*/
+
+
+
+div ul {
+	background-color: : #3f92d2;
+	}
+div a {
+	font-size: small;
+	}
+div p {
+	font-size: small;
+	}
+
+#addEntry {
+    background-image:url(../images/RTFeature.jpg);
+    display:block;
+    height:145px;
+    width:320px;
+    position: absolute: left 0px;
+}
+#searchInput {
+	height:15px;
+    width:350px;
+    margin: 10px;
+}
+# main {background: black;}
+
+label.error{
+	display: block;
+	margin: 11px 0;
+	color: red;
+}
+
+em { 
+    color: red; 
+    font-weight: bold; 
+    padding-right: .25em; 
+    font-size: x-small;
+}
+
+.ui-page
+{
+    background-color:black;
+    background-image: url("../Images/background.png") !important;
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}

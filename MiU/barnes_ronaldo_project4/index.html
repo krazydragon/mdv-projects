@@ -1,0 +1,252 @@
+<!doctype html>
+<!--Project 4 -->
+<!--Author: Ronaldo Barnes -->
+<!--Created for:MiU Online 1111 -->	  
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+	
+	<title>My Restaurant Tracker</title>
+	
+	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Mobile IE needs ClearType for smoothing fonts -->
+	<meta http-equiv="cleartype" content="on">
+	
+	<!-- StyleSheets under here -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.css" />
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.css" /> 
+	
+	
+	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+	<script src="js/libs/modernizr.custom.min.js"></script>
+
+</head>
+<body background="images/background.jpg">
+	<!--Main Page-->
+	<div data-role="page" id="main" data-theme="b">
+		<div data-role="header" data-theme="b">
+			<h1>My Restaurant Tracker</h1>	
+		</div>		
+		<div id="mainFeature">
+				<a href="#addRest" title="Main Feature" id="addEntry"></a>
+			</div>
+		<div data-role="content">
+			<ul data-role="listview" data-inset="true" data-theme="b"  data-filter="true">
+				<li><a href="#familyPage" id="FamilyButton">
+					<img src="images/family.png"/>
+					<h3>Family</h3>
+					<p>Family oriented restaurants.</p>
+				</a></li>
+				<li><a href="#outsidePage" id="OutsideButton">
+					<img src="images/outside.png" />
+					<h3>Outside</h3>
+					<p>Places to eat outside</p>
+				</a></li>
+				<li><a href="#barPage" id="BarButton">
+					<img src="images/bar.png"/>
+					<h3>Bar</h3>
+					<p>No kids allowed</p>
+				</a></li>
+				<li><a href="#sportsPage" id="SportsButton">
+					<img src="images/sports.png"/>
+					<h3>Sports</h3>
+					<p>Places to watch the game.</p>
+				</a></li>
+				<li><a href="#otherPage" id="OtherButton">
+					<img src="images/other.png"/>
+					<h3>Other</h3>
+					<p>Unique Restaurants. </p>
+				</a></li>
+				<li><a href="#allPages" id="AllButton">
+					<img src="images/all.png"/>
+					<h3>All</h3>
+					<p>All Restaurants. </p>
+				</a></li>
+			</ul>
+		</div>	
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="wrong.html" data-ajax="false" data-icon="alert">Wrong App</a></li>
+					<li><a href="#main" id="wipeInfo" data-icon="delete">Clear</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+	</div>
+	<!--Family Page-->
+	<div data-role="page" id="familyPage" data-add-back-btn="true" data-theme="b">
+		<div data-role="header" data-position="fixed">
+			<h1>Family Groups</h1>
+		</div>
+		<div data-role="content" >
+			<div>
+				<ul data-role="listview" id=FAMpage data-filter="true">
+				</ul>
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed">
+		</div>
+	</div>
+	<!--Outside Page-->
+	<div data-role="page" id="outsidePage" data-add-back-btn="true" data-theme="b">
+		<div data-role="header" data-position="fixed">
+			<h1>Outside Groups</h1>
+		</div>
+		<div data-role="content" >
+			<div>
+				<ul data-role="listview" id="OUTpage" data-filter="true">
+				</ul>
+			</div>		
+		</div>
+		<div data-role="footer" data-position="fixed">
+		</div>
+	</div>
+	<!--Bar Page-->
+	<div data-role="page" id="barPage" data-add-back-btn="true" data-theme="b">
+		<div data-role="header" data-position="fixed">
+			<h1>Bar Groups</h1>
+		</div>
+		<div data-role="content" >
+			<div>
+				<ul data-role="listview" id="BARpage" data-filter="true">
+				</ul>
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed">
+		</div>
+	</div>
+	<!--Sports Page-->
+	<div data-role="page" id="sportsPage" data-add-back-btn="true" data-theme="b">		
+		<div data-role="header" data-position="fixed">
+			<h1>Sports Groups</h1>
+		</div>
+		<div data-role="content" >
+			<div>
+				<ul data-role="listview" id="SPOpage" data-filter="true">
+				</ul>
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed">
+		</div>
+	</div>
+	<!--Other Page-->
+	<div data-role="page" id="otherPage" data-add-back-btn="true" data-theme="b">	
+		<div data-role="header" data-position="fixed">
+			<h1>Other Groups</h1>
+		</div>
+		<div data-role="content" >
+			<div>
+				<ul data-role="listview" id="OTHpage" data-filter="true">
+				</ul>
+			</div>
+		</div>
+		<<div data-role="footer" data-position="fixed">
+		</div>
+	</div>
+	<!--All Page-->	
+	<div data-role="page" id="allPages" data-add-back-btn="true" data-theme="b">
+		<div data-role="header" data-position="fixed">
+			<h1>All Groups</h1>
+		</div>
+		<div data-role="content" >
+			<div>
+				<ul data-role="listview" id="ALLpage" data-filter="true">
+				</ul>
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed">
+		</div>
+	</div>
+	<!--Tracker Page-->	
+	<div data-role="page" id="addRest" data-add-back-btn="true" data-theme="b">
+		<div data-role="header" data-position="fixed"  data-theme="b" >
+			<h1>New Entry</h1>
+		</div>
+		<div data-role="content" >
+			<form action="" method="post" id="restForm">
+				<h2>Track A New Restaurant</h2>
+				<em>* Required</em>
+				<div data-role="fieldcontain">
+					<label for="place"><em>* </em>What city are you in&#63;</label>
+					<input type="text" name="place" id="place" placeholder="Tacoma,WA" class="required">
+					<p>Example: Tacoma, Wa</p>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="resturant"><em>* </em>Name of the Restaurant&#63</label>
+					<input type="text" name="restaurant" placeholder="The Rock" id="restaurant" class="required">
+					<p>Example: The Rock</p>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="date"><em>* </em>Date&#63</label>
+					<input name="date" id="date" type="date" class="required" data-role="datebox" data-options='{"mode": "calbox", "disableManualInput": true}'  data-theme="b">
+				</div>
+				<div data-role="fieldcontain">
+					<label for="types"><em>* </em>What kind of Restaurant was it&#63;</label>
+					<select name="types" id="types" data-native-menu=false class="required">
+	   					<option data-placeholder="true">---Pick A Type of Restaurant---</option>	
+	   					<optgroup label="Restarurant Types">			
+	   						<option value="Family">Family</option>
+	  						<option value="Sports">Sports</option>
+	   						<option value="Bar">Bar</option>
+	  						<option value="Outside">Outside</option>
+	  						<option value="Other">Other</option>
+	  					</optgroup>
+					</select>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="food"><em>* </em>What did you have&#63;</label>
+					<select name="food" id="food" multiple="multiple" data-native-menu=false class="required">
+	   					<option data-placeholder="true">---What did you have?---</option>	
+	   					<optgroup label="Food Types">			
+	   						<option value="Appetizers">Appetizers</option>
+	  						<option value="Meat">Meat</option>
+	   						<option value="Seafood">Seafood</option>
+	  						<option value="Vegetables">Vegetables</option>
+	  						<option value="Dessert">Dessert</option>
+	  						<option value="Other">Other</option>
+	  					</optgroup>
+					</select>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="numScale">On a scale of 1 &#45; 10 how was it&#63;</label>
+					<input name="numScale" id="numScale" type="range" min="1" max="10" value="7"/>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="comments">What would you say about the food&#63;</label>
+					<textarea name="comments" id="comments"></textarea>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="favorite">Add to favorites&#63;</label>
+					<select data-role="slider">
+						<option value="No">No</option>
+						<option value="Yes">Yes</option>
+					</select>
+				</div>
+				<div data-role="fieldcontain">
+					<div class="ui-grid-a">
+						<div class="ui-block-a"><input type="submit" value="Submit" id="submit"></div>
+						<div class="ui-block-b"><input type="reset" value="Reset" data-corners="false" data-theme="c" data-shadow="false"></div>
+					</div><!-- /grid-a -->
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed">
+			</div>
+		</form>
+	</div>
+
+	<!-- JavaScript under here -->
+	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i8n/jquery.mobile.datebox.i8n.en.js"></script>
+	<script src="js/libs/jquery.validate.min.js"></script>
+	<script src="js/main.js" type="text/javascript"></script>
+
+</body>
+</html>
