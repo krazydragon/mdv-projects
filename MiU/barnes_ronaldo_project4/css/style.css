@@ -45,8 +45,8 @@ em {
 
 .ui-page
 {
-    background-color:black;
-    background-image: url("../Images/background.jpg") !important;
+    background-color:aqua;
+    background-image: url("../Images/background.jpg");
     background-attachment:fixed;
     background-repeat: no-repeat;
     background-size: 100%;
