@@ -22,6 +22,7 @@ $(document).ready(function(){
 		addEntry = a("addEntry"),
 		wipeInfo = a("wipeInfo"),
 		restForm = $("#restForm"),
+		mainLink = $("#mainLink"),
 		FAM = a("FAMpage"),
 		BAR = a("BARpage"),
 		SPO = a("SPOpage"),
@@ -371,11 +372,10 @@ $(document).ready(function(){
 	}	
 	
 	function parseRestForm(info){
-		for(d=0; d<info.length; d++){
-			var val = info[d];
- 			console.log(val.place);
+		alert("Restaurant Tracked!");
+		mainLink.click();
 		}
-	}
+	
 	
 	restForm.validate({
 		submitHandler: function(){
