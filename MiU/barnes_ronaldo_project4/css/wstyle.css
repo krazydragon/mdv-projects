@@ -14,7 +14,6 @@ div a {
 	}
 div p {
 	font-size: small;
-	color: white;
 	}
 # main {background: black;}
 
@@ -32,7 +31,7 @@ em {
 }
 
 .ui-mobile .ui-page{
-background-image: url(../images/background.jpg);
+background-image: url(../images/wbackground.jpg);
 }
 
 #headimg{display: inline}

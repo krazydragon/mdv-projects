@@ -19,7 +19,7 @@
 	
 	<!-- StyleSheets under here -->
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.css" />
-	<link rel="stylesheet" href="css/style.css" type="text/css" />
+	<link rel="stylesheet" href="css/wstyle.css" type="text/css" />
 	
 	
 	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
@@ -30,42 +30,51 @@
 	<!--Main Page-->
 	<div data-role="page" id="main">
 		<div data-role="header">
-			<h1>My Restaurant Tracker</h1>	
+			<img src="images/wrt_header.png"/>
 		</div>
-		<div id="mainFeature">
-				<a href="#addRest" title="Main Feature" id="addEntry"></a>
-			</div>
 		<div data-role="content">
 			<ul data-role="listview" data-inset="true" data-theme="a">
 				<div class="ui-grid-b">
 					<div class="ui-block-a">
+						<li><a href="#addRest" id="addEntry">
+							<img src="images/wrt.png"/>
+							<h3>Track Restaurant</h3>
+						</a></li>
+					</div>
+					<div class="ui-block-b">
 						<li><a href="#familyPage" id="FamilyButton">
 							<img src="images/wFamily.png"/>
-						</a></li>
-					</div>
-					<div class="ui-block-b">
-						<li><a href="#outsidePage" id="OutsideButton">
-							<img src="images/wOut.png" />
-						</a></li>
-					</div>
-					<div class="ui-block-c" id="BARpage">
-						<li><a href="#" id="BarButton">
-							<img src="images/wBar.png"/>
-						</a></li>
-					</div>
-					<div class="ui-block-a">
-						<li><a href="#sportsPage" id="SportsButton">
-							<img src="images/wSports.png"/>
-						</a></li>
-					</div>
-					<div class="ui-block-b">
-						<li><a href="#otherPage" id="OtherButton">
-							<img src="images/wOther.png"/>
+							<h3>Family</h3>
 						</a></li>
 					</div>
 					<div class="ui-block-c">
+						<li><a href="#outsidePage" id="OutsideButton">
+							<img src="images/wOut.png" />
+							<h3>Outside</h3>
+						</a></li>
+					</div>
+					<div class="ui-block-a" id="BARpage">
+						<li><a href="#" id="BarButton">
+							<img src="images/wBar.png"/>
+							<h3>Bar</h3>
+						</a></li>
+					</div>
+					<div class="ui-block-b">
+						<li><a href="#sportsPage" id="SportsButton">
+							<img src="images/wSports.png"/>
+							<h3>Sports</h3>
+						</a></li>
+					</div>
+					<div class="ui-block-c">
+						<li><a href="#otherPage" id="OtherButton">
+							<img src="images/wOther.png"/>
+							<h3>Other</h3>
+						</a></li>
+					</div>
+					<div class="ui-block-b">
 						<li><a href="#allPages" id="AllButton">
 							<img src="images/wAll.png"/>
+							<h3>All</h3>
 						</a></li>
 					</div>
 				</div><!-- /grid-b -->
@@ -82,9 +91,15 @@
 		</div>
 	</div>
 	<!--Family Page-->
-	<div data-role="page" id="familyPage" data-add-back-btn="true" data-theme="a">
+	<div data-role="page" id="familyPage" data-theme="a" data-title="Family Groups">
 		<div data-role="header" data-position="fixed">
-			<h1>Family Groups</h1>
+			<div data-role="navbar">
+				<ul>
+					<li><img src="images/wrt_headern.png"/></li>
+					<li><h3>Family</h3></li>
+					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
 		</div>
 		<div data-role="content" id="FAMpage">
 		</div>

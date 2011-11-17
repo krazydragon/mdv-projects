@@ -31,13 +31,15 @@
 	<!--Main Page-->
 	<div data-role="page" id="main" data-theme="b">
 		<div data-role="header" data-theme="b">
-			<h1>My Restaurant Tracker</h1>	
+			<img src="images/rt_headern.png"/>
 		</div>		
-		<div id="mainFeature">
-				<a href="#addRest" title="Main Feature" id="addEntry"></a>
-			</div>
 		<div data-role="content">
-			<ul data-role="listview" data-inset="true" data-theme="b"  data-filter="true">
+			<ul data-role="listview" data-inset="true" data-theme="b">
+				<li><a href="#addRest" id="addEntry">
+					<img src="images/rt.png"/>
+					<h3>Track Restaurant</h3>
+					<p>Track a new restaurant.</p>
+				</a></li>
 				<li><a href="#familyPage" id="FamilyButton">
 					<img src="images/family.png"/>
 					<h3>Family</h3>
@@ -66,7 +68,7 @@
 				<li><a href="#allPages" id="AllButton">
 					<img src="images/all.png"/>
 					<h3>All</h3>
-					<p>All Restaurants. </p>
+					<p>Search All Restaurants. </p>
 				</a></li>
 			</ul>
 		</div>	
@@ -80,79 +82,110 @@
 		</div>
 	</div>
 	<!--Family Page-->
-	<div data-role="page" id="familyPage" data-add-back-btn="true" data-theme="b">
+	<div data-role="page" id="familyPage" data-theme="b">
 		<div data-role="header" data-position="fixed">
-			<h1>Family Groups</h1>
+			<div data-role="navbar">
+				<ul>
+					<li><img src="images/rt_header.png"/></li>
+					<li><h3>Family</h3></li>
+					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
 		</div>
 		<div data-role="content" >
-			<div>
-				<ul data-role="listview" id=FAMpage data-filter="true">
-				</ul>
+			<div data-role="collapsible-set" id="FAMpage">
+			
 			</div>
 		</div>
 		<div data-role="footer" data-position="fixed">
 		</div>
 	</div>
 	<!--Outside Page-->
-	<div data-role="page" id="outsidePage" data-add-back-btn="true" data-theme="b">
+	<div data-role="page" id="outsidePage" data-theme="b">
 		<div data-role="header" data-position="fixed">
-			<h1>Outside Groups</h1>
+			<div data-role="navbar">
+				<ul>
+					<li><img src="images/rt_header.png"/></li>
+					<li><h3>Outside</h3></li>
+					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
 		</div>
 		<div data-role="content" >
-			<div>
-				<ul data-role="listview" id="OUTpage" data-filter="true">
-				</ul>
+			<div data-role="collapsible-set"  id="OUTpage">
+			
 			</div>		
 		</div>
 		<div data-role="footer" data-position="fixed">
 		</div>
 	</div>
 	<!--Bar Page-->
-	<div data-role="page" id="barPage" data-add-back-btn="true" data-theme="b">
+	<div data-role="page" id="barPage" data-theme="b">
 		<div data-role="header" data-position="fixed">
-			<h1>Bar Groups</h1>
+			<div data-role="navbar">
+				<ul>
+					<li><img src="images/rt_header.png"/></li>
+					<li><h3>Bar</h3></li>
+					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
 		</div>
 		<div data-role="content" >
-			<div>
-				<ul data-role="listview" id="BARpage" data-filter="true">
-				</ul>
+			<div data-role="collapsible-set" id="BARpage">
+				
 			</div>
 		</div>
 		<div data-role="footer" data-position="fixed">
 		</div>
 	</div>
 	<!--Sports Page-->
-	<div data-role="page" id="sportsPage" data-add-back-btn="true" data-theme="b">		
+	<div data-role="page" id="sportsPage" data-theme="b">		
 		<div data-role="header" data-position="fixed">
-			<h1>Sports Groups</h1>
+			<div data-role="navbar">
+				<ul>
+					<li><img src="images/rt_header.png"/></li>
+					<li><h3>Sports</h3></li>
+					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
 		</div>
 		<div data-role="content" >
-			<div>
-				<ul data-role="listview" id="SPOpage" data-filter="true">
-				</ul>
+			<div data-role="collapsible-set" id="SPOpage">
+				
 			</div>
 		</div>
 		<div data-role="footer" data-position="fixed">
 		</div>
 	</div>
 	<!--Other Page-->
-	<div data-role="page" id="otherPage" data-add-back-btn="true" data-theme="b">	
+	<div data-role="page" id="otherPage" data-theme="b">	
 		<div data-role="header" data-position="fixed">
-			<h1>Other Groups</h1>
+			<div data-role="navbar">
+				<ul>
+					<li><img src="images/rt_header.png"/></li>
+					<li><h3>Other</h3></li>
+					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
 		</div>
 		<div data-role="content" >
-			<div>
-				<ul data-role="listview" id="OTHpage" data-filter="true">
-				</ul>
+			<div data-role="collapsible-set" id="OTHpage">
+				
 			</div>
 		</div>
 		<<div data-role="footer" data-position="fixed">
 		</div>
 	</div>
 	<!--All Page-->	
-	<div data-role="page" id="allPages" data-add-back-btn="true" data-theme="b">
+	<div data-role="page" id="allPages" data-theme="b">
 		<div data-role="header" data-position="fixed">
-			<h1>All Groups</h1>
+			<div data-role="navbar">
+				<ul>
+					<li><img src="images/rt_header.png"/></li>
+					<li><h3>All</h3></li>
+					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
 		</div>
 		<div data-role="content" >
 			<div>
@@ -164,9 +197,15 @@
 		</div>
 	</div>
 	<!--Tracker Page-->	
-	<div data-role="page" id="addRest" data-add-back-btn="true" data-theme="b">
+	<div data-role="page" id="addRest" data-theme="a">
 		<div data-role="header" data-position="fixed"  data-theme="b" >
-			<h1>New Entry</h1>
+			<div data-role="navbar">
+				<ul>
+					<li><img src="images/rt_header.png"/></li>
+					<li><h3>New Entry</h3></li>
+					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
 		</div>
 		<div data-role="content" >
 			<form action="" method="post" id="restForm">
@@ -184,7 +223,7 @@
 				</div>
 				<div data-role="fieldcontain">
 					<label for="date"><em>* </em>Date&#63</label>
-					<input name="date" id="date" type="date" class="required" data-role="datebox" data-options='{"mode": "calbox", "disableManualInput": true}'  data-theme="b">
+					<input name="date" id="date" type="date" class="required" data-role="datebox" data-options='{"mode": "calbox", "disableManualInput": true}'  data-theme="a">
 				</div>
 				<div data-role="fieldcontain">
 					<label for="types"><em>* </em>What kind of Restaurant was it&#63;</label>
