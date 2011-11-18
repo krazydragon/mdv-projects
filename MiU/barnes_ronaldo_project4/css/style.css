@@ -40,3 +40,10 @@ background-image: url(../images/background.jpg);
 #headid{display: inline
 }
 
+.ui-body-b {
+color: white;
+background: white;
+text-shadow: 0 1px 0;
+}
+
+#mainLink {display: none;}
