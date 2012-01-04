@@ -1,0 +1,253 @@
+<!doctype html>
+<!--Project 1 -->
+<!--Author: Ronaldo Barnes -->
+<!--Created for:ASD Online 0112 -->	 	  
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+	
+	<title>wrong</title>
+	
+	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
+	<meta name="HandheldFriendly" content="True">
+	<meta name="MobileOptimized" content="320"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!-- Mobile IE needs ClearType for smoothing fonts -->
+	<meta http-equiv="cleartype" content="on">
+	
+	<!-- StyleSheets under here -->
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.css" />
+	<link rel="stylesheet" href="css/wstyle.css" type="text/css" />
+	
+	
+	<!-- JavaScript is normally at the end of the body, except for Modernizr which enables HTML5 elements & feature detects -->
+	<script src="js/libs/modernizr.custom.min.js"></script>
+
+</head>
+<body>
+	<!--Main Page-->
+	<div data-role="page" id="main" data-title="Main Page" data-theme="b">
+		<div data-role="header">
+			<img src="images/wrt_header.png"/>
+		</div>
+		<div data-role="content">
+			<ul data-role="listview" data-inset="true" >
+				<div class="ui-grid-b">
+					<div class="ui-block-a">
+						<li><a href="#addRest" id="addEntry">
+							<img src="images/Wrt.png"/>
+							<h3>Track Restaurant</h3>
+						</a></li>
+					</div>
+					<div class="ui-block-b">
+						<li><a href="#familyPage" id="FamilyButton">
+							<img src="images/wFamily.png"/>
+							<h3>Family</h3>
+						</a></li>
+					</div>
+					<div class="ui-block-c">
+						<li><a href="#outsidePage" id="OutsideButton">
+							<img src="images/wOut.png" />
+							<h3>Outside</h3>
+						</a></li>
+					</div>
+					<div class="ui-block-a" id="BARpage">
+						<li><a href="#" id="BarButton">
+							<img src="images/wBar.png"/>
+							<h3>Bar</h3>
+						</a></li>
+					</div>
+					<div class="ui-block-b">
+						<li><a href="#sportsPage" id="SportsButton">
+							<img src="images/wSports.png"/>
+							<h3>Sports</h3>
+						</a></li>
+					</div>
+					<div class="ui-block-c">
+						<li><a href="#otherPage" id="OtherButton">
+							<img src="images/wOther.png"/>
+							<h3>Other</h3>
+						</a></li>
+					</div>
+					<div class="ui-block-b">
+						<li><a href="#allPages" id="AllButton">
+							<img src="images/wAll.png"/>
+							<h3>All</h3>
+						</a></li>
+					</div>
+				</div><!-- /grid-b -->
+			</ul>
+		</div>
+		
+		<div data-role="footer" data-position="fixed"  data-theme="b">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="index.html" data-ajax="false" data-icon="check">Right App</a></li>
+					<li><a href="#main" id="wipeInfo" data-icon="delete">Clear</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+	</div>
+	<!--Family Page-->
+	<div data-role="page" id="familyPage" data-theme="a" data-title="Family Groups">
+		<div data-role="header" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><img src="images/wrt_header.png"/></li>
+					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+		<div data-role="content" id="FAMpage">
+		</div>
+	</div>
+	<!--Outside Page-->
+	<div data-role="page" id="outsidePage"  data-theme="a" data-title="Outside Groups">
+		<div data-role="header" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><img src="images/wrt_header.png"/></li>
+					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->		
+		</div>
+		<div data-role="content" id="OUTpage">
+		</div>
+	</div>
+	<!--Sports Page-->
+	<div data-role="page" id="sportsPage" data-theme="a" data-title="Sports Groups">
+		<div data-role="header" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><img src="images/wrt_header.png"/></li>
+					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+		<div data-role="content" id="SPOpage">
+		</div>
+	</div>
+	<!--Other Page-->
+	<div data-role="page" id="otherPage" data-theme="a" data-title="Other Groups">
+		<div data-role="header" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><img src="images/wrt_header.png"/></li>
+					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+		<div data-role="content" id="OTHpage">
+		</div>
+	</div>
+	<!--All Page-->
+	<div data-role="page" id="allPages" data-theme="a">
+		<div data-role="header" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><img src="images/wrt_header.png"/></li>
+					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+		<div data-role="content" id="ALLpage" data-title="All Groups">
+		</div>
+	</div>
+		<!--Tracker Page-->	
+	<div data-role="page" id="addRest" data-theme="a" data-title="New Entry">
+		<div data-role="header" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><img src="images/wrt_header.png"/></li>
+					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+		<div data-role="content" >
+			<form action="" method="post" id="restForm">
+				<h2>Track A New Restaurant</h2>
+				<em>* Required</em>
+				<div data-role="fieldcontain">
+					<label for="place"><em>* </em>What city are you in&#63;</label>
+					<input type="text" name="place" id="place" class="required">
+					<p>Example: Tacoma, Wa</p>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="resturant"><em>* </em>Name of the Restaurant&#63</label>
+					<input type="text" name="restaurant" id="restaurant" class="required">
+					<p>Example: The Rock</p>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="date"><em>* </em>Date&#63</label>
+					<input name="date" id="date" type="text" class="required dateISO">
+					<p>Example: 2011-09-15</p>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="types"><em>* </em>What kind of Restaurant was it&#63;</label>
+					<select name="types" id="types" class="required">
+	   					<option data-placeholder="true">---Pick A Type of Restaurant---</option>	
+	   					<optgroup label="Restarurant Types">			
+	   						<option value="Family">Family</option>
+	  						<option value="Sports">Sports</option>
+	   						<option value="Bar">Bar</option>
+	  						<option value="Outside">Outside</option>
+	  						<option value="Other">Other</option>
+	  					</optgroup>
+					</select>
+				</div>
+				<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup">
+	   				<legend><em>* </em>*What did you have&#63</legend>
+	   				<input  name="food" type="checkbox" value="Appetizers" checked id="Appetizers"class="required"/>
+	   				<label for="Appetizers">Appetizer</label>
+	   				<input  name="food" type="checkbox" value="Meat" id="Meat"/>
+	   				<label for="Meat">Meat</label>
+	   				<input  name="food" type="checkbox" value="Seafood" id="Seafood"/>
+	   				<label for="Seafood">Seafood</label>
+	   				<input  name="food" type="checkbox" value="Vegetables" id="Vegetables"/>
+	   				<label for="Vegetables">Vegetables</label>
+	   				<input  name="food" type="checkbox" value="Grain" id="Grain"/>
+	   				<label for="Grain">Grain</label>
+	   				<input  name="food" type="checkbox" value="Dessert" checked id="Dessert"/>
+	   				<label for="Dessert">Dessert</label>
+	   				<input  name="food" type="checkbox" value="Other" id="Other"/>
+	   				<label for="Other">Other</label>
+    			</fieldset>
+			</div>
+				<div data-role="fieldcontain">
+					<label for="numScale">On a scale of 1 &#45; 10 how was it&#63;</label>
+					<input name="numScale" id="numScale" type="range" min="1" max="10" value="7"/>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="comments">What would you say about the food&#63;</label>
+					<textarea name="comments" id="comments"></textarea>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="favorite">Add to favorites&#63;</label>
+					<select data-role="slider">
+						<option value="No">No</option>
+						<option value="Yes">Yes</option>
+					</select>
+				</div>
+				<div data-role="fieldcontain">
+					<div class="ui-grid-a">
+						<div class="ui-block-a"><input type="submit" value="Submit" id="submit"></div>
+						<div class="ui-block-b"><input type="reset" value="Reset" data-corners="false" data-shadow="false"></div>
+					</div><!-- /grid-a -->
+				</div>
+			</div>
+			<div data-role="footer" data-position="fixed">
+			</div>
+		</form>
+	</div>
+
+	<!-- JavaScript under here -->
+	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.js"></script>
+	<script src="js/libs/jquery.validate.min.js"></script>
+	<script src="js/wrong.js" type="text/javascript"></script>
+
+</body>
+</html>
