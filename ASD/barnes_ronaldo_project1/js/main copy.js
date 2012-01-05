@@ -1,9 +1,7 @@
-// Project 1
-// Author: Ronaldo Barnes
-// Created for: MiU Online 0112
 
 
 	
+
 $(document).ready(function(){	
 	
 	//Retrieve element function
@@ -21,6 +19,7 @@ $(document).ready(function(){
 		addEntry = a("addEntry"),
 		wipeInfo = a("wipeInfo"),
 		restForm = $("#restForm"),
+		mainLink = $("#mainLink"),
 		FAM = a("FAMpage"),
 		BAR = a("BARpage"),
 		SPO = a("SPOpage"),
@@ -30,28 +29,28 @@ $(document).ready(function(){
 		info = new Array(),
 		restInfo = ("place", "date", "types", "food", "numScale", "comments")
 	;
-
-	//Sort function	
-	function i(a, b){
-		var a = a.date, b = b.date
-		if (a < b) {
-      		return 1;
-   		}
-   		if (a > b) {
-      		return -1;
-   		}
-   		if (a == b) {
-     		return 0;
-   		}
+	
+	
+	//JSON Object
+	function i(b, a){
+		return a.numScale-b.numScale
 	}
-	//JSON Object	
+	
+	function u(a, b){
+		var restA = a.restaurant.toLowerCase( );
+			restB = b.restaurant.toLowerCase( );
+		if (restA < restB) {return -1}
+		if (restA > restB) {return 1}
+		return 0;
+	}
+	
 	function autoLoadData(){
 	
 		var json = {
 			"Restaurant1" : {
 				"place" : "Honolulu, HI",
 				"restaurant" :"Dagon's Bar & Grill",
-				"date" :"2008-10-29",
+				"date" :"10-29-2008",
 				"types" :"Outside",
 				"food" : " Appetizers Other",
 				"numScale" : "9",
@@ -60,7 +59,7 @@ $(document).ready(function(){
 			"Restaurant2" : {
 				"place" : "Dallas, TX",
 				"restaurant" : "Anthony's Seafood",
-				"date" : "2009-03-04",
+				"date" : "03-04-2009",
 				"types" : "Family",
 				"food" : "Appetizers Seafood Dessert",
 				"numScale" : "10",
@@ -69,7 +68,7 @@ $(document).ready(function(){
 			"Restaurant3" : {
 				"place" : "Federal Way, WA",
 				"restaurant" :"Odin's Fire",
-				"date" : "2010-06-07",
+				"date" : "06-07-2010",
 				"types" : "Sports",
 				"food" : "Meat Vegetables Grain",
 				"numScale" : "8",
@@ -78,7 +77,7 @@ $(document).ready(function(){
 			"Restaurant4" : {
 				"place" : "Buffalo, N.Y.",
 				"restaurant" : "McDonalds’",
-				"date" : "2001-11-19",
+				"date" : "11-19-2001",
 				"types" : "Outside",
 				"food" : "Meat Vegetables Grain Appetizers Other",
 				"numScale" : "1",
@@ -87,7 +86,7 @@ $(document).ready(function(){
 			"Restaurant5" : {
 				"place" : "Fort Myers, FL",
 				"restaurant" : "Chuck E Chesse",
-				"date" : "2011-01-09",
+				"date" : "01-09-2011",
 				"types" :"Outside",
 				"food" : "Vegetables Grain Other",
 				"numScale" : "3",
@@ -96,7 +95,7 @@ $(document).ready(function(){
 			"Restaurant6" : {
 				"place" : "Appleton, WI",
 				"restaurant" : "Jack in the Box",
-				"date" : "2006-10-15",
+				"date" : "10-15-2006",
 				"types" : "Outside",
 				"food" : " Meat Vegetables Other",
 				"numScale" : "5",
@@ -105,7 +104,7 @@ $(document).ready(function(){
 			"Restaurant7" : {
 				"place" : "Rapid City, S.D",
 				"restaurant" : "Burger King",
-				"date" : "2009-06-10",
+				"date" : "06-10-2009",
 				"types" : "Family",
 				"food" : "Appetizers Other",
 				"numScale" : "7",
@@ -114,7 +113,7 @@ $(document).ready(function(){
 			"Restaurant8" : {
 				"place" : "Lincoln, Neb",
 				"restaurant" : "Old Country Buffet",
-				"date" : "2005-10-01",
+				"date" : "10-01-2005",
 				"types" : "Family",
 				"food" : "Appetizers Other",
 				"numScale" : "9",
@@ -123,7 +122,7 @@ $(document).ready(function(){
 			"Restaurant9" : {
 				"place" : "Green Bay, Wis",
 				"restaurant" : "Cheese head Bar",
-				"date" : "2000-12-31",
+				"date" : "12-31-2000",
 				"types" : "Family",
 				"food" : " Appetizers Other",
 				"numScale" : "10",
@@ -132,7 +131,7 @@ $(document).ready(function(){
 			"Restaurant10" : {
 				"place" : "Tupelo, Miss",
 				"restaurant" : "Bubas Grill",
-				"date" : "2002-05-04",
+				"date" : "05-04-2002",
 				"types" : "Sports",
 				"food" : "Appetizers Other",
 				"numScale" :"8",
@@ -141,7 +140,7 @@ $(document).ready(function(){
 			"Restaurant11" : {
 				"place" : "Denver, CO",
 				"restaurant" : "Papadaux",
-				"date" : "2007-02-14",
+				"date" : "02-14-2007",
 				"types" : "Sports",
 				"food" : "Appetizers Other",
 				"numScale" : "6",
@@ -150,7 +149,7 @@ $(document).ready(function(){
 			"Restaurant12" : {
 				"place" : "Beaverton, OR",
 				"restaurant" : "Old Chicago",
-				"date" : "2006-09-19",
+				"date" : "09-19-2006",
 				"types" : "Sports",
 				"food" : "Appetizers Other",
 				"numScale" :  "4" ,
@@ -159,7 +158,7 @@ $(document).ready(function(){
 			"Restaurant13" : {
 				"place" : "Spanaway, WA",
 				"restaurant" : "The Rock",
-				"date" : "2007-12-09",
+				"date" : "12-09-2007",
 				"types" : "Bar",
 				"food" :  "Appetizers Other",
 				"numScale" : "2",
@@ -168,7 +167,7 @@ $(document).ready(function(){
 			"Restaurant14" : {
 				"place" : "Lakewood, WA",
 				"restaurant" : "Ivars",
-				"date" : "2011-10-15",
+				"date" : "10-15-2011",
 				"types" : "Bar",
 				"food" : "Appetizers Other",
 				"numScale" : ["  ", "7" ],
@@ -177,7 +176,7 @@ $(document).ready(function(){
 			"Restaurant15" : {
 				"place" : "Lakewood, CO",
 				"restaurant" : "PF Changs",
-				"date" : "2011-07-05",
+				"date" : "07-05-2011",
 				"types" : "Bar",
 				"food" : "Appetizers Other",
 				"numScale" : "8",
@@ -186,7 +185,7 @@ $(document).ready(function(){
 			"Restaurant16" : {
 				"place" : "Las Vegas, NV",
 				"restaurant" : "Pizzeria and Cucina",
-				"date" : "2010-08-20",
+				"date" : "08-20-2010",
 				"types" : "Bar",
 				"food" : "Appetizers Other",
 				"numScale" : "10",
@@ -195,7 +194,7 @@ $(document).ready(function(){
 			"Restaurant17" : {
 				"place" : "Reno, NV",
 				"restaurant" :"Lucky Food",
-				"date" : "2011-06-12" ,
+				"date" : "06-12-2011" ,
 				"types" : "Other",
 				"food" : "Appetizers Other",
 				"numScale" : "6",
@@ -204,7 +203,7 @@ $(document).ready(function(){
 			"Restaurant18" : {
 				"place" : "Kihei, HI",
 				"restaurant" : "Tha Beach",
-				"date" : "2010-04-20",
+				"date" : "04-20-2010",
 				"types" : "Other",
 				"food" : "Appetizers Other",
 				"numScale" : "9",
@@ -213,7 +212,7 @@ $(document).ready(function(){
 			"Restaurant19" : {
 				"place" : "Kahakuloa, HI",
 				"restaurant" : "Oceanside",
-				"date" : "2010-11-11",
+				"date" : "11-11-2010",
 				"types" : "Other",
 				"food" : "Appetizers Other",
 				"numScale" : "10",
@@ -222,7 +221,7 @@ $(document).ready(function(){
 			"Restaurant20" : {
 				"place" : "Maunaloa, HI",
 				"restaurant" : "Dave’s Grill",
-				"date" : "2011-07-11",
+				"date" : "07-11-2011",
 				"types" : "Other",
 				"food" : "Appetizers Other",
 				"numScale" : "1",
@@ -246,13 +245,14 @@ $(document).ready(function(){
 				newP3 = document.createElement("p"),
 				newP4 = document.createElement("p"),
 				newP5 = document.createElement("p"),
-				newP6 = document.createElement("p");	
+				newP6 = document.createElement("p");
+			newDiv.setAttribute("data-role", "collapsible");
 			newDiv.appendChild(newH3);
 			newH3.innerHTML = info[d].restaurant;
 			newDiv.appendChild(newP1);
-			newP1.innerHTML = "Date : " + info[d].date;
+			newP1.innerHTML = "Location : " + info[d].place;
 			newDiv.appendChild(newP2);
-			newP2.innerHTML = "Location : " + info[d].place;
+			newP2.innerHTML = "Date : " + info[d].date;
 			newDiv.appendChild(newP3);
 			newP3.innerHTML = "Type of Restaurant : " + info[d].types;
 			newDiv.appendChild(newP4);
@@ -262,7 +262,7 @@ $(document).ready(function(){
 			newDiv.appendChild(newP6);
 			newP6.innerHTML = "Comments : " + info[d].comments;
 			BUTTON.appendChild(newDiv);
-		}		
+		}			
 	}
 
 	//Poulate correct info when button is pressed
@@ -281,18 +281,6 @@ $(document).ready(function(){
 		console.log(info);
 	}
 	
-	function today(){
-		var now = new Date(),
-   			year =now.getFullYear(),
-   			month = now.getMonth() + 1, 
-   			day = now.getDate();
-   		if(day < 10){
-   			day = "0" + day
-   		}
-		var rv = year + "-" + month + "-" + day
-		return rv;
-	}
-	
 	//Picks proper groups
 	function getTypes(v, b){
 		var restArr= new Array()
@@ -306,9 +294,21 @@ $(document).ready(function(){
 	
 	//Sorts info
 	function buttonPress(info, BUTTON){
-		var sortArr = info.sort(i);
+		var sortArr = info.sort(u);
 		viewData(info, BUTTON);
 		
+	}
+	
+	function today(){
+		var now = new Date(),
+   			year =now.getFullYear(),
+   			month = now.getMonth() + 1, 
+   			day = now.getDate();
+   		if(day < 10){
+   			day = "0" + day
+   		}
+		var rv = year + "-" + month + "-" + day
+		return rv;
 	}
 	
 	//Populates Family Group Screen
@@ -351,11 +351,12 @@ $(document).ready(function(){
 		processLocal();
 		buttonPress(info, ALL);
 	}
-
+	
+	
 	function addItems(){
 		a("date").value = today();
 	}
-	
+
 	//Wipe local storage
 	function emptyStorage(){
 		if(localStorage.length === 0) {
@@ -366,12 +367,12 @@ $(document).ready(function(){
 			return false;
 		}
 	}	
+	
 	function parseRestForm(info){
-		for(d=0; d<info.length; d++){
-			var val = info[d];
- 			console.log(val.place);
+		alert("Restaurant Tracked!");
+		mainLink.click();
 		}
-	}
+	
 	
 	restForm.validate({
 		submitHandler: function(){

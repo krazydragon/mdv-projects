@@ -1,34 +1,20 @@
 // Project 1
 // Author: Ronaldo Barnes
-// Created for: MiU Online 0112
+// Created for: ASD Online 0112
 
 
 	
 
 $(document).ready(function(){	
 	
-	//Retrieve element function
-	function a(k) {
-		var theElm = document.getElementById(k);
-		return theElm;
-	}
+
 	//Varibles 
-	var famButton = a("FamilyButton"),
-		baButton = a("BarButton"),
-		outButton = a("OutsideButton"),
-		spoButton = a("SportsButton"),
-		othButton = a("OtherButton"),
-		allButton = a("AllButton"),
-		addEntry = a("addEntry"),
-		wipeInfo = a("wipeInfo"),
-		restForm = $("#restForm"),
-		mainLink = $("#mainLink"),
-		FAM = a("FAMpage"),
-		BAR = a("BARpage"),
-		SPO = a("SPOpage"),
-		OUT = a("OUTpage"),
-		OTH = a("OTHpage"),
-		ALL = a("ALLpage"),
+	var FAM = $("#FAMpage"),
+		BAR = $("#BARpage"),
+		SPO = $("#SPOpage"),
+		OUT = $("#OUTpage"),
+		OTH = $("OTHpage"),
+		ALL = $("ALLpage"),
 		info = new Array(),
 		restInfo = ("place", "date", "types", "food", "numScale", "comments")
 	;
@@ -318,7 +304,7 @@ $(document).ready(function(){
 	function fButton(){
 		processLocal();
 		getTypes(info, "Family");
-		buttonPress(info, FAM);
+		buttonPress(info, $("#FAMpage"));
 	}
 	
 	//Populates Bar Group Screen
@@ -373,25 +359,25 @@ $(document).ready(function(){
 	
 	function parseRestForm(info){
 		alert("Restaurant Tracked!");
-		mainLink.click();
+		$("#mainLink").click();
 		}
 	
 	
-	restForm.validate({
+	$("#restForm").validate({
 		submitHandler: function(){
-			var info = restForm.serializeArray();
+			var info = $("#restForm").serializeArray();
 			parseRestForm(info);
 		}
 	})
 	
-	famButton.addEventListener("click", fButton);
-	baButton.addEventListener("click", bButton);
-	outButton.addEventListener("click", oButton);
-	spoButton.addEventListener("click", sButton);
-	othButton.addEventListener("click", OButton);
-	allButton.addEventListener("click", aButton);
-	addEntry.addEventListener("click", addItems);
-	wipeInfo.addEventListener("click", emptyStorage);
+	$("#FamilyButton").bind('click', fButton);
+	$("#BarButton").bind('click', bButton);
+	$("#OutsideButton").bind('click', oButton);
+	$("#SportsButton").bind('click', sButton);
+	$("#OtherButton").bind('click', OButton);
+	$("#AllButton").bind('click', aButton);
+	$("#addEntry").bind('click', addItems);
+	$("#wipeInfo").bind('click', emptyStorage);
 
 });
 	

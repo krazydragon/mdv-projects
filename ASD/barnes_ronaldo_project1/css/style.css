@@ -1,7 +1,7 @@
 /*
 Project 1
 Author: Ronaldo Barnes
-Created for: MiU Online 0112
+Created for: ASD Online 0112
 */
 
 
@@ -41,9 +41,13 @@ background-image: url(../images/background.jpg);
 }
 
 .ui-body-b {
-color: white;
+color:white;
 background: white;
 text-shadow: 0 1px 0;
 }
+
+.ui-body-b input{color: black;}
+
+.ui-body-b text area{color: black;}
 
 #mainLink {display: none;}
