@@ -7,19 +7,8 @@
 
 $(function(){	
 	
-	//Retrieve element function
-	function a(k) {
-		var theElm = document.getElementById(k);
-		return theElm;
-	}
 	//Varibles 
-	var FAM = a("FAMpage"),
-		BAR = a("BARpage"),
-		SPO = a("SPOpage"),
-		OUT = a("OUTpage"),
-		OTH = a("OTHpage"),
-		ALL = a("ALLpage"),
-		info = new Array(),
+	var info = new Array(),
 		restInfo = ("place", "date", "types", "food", "numScale", "comments")
 	;
 	
@@ -247,7 +236,7 @@ $(function(){
 			$(newP5).html("On a scale of 1-10 how good was it? : " + info[d].numScale);
 			$(newP6).html("Comments : " + info[d].comments);
 			$(newDiv).attr("data-role", "collapsible").append(newH3, newP1, newP2, newP3, newP4, newP5, newP6);
-			$(BUTTON).append(newDiv);
+			$(BUTTON +'page').append(newDiv);
 			
 			
 		}	
@@ -268,7 +257,6 @@ $(function(){
 			restArr.push(v);						
 		}
 		return info = restArr;	
-		console.log(info);
 	}
 	
 	//Picks proper groups
@@ -305,46 +293,46 @@ $(function(){
 	function fButton(){
 		processLocal();
 		getTypes(info, "Family");
-		buttonPress(info, $('#FAMpage'));
+		buttonPress(info, '#FAM');
 	}
 	
 	//Populates Bar Group Screen
 	function bButton(){
 		processLocal();
 		getTypes(info, "Bar");
-		buttonPress(info, BAR);
+		buttonPress(info, ('#BAR'));
 	}
 	
 	//Populates Outside Group Screen
 	function oButton(){
 		processLocal();
 		getTypes(info, "Outside");
-		buttonPress(info, OUT);
+		buttonPress(info, '#OUT');
 	}
 	
 	//Populates Sports Group Screen
 	function sButton(){
 		processLocal();
 		getTypes(info, "Sports");
-		buttonPress(info, SPO);
+		buttonPress(info, '#SPO');
 	}
 	
 	//Populates Other Group Screen
 	function OButton(){
 		processLocal();
 		getTypes(info, "Other");
-		buttonPress(info, OTH);
+		buttonPress(info, '#OTH');
 	}
 	
 	//Populates All Groups Screen
 	function aButton(){
 		processLocal();
-		buttonPress(info, ALL);
+		buttonPress(info, '#ALL');
 	}
 	
 	
 	function addItems(){
-		a("date").value = today();
+		$('#date').val() = today();
 	}
 
 	//Wipe local storage
