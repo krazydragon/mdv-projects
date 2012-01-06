@@ -347,6 +347,7 @@ $(function(){
 	}	
 	
 	function parseRestForm(info){
+		console.log(info)
 		alert("Restaurant Tracked!");
 		$("#mainLink").click();
 		}
@@ -354,8 +355,17 @@ $(function(){
 	
 	$("#restForm").validate({
 		submitHandler: function(){
-			var info = $("#restForm").serializeArray();
-			parseRestForm(info);
+			var Restaurant = {
+				"place" : $('#place').val(),
+				"restaurant" :$('#restaurant').val(),
+				"date" :$('#date').val(),
+				"types" :$('#types').val(),
+				"food" : $('#food').val(),
+				"numScale" : $('#numScale').val(),
+				"comments" : $('#comments').val()
+			}
+			var num = Math.floor(Math.random()*7463778270);
+			localStorage.setItem(num,  JSON.stringify(Restaurant));
 		}
 	})
 	
