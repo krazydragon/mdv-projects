@@ -265,6 +265,7 @@ $(document).ready(function(){
 			newDiv.appendChild(newP6);
 			newP6.innerHTML = "Comments : " + info[d].comments;
 			BUTTON.appendChild(newDiv);
+		
 		}			
 	}
 
@@ -298,6 +299,7 @@ $(document).ready(function(){
 	//Sorts info
 	function buttonPress(info, BUTTON){
 		var sortArr = info.sort(u);
+		console.log(BUTTON);
 		viewData(info, BUTTON);
 		
 	}

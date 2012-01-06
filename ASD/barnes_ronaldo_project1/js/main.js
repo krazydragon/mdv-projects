@@ -5,16 +5,20 @@
 
 	
 
-$(document).ready(function(){	
+$(function(){	
 	
-
+	//Retrieve element function
+	function a(k) {
+		var theElm = document.getElementById(k);
+		return theElm;
+	}
 	//Varibles 
-	var FAM = $("#FAMpage"),
-		BAR = $("#BARpage"),
-		SPO = $("#SPOpage"),
-		OUT = $("#OUTpage"),
-		OTH = $("OTHpage"),
-		ALL = $("ALLpage"),
+	var FAM = a("FAMpage"),
+		BAR = a("BARpage"),
+		SPO = a("SPOpage"),
+		OUT = a("OUTpage"),
+		OTH = a("OTHpage"),
+		ALL = a("ALLpage"),
 		info = new Array(),
 		restInfo = ("place", "date", "types", "food", "numScale", "comments")
 	;
@@ -227,31 +231,28 @@ $(document).ready(function(){
 	// Displays the saved data in local storage on the screen
 	function viewData(info, BUTTON){
 		for (var d=0; d<info.length; d++){	
-			var newDiv = document.createElement("div"),
-				newH3 = document.createElement("h3"),
-				newP1 = document.createElement("p"),
-				newP2 = document.createElement("p"),
-				newP3 = document.createElement("p"),
-				newP4 = document.createElement("p"),
-				newP5 = document.createElement("p"),
-				newP6 = document.createElement("p");
-			newDiv.setAttribute("data-role", "collapsible");
-			newDiv.appendChild(newH3);
-			newH3.innerHTML = info[d].restaurant;
-			newDiv.appendChild(newP1);
-			newP1.innerHTML = "Location : " + info[d].place;
-			newDiv.appendChild(newP2);
-			newP2.innerHTML = "Date : " + info[d].date;
-			newDiv.appendChild(newP3);
-			newP3.innerHTML = "Type of Restaurant : " + info[d].types;
-			newDiv.appendChild(newP4);
-			newP4.innerHTML = "Kind of food served : " + info[d].food;
-			newDiv.appendChild(newP5);
-			newP5.innerHTML = "On a scale of 1-10 how good was it? : " + info[d].numScale;
-			newDiv.appendChild(newP6);
-			newP6.innerHTML = "Comments : " + info[d].comments;
-			BUTTON.appendChild(newDiv);
-		}			
+			var newDiv = $('<div></div>'),
+				newH3 = $('<h3></h3>'),
+				newP1 = $('<p></p>'),
+				newP2 = $('<p></p>'),
+				newP3 = $('<p></p>'),
+				newP4 = $('<p></p>'),
+				newP5 = $('<p></p>'),
+				newP6 = $('<p></p>');
+			$(newH3).html(info[d].restaurant);
+			$(newP1).html("Location : " + info[d].place);
+			$(newP2).html("Date : " + info[d].date);
+			$(newP3).html("Type of Restaurant : " + info[d].types);
+			$(newP4).html("Kind of food served : " + info[d].food);
+			$(newP5).html("On a scale of 1-10 how good was it? : " + info[d].numScale);
+			$(newP6).html("Comments : " + info[d].comments);
+			$(newDiv).attr("data-role", "collapsible").append(newH3, newP1, newP2, newP3, newP4, newP5, newP6);
+			$(BUTTON).append(newDiv);
+			
+			
+		}	
+
+		
 	}
 
 	//Poulate correct info when button is pressed
@@ -304,7 +305,7 @@ $(document).ready(function(){
 	function fButton(){
 		processLocal();
 		getTypes(info, "Family");
-		buttonPress(info, $("#FAMpage"));
+		buttonPress(info, $('#FAMpage'));
 	}
 	
 	//Populates Bar Group Screen
