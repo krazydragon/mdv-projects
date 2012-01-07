@@ -5,7 +5,7 @@
 
     
 
-$(function(){    
+$(document).ready(function(){    
     
     //Varibles 
     var info = new Array(),
@@ -220,18 +220,14 @@ $(function(){
         }
     }
         
-   /*function editEntry(ID){
-        console.log(ID);
-    }
     
-    function deleteEntry(){
     
-    }*/ 
    // Displays the saved data in local storage on the screen
-    function viewData(info, BUTTON){
+    function viewData(info, ID, BUTTON){
         $(BUTTON +'page').empty();
         for (var d=0; d<info.length; d++){    
-            var newDiv = $('<div></div>').attr("data-role", "collapsible"),
+            var id = ID[d],
+            	newDiv = $('<div></div>').attr("data-role", "collapsible"),
                 newH3 = $('<h3></h3>'),
                 newP1 = $('<p></p>'),
                 newP2 = $('<p></p>'),
@@ -239,8 +235,8 @@ $(function(){
                 newP4 = $('<p></p>'),
                 newP5 = $('<p></p>'),
                 newP6 = $('<p></p>'),
-                //newA1 = $('<a href="#" id="editButton" data-role="button" data-icon="back">Edit</a>').bind('click', editEntry(ID)),
-                //newA2 = $('<a href="#" id="deleteButton" data-role="button" data-icon="delete">Delete</a>').bind('click', deleteEntry(ID));
+                newA1 = $('<a href="#" id="editButton" data-role="button" data-icon="back">Edit</a>')//.bind('click', editEntry(id)),
+                newA2 = $('<a href="#" id="deleteButton" data-role="button" data-icon="delete">Delete</a>')//.bind('click', deleteEntry(id));
             $(newH3).html(info[d].restaurant);
             $(newP1).html("Location : " + info[d].place);
             $(newP2).html("Date : " + info[d].date);
@@ -248,12 +244,19 @@ $(function(){
             $(newP4).html("Kind of food served : " + info[d].food);
             $(newP5).html("On a scale of 1-10 how good was it? : " + info[d].numScale);
             $(newP6).html("Comments : " + info[d].comments);
-            $(newDiv).append(newH3, newP1, newP2, newP3, newP4, newP5, newP6/*, newA1, newA2*/);
+            $(newDiv).append(newH3, newP1, newP2, newP3, newP4, newP5, newP6, newA1, newA2);
             $(BUTTON +'page').append(newDiv);
-            console.log(newDiv)
         }    
         
         
+    }
+    
+    function editEntry(id){
+       console.log(id);
+    }
+    
+    function deleteEntry(){
+    
     }
     
     //Poulate correct info when button is pressed
@@ -262,72 +265,78 @@ $(function(){
             autoLoadData();
         }
         var restArr= new Array();
-		for(d=0; d<localStorage.length; d++){;
+		for(var d=0; d<localStorage.length; d++){;
 			var key = localStorage.key(d),
 				val = localStorage.getItem(key),
 				v = JSON.parse(val);
-			restArr.push(v);						
+			restArr.push(v);
+			ID.push(localStorage.key(d));						
 		}
-		return info = restArr;	    
+		info = restArr;
+		return [info, ID];	    
     }
     
     //Picks proper groups
-    function getTypes(v, b){
-        var restArr= new Array()
+    function getTypes(v, ID, b){
+        var restArr= new Array(),
+        	id = new Array();
 		for(var d=0; d<info.length; d++){
 			if(b === v[d].types){
 				restArr.push(v[d]);
+				id.push(ID[d]);
 			}
 		}
-		return info = restArr;
+		info = restArr;
+		ID = id;
+		return [info, ID];
     }
     
     //Sorts info
-    function buttonPress(info, BUTTON){
+    function buttonPress(info, ID, BUTTON){
         var sortArr = info.sort(u);
-        viewData(info, BUTTON);
+        viewData(info, ID, BUTTON);
         
     }
     
     //Populates Family Group Screen
     function fButton(){
         processLocal();
-        getTypes(info, "Family");
-        buttonPress(info, '#FAM');
+        getTypes(info, ID, "Family");
+        buttonPress(info, ID, '#FAM');
     }
     
     //Populates Bar Group Screen
     function bButton(){
         processLocal();
         getTypes(info, "Bar");
-        buttonPress(info, '#BAR');
+        buttonPress(info, ID, '#BAR');
     }
     
     //Populates Outside Group Screen
     function oButton(){
         processLocal();
-        getTypes(info, "Outside");
-        buttonPress(info, '#OUT');
+        getTypes(info, ID, "Outside");
+        buttonPress(info, ID, '#OUT');
     }
     
     //Populates Sports Group Screen
     function sButton(){
         processLocal();
-        getTypes(info, "Sports");
-        buttonPress(info, '#SPO');
+        getTypes(info, ID, "Sports");
+        buttonPress(info, ID, '#SPO');
     }
     
     //Populates Other Group Screen
     function OButton(){
         processLocal();
-        getTypes(info, "Other");
-        buttonPress(info, '#OTH');
+        getTypes(info, ID, "Other");
+        buttonPress(info, ID, '#OTH');
     }
     
     //Populates All Groups Screen
     function aButton(){
         processLocal();
-        buttonPress(info, '#ALL');
+        buttonPress(info, ID, '#ALL');
     }
     
     
