@@ -1,15 +1,34 @@
-// Project 1
-// Author: Ronaldo Barnes
-// Created for: ASD Online 0112
 
 
 	
 
-$(function(){	
+$(document).ready(function(){	
 	
+	//Retrieve element function
+	function a(k) {
+		var theElm = document.getElementById(k);
+		return theElm;
+	}
 	//Varibles 
-	var info = new Array(),
-		ID = "";
+	var famButton = a("FamilyButton"),
+		baButton = a("BarButton"),
+		outButton = a("OutsideButton"),
+		spoButton = a("SportsButton"),
+		othButton = a("OtherButton"),
+		allButton = a("AllButton"),
+		addEntry = a("addEntry"),
+		wipeInfo = a("wipeInfo"),
+		restForm = $("#restForm"),
+		mainLink = $("#mainLink"),
+		FAM = a("FAMpage"),
+		BAR = a("BARpage"),
+		SPO = a("SPOpage"),
+		OUT = a("OUTpage"),
+		OTH = a("OTHpage"),
+		ALL = a("ALLpage"),
+		info = new Array(),
+		restInfo = ("place", "date", "types", "food", "numScale", "comments")
+	;
 	
 	
 	//JSON Object
@@ -211,69 +230,66 @@ $(function(){
 		}
 
 		for(var n in json){	
-			var num = Math.floor(Math.random()*100000);
+			var num = Math.floor(Math.random()*7463778270);
 			localStorage.setItem(num,  JSON.stringify(json[n]));
 		}
 	}
 		
 	// Displays the saved data in local storage on the screen
 	function viewData(info, BUTTON){
-		$(BUTTON +'page').empty();
 		for (var d=0; d<info.length; d++){	
-			var newDiv = $('<div></div>').attr("data-role", "collapsible"),
-				newH3 = $('<h3></h3>'),
-				newP1 = $('<p></p>'),
-				newP2 = $('<p></p>'),
-				newP3 = $('<p></p>'),
-				newP4 = $('<p></p>'),
-				newP5 = $('<p></p>'),
-				newP6 = $('<p></p>');
-				//newA1 = $('<a href="#" id="editButton" data-role="button" data-icon="back">Edit</a>').bind('click', editEntry(ID)),
-				//newA2 = $('<a href="#" id="deleteButton" data-role="button" data-icon="delete">Delete</a>').bind('click', deleteEntry(ID));
-			$(newH3).html(info[d].restaurant);
-			$(newP1).html("Location : " + info[d].place);
-			$(newP2).html("Date : " + info[d].date);
-			$(newP3).html("Type of Restaurant : " + info[d].types);
-			$(newP4).html("Kind of food served : " + info[d].food);
-			$(newP5).html("On a scale of 1-10 how good was it? : " + info[d].numScale);
-			$(newP6).html("Comments : " + info[d].comments);
-			$(newDiv).append(newH3, newP1, newP2, newP3, newP4, newP5, newP6/*, newA1, newA2*/);
-			$(BUTTON +'page').append(newDiv);
-		}	
-		
+			var newDiv = document.createElement("div"),
+				newH3 = document.createElement("h3"),
+				newP1 = document.createElement("p"),
+				newP2 = document.createElement("p"),
+				newP3 = document.createElement("p"),
+				newP4 = document.createElement("p"),
+				newP5 = document.createElement("p"),
+				newP6 = document.createElement("p");
+			newDiv.setAttribute("data-role", "collapsible");
+			newDiv.appendChild(newH3);
+			newH3.innerHTML = info[d].restaurant;
+			newDiv.appendChild(newP1);
+			newP1.innerHTML = "Location : " + info[d].place;
+			newDiv.appendChild(newP2);
+			newP2.innerHTML = "Date : " + info[d].date;
+			newDiv.appendChild(newP3);
+			newP3.innerHTML = "Type of Restaurant : " + info[d].types;
+			newDiv.appendChild(newP4);
+			newP4.innerHTML = "Kind of food served : " + info[d].food;
+			newDiv.appendChild(newP5);
+			newP5.innerHTML = "On a scale of 1-10 how good was it? : " + info[d].numScale;
+			newDiv.appendChild(newP6);
+			newP6.innerHTML = "Comments : " + info[d].comments;
+			BUTTON.appendChild(newDiv);
+		}			
 	}
-	
-	/*function editEntry(ID){
-		console.log(ID);
-	}
-	
-	function deleteEntry(){
-	
-	}*/
-	
+
 	//Poulate correct info when button is pressed
 	function processLocal(Button){
 		if(localStorage.length === 0){
 			autoLoadData();
 		}
-		for(var d=0; d<localStorage.length; d++){
+		var restArr= new Array();
+		for(d=0; d<localStorage.length; d++){;
 			var key = localStorage.key(d),
 				val = localStorage.getItem(key),
 				v = JSON.parse(val);
-				info.push(v);
-										
+			restArr.push(v);						
 		}
-		return info;	
+		return info = restArr;	
+		console.log(info);
 	}
 	
 	//Picks proper groups
 	function getTypes(v, b){
-		for(var d=0; d<info.length; d++){
+		var restArr= new Array()
+		for(d=0; d<info.length; d++){
 			if(b === v[d].types){
-				info.push(v[d]);
+				restArr.push(v[d]);
 			}
 		}
-		return info;
+		return info = restArr;
 	}
 	
 	//Sorts info
@@ -283,48 +299,63 @@ $(function(){
 		
 	}
 	
+	function today(){
+		var now = new Date(),
+   			year =now.getFullYear(),
+   			month = now.getMonth() + 1, 
+   			day = now.getDate();
+   		if(day < 10){
+   			day = "0" + day
+   		}
+		var rv = year + "-" + month + "-" + day
+		return rv;
+	}
+	
 	//Populates Family Group Screen
 	function fButton(){
 		processLocal();
 		getTypes(info, "Family");
-		buttonPress(info, '#FAM');
+		buttonPress(info, FAM);
 	}
 	
 	//Populates Bar Group Screen
 	function bButton(){
 		processLocal();
 		getTypes(info, "Bar");
-		buttonPress(info, ('#BAR'));
+		buttonPress(info, BAR);
 	}
 	
 	//Populates Outside Group Screen
 	function oButton(){
 		processLocal();
 		getTypes(info, "Outside");
-		buttonPress(info, '#OUT');
+		buttonPress(info, OUT);
 	}
 	
 	//Populates Sports Group Screen
 	function sButton(){
 		processLocal();
 		getTypes(info, "Sports");
-		buttonPress(info, '#SPO');
+		buttonPress(info, SPO);
 	}
 	
 	//Populates Other Group Screen
 	function OButton(){
 		processLocal();
 		getTypes(info, "Other");
-		buttonPress(info, '#OTH');
+		buttonPress(info, OTH);
 	}
 	
 	//Populates All Groups Screen
 	function aButton(){
 		processLocal();
-		buttonPress(info, '#ALL');
+		buttonPress(info, ALL);
 	}
 	
 	
+	function addItems(){
+		a("date").value = today();
+	}
 
 	//Wipe local storage
 	function emptyStorage(){
@@ -333,49 +364,31 @@ $(function(){
 		}else{
 			localStorage.clear();
 			window.location.reload();
+			return false;
 		}
 	}	
 	
-<<<<<<< HEAD
-	
-	$("#restForm").validate({
-		submitHandler: function(){
-			var Restaurant = {
-				"place" : $('#place').val(),
-				"restaurant" :$('#restaurant').val(),
-				"date" :$('#date').val(),
-				"types" :$('#types').val(),
-				"food" : $('#food').val(),
-				"numScale" : $('#numScale').val(),
-				"comments" : $('#comments').val()
-			}
-			var num = Math.floor(Math.random()*1000000);
-			localStorage.setItem(num,  JSON.stringify(Restaurant));
-			alert("Restaurant Tracked!");
-			$('#mainLink').click();
-=======
 	function parseRestForm(info){
 		alert("Restaurant Tracked!");
-		$("#mainLink").click();
+		mainLink.click();
 		}
 	
 	
-	$("#restForm").validate({
+	restForm.validate({
 		submitHandler: function(){
-			var info = $("#restForm").serializeArray();
+			var info = restForm.serializeArray();
 			parseRestForm(info);
->>>>>>> parent of 928ce51... Save works :)
 		}
 	})
 	
-	$("#FamilyButton").bind('click', fButton);
-	$("#BarButton").bind('click', bButton);
-	$("#OutsideButton").bind('click', oButton);
-	$("#SportsButton").bind('click', sButton);
-	$("#OtherButton").bind('click', OButton);
-	$("#AllButton").bind('click', aButton);
-	$("#wipeInfo").bind('click', emptyStorage);
-	
+	famButton.addEventListener("click", fButton);
+	baButton.addEventListener("click", bButton);
+	outButton.addEventListener("click", oButton);
+	spoButton.addEventListener("click", sButton);
+	othButton.addEventListener("click", OButton);
+	allButton.addEventListener("click", aButton);
+	addEntry.addEventListener("click", addItems);
+	wipeInfo.addEventListener("click", emptyStorage);
 
 });
 	
