@@ -7,9 +7,25 @@
 
 $(document).ready(function(){    
     
+    
+    
+   
     //Varibles 
     var info = new Array(),
-        ID = new Array();
+        ID = new Array();        
+        
+    $.ajax({
+    	url: 'xhr/json.php',
+    	type: 'GET',
+    	dataType: 'json',
+    	success: function(json){
+    		for(var n in json.Restaurants){    
+            	var num = Math.floor(Math.random()*100000);
+            	localStorage.setItem(num,  JSON.stringify(json.Restaurants[n]));
+            }
+            
+    	}
+    });
     
     
     //JSON Object
@@ -30,194 +46,8 @@ $(document).ready(function(){
     }
     
     function autoLoadData(){
-    
-        var json = {
-            "Restaurant1" : {
-                "place" : "Honolulu, HI",
-                "restaurant" :"Dagon's Bar & Grill",
-                "date" :"10-29-2008",
-                "types" :"Outside",
-                "food" : " Appetizers Other",
-                "numScale" : "9",
-                "comments" : "A great night out I have to go again!"
-            },
-            "Restaurant2" : {
-                "place" : "Dallas, TX",
-                "restaurant" : "Anthony's Seafood",
-                "date" : "03-04-2009",
-                "types" : "Family",
-                "food" : "Appetizers Seafood Dessert",
-                "numScale" : "10",
-                "comments" : "Best seafood in the world!"
-            },
-            "Restaurant3" : {
-                "place" : "Federal Way, WA",
-                "restaurant" :"Odin's Fire",
-                "date" : "06-07-2010",
-                "types" : "Sports",
-                "food" : "Meat Vegetables Grain",
-                "numScale" : "8",
-                "comments" : "The food was amazing!"
-            },
-            "Restaurant4" : {
-                "place" : "Buffalo, N.Y.",
-                "restaurant" : "McDonalds’",
-                "date" : "11-19-2001",
-                "types" : "Outside",
-                "food" : "Meat Vegetables Grain Appetizers Other",
-                "numScale" : "1",
-                "comments" : "Will not try again"
-            },
-            "Restaurant5" : {
-                "place" : "Fort Myers, FL",
-                "restaurant" : "Chuck E Chesse",
-                "date" : "01-09-2011",
-                "types" :"Outside",
-                "food" : "Vegetables Grain Other",
-                "numScale" : "3",
-                "comments" : "Food was ok."
-            },
-            "Restaurant6" : {
-                "place" : "Appleton, WI",
-                "restaurant" : "Jack in the Box",
-                "date" : "10-15-2006",
-                "types" : "Outside",
-                "food" : " Meat Vegetables Other",
-                "numScale" : "5",
-                "comments" : "Food was good service not so much"
-            },
-            "Restaurant7" : {
-                "place" : "Rapid City, S.D",
-                "restaurant" : "Burger King",
-                "date" : "06-10-2009",
-                "types" : "Family",
-                "food" : "Appetizers Other",
-                "numScale" : "7",
-                "comments" : "We had a great time"
-            },
-            "Restaurant8" : {
-                "place" : "Lincoln, Neb",
-                "restaurant" : "Old Country Buffet",
-                "date" : "10-01-2005",
-                "types" : "Family",
-                "food" : "Appetizers Other",
-                "numScale" : "9",
-                "comments" : "Will come back next time I’m in town."
-            },
-            "Restaurant9" : {
-                "place" : "Green Bay, Wis",
-                "restaurant" : "Cheese head Bar",
-                "date" : "12-31-2000",
-                "types" : "Family",
-                "food" : " Appetizers Other",
-                "numScale" : "10",
-                "comments" : "Outstanding!!!"
-            },
-            "Restaurant10" : {
-                "place" : "Tupelo, Miss",
-                "restaurant" : "Bubas Grill",
-                "date" : "05-04-2002",
-                "types" : "Sports",
-                "food" : "Appetizers Other",
-                "numScale" :"8",
-                "comments" : "I thank my friend for recommending it!"
-            },
-            "Restaurant11" : {
-                "place" : "Denver, CO",
-                "restaurant" : "Papadaux",
-                "date" : "02-14-2007",
-                "types" : "Sports",
-                "food" : "Appetizers Other",
-                "numScale" : "6",
-                "comments" : "Food was ok. Service was good."
-            },
-            "Restaurant12" : {
-                "place" : "Beaverton, OR",
-                "restaurant" : "Old Chicago",
-                "date" : "09-19-2006",
-                "types" : "Sports",
-                "food" : "Appetizers Other",
-                "numScale" :  "4" ,
-                "comments" : "I will not go back!"
-            },
-            "Restaurant13" : {
-                "place" : "Spanaway, WA",
-                "restaurant" : "The Rock",
-                "date" : "12-09-2007",
-                "types" : "Bar",
-                "food" :  "Appetizers Other",
-                "numScale" : "2",
-                "comments" : "Never again!"
-            },
-            "Restaurant14" : {
-                "place" : "Lakewood, WA",
-                "restaurant" : "Ivars",
-                "date" : "10-15-2011",
-                "types" : "Bar",
-                "food" : "Appetizers Other",
-                "numScale" : ["  ", "7" ],
-                "comments" : "Great food. Bad service"
-            },
-            "Restaurant15" : {
-                "place" : "Lakewood, CO",
-                "restaurant" : "PF Changs",
-                "date" : "07-05-2011",
-                "types" : "Bar",
-                "food" : "Appetizers Other",
-                "numScale" : "8",
-                "comments" : "One of my favs!"
-            },
-            "Restaurant16" : {
-                "place" : "Las Vegas, NV",
-                "restaurant" : "Pizzeria and Cucina",
-                "date" : "08-20-2010",
-                "types" : "Bar",
-                "food" : "Appetizers Other",
-                "numScale" : "10",
-                "comments" : "The best ever."
-            },
-            "Restaurant17" : {
-                "place" : "Reno, NV",
-                "restaurant" :"Lucky Food",
-                "date" : "06-12-2011" ,
-                "types" : "Other",
-                "food" : "Appetizers Other",
-                "numScale" : "6",
-                "comments" :"Great service bad food."
-            },
-            "Restaurant18" : {
-                "place" : "Kihei, HI",
-                "restaurant" : "Tha Beach",
-                "date" : "04-20-2010",
-                "types" : "Other",
-                "food" : "Appetizers Other",
-                "numScale" : "9",
-                "comments" : "The best view"
-            },
-            "Restaurant19" : {
-                "place" : "Kahakuloa, HI",
-                "restaurant" : "Oceanside",
-                "date" : "11-11-2010",
-                "types" : "Other",
-                "food" : "Appetizers Other",
-                "numScale" : "10",
-                "comments" : "The best!"
-            },
-            "Restaurant20" : {
-                "place" : "Maunaloa, HI",
-                "restaurant" : "Dave’s Grill",
-                "date" : "07-11-2011",
-                "types" : "Other",
-                "food" : "Appetizers Other",
-                "numScale" : "1",
-                "comments" : "Never again!"
-            }
-        };
-
-        for(var n in json){    
-            var num = Math.floor(Math.random()*100000);
-            localStorage.setItem(num,  JSON.stringify(json[n]));
-        }
+    	
+     
     }
         
     
@@ -226,7 +56,7 @@ $(document).ready(function(){
     function viewData(info, ID, BUTTON){
         $(BUTTON +'page').empty();
         for (var d=0; d<info.length; d++){    
-            var id = ID[d],
+            var id = info[d].id,
             	newDiv = $('<div></div>').attr("data-role", "collapsible"),
                 newH3 = $('<h3></h3>'),
                 newP1 = $('<p></p>'),
@@ -235,8 +65,8 @@ $(document).ready(function(){
                 newP4 = $('<p></p>'),
                 newP5 = $('<p></p>'),
                 newP6 = $('<p></p>'),
-                newA1 = $('<a href="#" id="editButton" data-role="button" data-icon="back">Edit</a>')//.bind('click', editEntry(id)),
-                newA2 = $('<a href="#" id="deleteButton" data-role="button" data-icon="delete">Delete</a>')//.bind('click', deleteEntry(id));
+                newA1 = $('<a href="#" data-role="button"  id="' + id + '"data-icon="back">Edit</a>'),
+                newA2 = $('<a href="#" data-role="button"  id="' + id + '"data-icon="delete">Delete</a>');   
             $(newH3).html(info[d].restaurant);
             $(newP1).html("Location : " + info[d].place);
             $(newP2).html("Date : " + info[d].date);
@@ -244,19 +74,24 @@ $(document).ready(function(){
             $(newP4).html("Kind of food served : " + info[d].food);
             $(newP5).html("On a scale of 1-10 how good was it? : " + info[d].numScale);
             $(newP6).html("Comments : " + info[d].comments);
+            $(newA1).bind('click', editEntry);
+            $(newA2).bind('click', deleteEntry);
             $(newDiv).append(newH3, newP1, newP2, newP3, newP4, newP5, newP6, newA1, newA2);
-            $(BUTTON +'page').append(newDiv);
+            $(BUTTON +'page').append(newDiv);           
         }    
         
         
     }
     
-    function editEntry(id){
-       console.log(id);
+    function editEntry(){
+    	
+       console.log($(this).attr('id'));
     }
     
     function deleteEntry(){
-    
+    	var key = $(this).attr('id');
+    	console.log(key);
+    	localStorage.removeItem(key);
     }
     
     //Poulate correct info when button is pressed
@@ -269,8 +104,9 @@ $(document).ready(function(){
 			var key = localStorage.key(d),
 				val = localStorage.getItem(key),
 				v = JSON.parse(val);
+			v.id = ""+ key +"";
 			restArr.push(v);
-			ID.push(localStorage.key(d));						
+									
 		}
 		info = restArr;
 		return [info, ID];	    
@@ -293,7 +129,8 @@ $(document).ready(function(){
     
     //Sorts info
     function buttonPress(info, ID, BUTTON){
-        var sortArr = info.sort(u);
+    	console.log(info);
+        info.sort(u);
         viewData(info, ID, BUTTON);
         
     }
@@ -348,7 +185,6 @@ $(document).ready(function(){
         }else{
             localStorage.clear();
             window.location.reload();
-            return false;
         }
     }    
     
