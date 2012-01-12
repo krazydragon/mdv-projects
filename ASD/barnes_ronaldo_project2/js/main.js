@@ -19,25 +19,53 @@ $(document).ready(function(){
     	type: 'GET',
     	dataType: 'json',
     	success: function(json){
-    		for(var n in json.Restaurants){    
-            	var num = Math.floor(Math.random()*100000);
-            	localStorage.setItem(num,  JSON.stringify(json.Restaurants[n]));
-            }
+    		$.each(json.Restaurants, function(i, obj){
+    		console.log(i);
+    		console.log(obj);
+   				    
+            		var	newDiv = $('<div></div>').attr("data-role", "listview"),
+                		newH3 = $('<h3></h3>'),
+                		newP1 = $('<p></p>'),
+                		newP2 = $('<p></p>'),
+                		newP3 = $('<p></p>'),
+                		newP4 = $('<p></p>'),
+                		newP5 = $('<p></p>'),
+                		newP6 = $('<p></p>'); 
+            $(newH3).html(obj.restaurant);
+            $(newP1).html("Location : " + obj.place);
+            $(newP2).html("Date : " + obj.date);
+            $(newP3).html("Type of Restaurant : " + obj.types);
+            $(newP4).html("Kind of food served : " + obj.food);
+            $(newP5).html("On a scale of 1-10 how good was it? : " + obj.numScale);
+            $(newP6).html("Comments : " + obj.comments);
+            $(newDiv).append(newH3, newP1, newP2, newP3, newP4, newP5, newP6);
+            $('#Recentpage').append(newDiv); 
+                
+        })}    
+        
+       
+
             
-    	}
     });
     
-    $.ajax({
+       $.ajax({
     	url: 'xhr/dummy.xml',
     	type: 'GET',
     	dataType: "xml",
     	success: function(xml){
-    		console.log(xml);}
+        		$(xml).find("top").each(function(){
+  				/*$("#output").append($(this).find("Date").text());
+  				$("#output").append(": " + $(this).find("Title").text() + "<br />");*/
+  				
+			});
+    	
+    	
+    	}
   	});
     
     YAML.load('xhr/dummy.yml', function(result)
     {
-      console.log(result);
+      
     });
     
     //JSON Object
