@@ -15,7 +15,7 @@ $(document).ready(function(){
         ID = new Array();        
         
     $.ajax({
-    	url: 'xhr/json.php',
+    	url: 'xhr/dummy.json',
     	type: 'GET',
     	dataType: 'json',
     	success: function(json){
@@ -27,6 +27,18 @@ $(document).ready(function(){
     	}
     });
     
+    $.ajax({
+    	url: 'xhr/dummy.xml',
+    	type: 'GET',
+    	dataType: "xml",
+    	success: function(xml){
+    		console.log(xml);}
+  	});
+    
+    YAML.load('xhr/dummy.yml', function(result)
+    {
+      console.log(result);
+    });
     
     //JSON Object
     function i(b, a){
