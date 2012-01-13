@@ -38,7 +38,10 @@ $(document).ready(function(){
             $(newLi).append(newH3, newP1, newP2, newP3, newP4, newP5, newP6);
             $('#Recentpage').append(newLi); 
                 
-        })}    
+        })},
+    	complete: function() {
+            $('#Recentpage').listview('refresh');
+        }     
         
        
 
@@ -64,9 +67,10 @@ $(document).ready(function(){
 
   				
 			});
-    	
-    	
-    	}
+    	},
+    	complete: function() {
+            $('#Toppage').listview('refresh');
+        } 
   	});
     
     YAML.load('xhr/dummy.yml', function(yaml){
@@ -82,6 +86,7 @@ $(document).ready(function(){
             $(newP3).html("State : " + obj.State)
             $(newLi).append(newH3, newP1, newP2, newP3);
             $('#Foodpage').append(newLi); 
+            $('#Foodpage').listview('refresh');
     	})
     });
     
@@ -134,7 +139,7 @@ $(document).ready(function(){
             $(newA1).bind('click', editEntry);
             $(newA2).bind('click', deleteEntry);
             $(newDiv).append(newH3, newP1, newP2, newP3, newP4, newP5, newP6, newA1, newA2);
-            $(BUTTON +'page').append(newDiv);           
+            $(BUTTON +'page').append(newDiv);          
         }    
         
         
