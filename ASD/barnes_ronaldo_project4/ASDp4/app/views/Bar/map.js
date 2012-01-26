@@ -1,5 +1,5 @@
 function (doc){
-	if(doc.types == "Bar"){
+	if(doc.type == "Bar"){
 		emit(doc._id,{
 			"place": doc.place,
 			"restaurant": doc.restaurant,

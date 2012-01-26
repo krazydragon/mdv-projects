@@ -30,12 +30,12 @@
 	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.js"></script>
 	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i8n/jquery.mobile.datebox.i8n.en.js"></script>
 	<script src="js/libs/jquery.validate.min.js"></script>
-	<script type="text/javascript" src="js/libs/yaml.js"></script>
+	<script type="text/javascript" src="js/libs/jquery.couch.js"></script>
 	<script src="js/main.js" type="text/javascript"></script>
 
 
 </head>
-<bodybackground="images/background.jpg">
+<body background="images/background.jpg">
 	<!--Main Page-->
 	<div data-role="page" id="main" data-theme="b" data-title="Restaurant Tracker">
 		<div data-role="header" data-theme="b">
@@ -48,7 +48,7 @@
 					<h3>Track Restaurant</h3>
 					<p>Track a new restaurant.</p>
 				</a></li>
-				<li><a href="#familyPage" id="FamilyButton">
+				<li><a href="#Restaurants" id="FamilyButton">
 					<img src="images/family.png"/>
 					<h3>Family</h3>
 					<p>Family oriented restaurants.</p>
@@ -89,8 +89,7 @@
 			
 		</div>
 	</div>
-	<!--Family Page-->
-	<div data-role="page" id="familyPage" data-theme="b" data-title="Restaurant Tracker">
+	<div data-role="page" id="Restaurants" data-theme="b" data-title="Restaurants">
 		<div data-role="header" data-position="fixed" data-theme="b">
 			<div data-role="navbar">
 				<ul>
@@ -101,15 +100,32 @@
 			</div><!-- /navbar -->
 		</div>
 		<div data-role="content" >
-			<div data-role="collapsible-set" id="FAMpage">
-			
-			</div>
+			<ul data-role="listview" data-inset="true" data-theme="a" id="Category">
+				
+			</ul>
 		</div>
 		<div data-role="footer" data-position="fixed">
 		</div>
 	</div>
-
-	<!--Recent Page-->
+	
+	<div data-role="page" id="Restaurant" data-theme="b" data-title="Restaurant">
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<div data-role="navbar">
+				<ul>
+					<li><img src="images/rt_header.png"/></li>
+					<li><h3>Family</h3></li>
+					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+		<div data-role="content" >
+			<ul data-role="listview" data-inset="true" data-theme="a" id="Entry">
+				
+			</ul>
+		</div>
+		<div data-role="footer" data-position="fixed">
+		</div>
+	</div>		<!--Recent Page-->
 	<div data-role="page" id="recentPage" data-theme="b" data-title="Resent">	
 		<div data-role="header" data-position="fixed" data-theme="b">
 			<div data-role="navbar">
@@ -121,13 +137,12 @@
 			</div><!-- /navbar -->
 		</div>
 		<div data-role="content" >
-			<ol data-role="listview" data-inset="true" data-theme="a" id="Recentpage">
-				
-			</ol>
+			
 		</div>
 		<div data-role="footer" data-position="fixed">
 		</div>
 	</div>
+	
 	<!--Outside Page-->
 	<div data-role="page" id="outsidePage" data-theme="b" data-title="Restaurant Tracker">
 		<div data-role="header" data-position="fixed" data-theme="b">
@@ -290,7 +305,7 @@
 				</div>
 				<div data-role="fieldcontain">
 					<label for="favorite">Add to favorites&#63;</label>
-					<select data-role="slider">
+					<select data-role="slider" id="fav">
 						<option value="No">No</option>
 						<option value="Yes">Yes</option>
 					</select>

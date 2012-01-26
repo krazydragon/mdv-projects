@@ -1,6 +1,6 @@
 function (doc){
 	if(doc.types == "Family"){
-		emit(doc._id.substr(10),{
+		emit(doc._id,{
 			"place": doc.place,
 			"restaurant": doc.restaurant,
 			"date": doc.date,
