@@ -7,16 +7,30 @@
 
 
 function editEntry(){
-    	
-       console.log($(this).attr('id'));
+	var key = $(this).attr('restid');
+	$db.openDoc(key, {success: function(obj) {
+        $('#fav').val() = obj.fav;
+        $('#restaurant').val() = obj.restaurant;
+		$('#place').val() = obj.place;
+		$('#date').val() = obj.date;
+		$('#types').val() = obj.types;
+		$('#food').val() = obj.food;
+		$('#numScale').val() = obj.numScale;
+		$('#comments').val() = obj.comments;
+}    		
+});
     }
     
+    
 function deleteEntry(){
-    	var key = $(this).attr('id');
-    	console.log(key);
-    	localStorage.removeItem(key);
+	var key = $(this).attr('restid');
+	$db.openDoc(key, { success: function(doc) {  
+       $db.removeDoc(doc, { success: function() {     
+       }})  
+      }});
     }
-        
+
+
          
 
 
@@ -27,8 +41,7 @@ $('#main').live("pageshow", function(){
 				"Outside": "Places to eat outside",
 				"Bar": "No kids allowed",
 				"Sports" : "Places to watch the game.", 
-				"Other" : "Unique Restaurants.",
-				"All" : "Search All Restaurants."
+				"Other" : "Unique Restaurants."
 				};
  	$.each(obj, function(cat, txt){
  		var	newLi = $('<li></li>'),
@@ -46,36 +59,38 @@ $('#main').live("pageshow", function(){
          $('#mainLinks').append(newLi);
  	});
  	$('#mainLinks').listview('refresh');
-	$("#restForm").validate({
-        submitHandler: function(){
-        
-            var Restaurant = {
-                "place" : $('#place').val(),
-                "restaurant" :$('#restaurant').val(),
-                "date" :$('#date').val(),
-                "types" :$('#types').val(),
-                "food" : $('#food').val(),
-                "numScale" : $('#numScale').val(),
-                "comments" : $('#comments').val(),
-                "fav" : $('#fav').val(),
-                "creation_time" : ( new Date() ).getTime()
-            };
-            $db.saveDoc( Restaurant, {
-                success: function() {
-                    $.mobile.changePage( "#main", "slidedown", true, true );
-                },
-                error: function() {
-                    alert( "Cannot save new document." );
-                 }
-        });
-        }
-    });
+ 	$("#restForm").validate({
+ 	    submitHandler: function(){
+ 	    
+ 	        var Restaurant = {
+ 	            "place" : $('#place').val(),
+ 	            "restaurant" :$('#restaurant').val(),
+ 	            "date" :$('#date').val(),
+ 	            "types" :$('#types').val(),
+ 	            "food" : $('#food').val(),
+ 	            "numScale" : $('#numScale').val(),
+ 	            "comments" : $('#comments').val(),
+ 	            "fav" : $('#fav').val(),
+ 	            "creation_time" : ( new Date() ).getTime()
+ 	        };
+ 	        $db.saveDoc( Restaurant, {
+ 	            success: function() {
+ 	                
+ 	            },
+ 	            error: function() {
+ 	                alert( "Cannot save new document." );
+ 	             }
+ 	    });
+ 	    }
+ 	});        	
+	
    });
+
+
    
   $('#Categories').live("pageshow", function(){
     var catData = $(this).data("url"),
     	cat = catData.split('?');
-	$("#albumview").bind( "pagebeforeshow", openAlbum );
 	$("#Category").empty();
   	$db.view("tracker/" + cat[1] ,{
   		success: function(data){
@@ -83,11 +98,7 @@ $('#main').live("pageshow", function(){
 				var	newLi = $('<li></li>'),
              		newA = $('<a></a>', {
                             href: "#entryPage?" + obj.id,
-                            restId : obj.id,
-                            click: function() {
-                               albumId = $(this).data("identity");
-                            },
-                           	category : cat[1]
+                            restId : obj.id
                             }),
              		newH3 = $('<h3></h3>'),
              		newP = $('<p></p>'); 
@@ -116,8 +127,8 @@ $('#main').live("pageshow", function(){
                 		newP4 = $('<p></p>'),
                 		newP5 = $('<p></p>'),
                 		newP6 = $('<p></p>');
-                		newA1 = $('<a href="#" data-role="button"  id="' + key + '"data-icon="back">Edit</a>'),
-                		newA2 = $('<a href="#" data-role="button"  id="' + key + '"data-icon="delete">Delete</a>')
+                		newA1 = $('<a href="#addRest" data-role="button"  id="' + key + '"data-icon="back">Edit</a>'),
+                		newA2 = $('<a href="#main" data-role="button"  id="' + key + '"data-icon="delete">Delete</a>')
 	       	 $(newH2).html(obj.restaurant);
              $(newP1).html("Location : " + obj.place);
              $(newP2).html("Date : " + obj.date);
@@ -130,8 +141,7 @@ $('#main').live("pageshow", function(){
              $(newLi).append(newH2, newP1, newP2, newP3, newP4, newP5, newP6, newA1, newA2);
             $('#Entry').append(newLi)
     		$('#Entry').listview('refresh');
-    		}
-    		
+    		}    		
 	       });
 	       
 	     });	
