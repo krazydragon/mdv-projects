@@ -4,39 +4,49 @@
 
 
  var $db = $.couch.db("asdw4");
- $("#FamilyButton").live('click', fButton);
- function fButton(){
- 	refreshRestaurants("Family");
- };
+
+
+function editEntry(){
+    	
+       console.log($(this).attr('id'));
+    }
+    
+function deleteEntry(){
+    	var key = $(this).attr('id');
+    	console.log(key);
+    	localStorage.removeItem(key);
+    }
         
          
- function refreshRestaurants(cat){
-  	$("#Category").empty();
-  	$db.view("tracker/" + cat ,{
-  		success: function(data){
- 			$.each(data.rows, function(i, obj){
-					var	newLi = $('<li></li>'),
-             		newA = $('<a></a>', {
-                            href: "#Restaurant",
-                            restId : "'"+data.rows[i].value._id+"'",
-                           	category : cat
-                            }),
-             		newH3 = $('<h3></h3>'),
-             		newP = $('<p></p>'); 
-         		$(newH3).html(obj.value.restaurant);
-         		$(newP).html(obj.value.place);
-         		$(newLi).append(newA, newH3, newP);
-         		$('#Category').append(newLi);
-            });
-            $('#Category').listview('refresh');
-         },
- 	});
-	};        
+
 
 $('#main').live("pageshow", function(){   
-
-
-       $("#restForm").validate({
+	
+	var obj = {
+				"Family" : "Family oriented restaurants.", 
+				"Outside": "Places to eat outside",
+				"Bar": "No kids allowed",
+				"Sports" : "Places to watch the game.", 
+				"Other" : "Unique Restaurants.",
+				"All" : "Search All Restaurants."
+				};
+ 	$.each(obj, function(cat, txt){
+ 		var	newLi = $('<li></li>'),
+            newA = $('<a></a>', {
+            	href: "restaurants.html?" + cat,
+               	category : cat
+            }),
+            newI = $('<img src= "images/' + cat + '.png"/>')
+            newH3 = $('<h3></h3>'),
+            newP = $('<p></p>'); 
+         $(newH3).html(cat);
+         $(newP).html(txt);
+         $(newA).append(newI, newH3, newP);
+         $(newLi).append(newA);
+         $('#mainLinks').append(newLi);
+ 	});
+ 	$('#mainLinks').listview('refresh');
+	$("#restForm").validate({
         submitHandler: function(){
         
             var Restaurant = {
@@ -61,51 +71,69 @@ $('#main').live("pageshow", function(){
         }
     });
    });
+   
+  $('#Categories').live("pageshow", function(){
+    var catData = $(this).data("url"),
+    	cat = catData.split('?');
+	$("#albumview").bind( "pagebeforeshow", openAlbum );
+	$("#Category").empty();
+  	$db.view("tracker/" + cat[1] ,{
+  		success: function(data){
+ 			$.each(data.rows, function(i, obj){
+				var	newLi = $('<li></li>'),
+             		newA = $('<a></a>', {
+                            href: "#entryPage?" + obj.id,
+                            restId : obj.id,
+                            click: function() {
+                               albumId = $(this).data("identity");
+                            },
+                           	category : cat[1]
+                            }),
+             		newH3 = $('<h3></h3>'),
+             		newP = $('<p></p>'); 
+         		$(newH3).html(obj.value.restaurant);
+         		$(newP).html(obj.value.place);
+         		$(newA).append(newH3, newP);
+         		$(newLi).append(newA);
+         		$('#Category').append(newLi);
+            });
+            $('#Category').listview('refresh');
+         },
+ 	});	
+  });
+  
+  $('#entryPage').live("pageshow", function(){ 
+  		$('#Entry').children().remove();  
+		var keyData = $(this).data("url"),
+			key = keyData.split('?');
+	    $db.openDoc( key[1], { 
+	    	success: function(obj) {
+	    		var	newLi = $('<li></li>'),
+                		newH2 = $('<h2></h2>'),
+                		newP1 = $('<p></p>'),
+                		newP2 = $('<p></p>'),
+                		newP3 = $('<p></p>'),
+                		newP4 = $('<p></p>'),
+                		newP5 = $('<p></p>'),
+                		newP6 = $('<p></p>');
+                		newA1 = $('<a href="#" data-role="button"  id="' + key + '"data-icon="back">Edit</a>'),
+                		newA2 = $('<a href="#" data-role="button"  id="' + key + '"data-icon="delete">Delete</a>')
+	       	 $(newH2).html(obj.restaurant);
+             $(newP1).html("Location : " + obj.place);
+             $(newP2).html("Date : " + obj.date);
+             $(newP3).html("Type of Restaurant : " + obj.types);
+             $(newP4).html("Kind of food served : " + obj.food);
+             $(newP5).html("On a scale of 1-10 how good was it? : " + obj.numScale);
+             $(newP6).html("Comments : " + obj.comments);
+             $(newA1).bind('click', editEntry);
+             $(newA2).bind('click', deleteEntry);
+             $(newLi).append(newH2, newP1, newP2, newP3, newP4, newP5, newP6, newA1, newA2);
+            $('#Entry').append(newLi)
+    		$('#Entry').listview('refresh');
+    		}
+    		
+	       });
+	       
+	     });	
+  
 
-$('#Restaurants').live("pageshow", function(){
-	
-	
-});
-
-
- //Populates Family Group Screen
-    
-    
-    //Populates Bar Group Screen
-    
-    
-    /*//Populates Outside Group Screen
-    function oButton(){
-        processLocal();
-        getTypes(info, ID, "Outside");
-        buttonPress(info, ID, '#OUT');
-    }
-    
-    //Populates Sports Group Screen
-    function sButton(){
-        processLocal();
-        getTypes(info, ID, "Sports");
-        buttonPress(info, ID, '#SPO');
-    }
-    
-    //Populates Other Group Screen
-    function OButton(){
-        processLocal();
-        getTypes(info, ID, "Other");
-        buttonPress(info, ID, '#OTH');
-    }
-    
-    //Populates All Groups Screen
-    function aButton(){
-        processLocal();
-        buttonPress(info, ID, '#ALL');
-    }*/
-
-    
-    
-    /*$("#BarButton").bind('click', bButton);
-    $("#OutsideButton").bind('click', oButton);
-    $("#SportsButton").bind('click', sButton);
-    $("#OtherButton").bind('click', OButton);
-    $("#AllButton").bind('click', aButton);*/
-    
