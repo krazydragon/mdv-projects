@@ -39,11 +39,8 @@ $(document).ready(function(){
             $('#Recentpage').append(newLi); 
                 
         })},
-    	complete: function(json) {
-            for(var n in json){    
-            var num = Math.floor(Math.random()*100000);
-            localStorage.setItem(num,  JSON.stringify(json[n]));
-        };
+    	complete: function() {
+            $('#Recentpage').listview('refresh');
         }     
         
        
@@ -51,7 +48,48 @@ $(document).ready(function(){
             
     });
     
-          
+       $.ajax({
+    	url: 'xhr/dummy.xml',
+    	type: 'GET',
+    	dataType: "xml",
+    	success: function(xml){
+        		$(xml).find("top").each(function(){
+        		var	newLi = $('<li></li>'),
+                		newH2 = $('<h2></h2>'),
+                		newP1 = $('<p></p>'),
+                		newP2 = $('<p></p>'),
+                		newP3 = $('<p></p>');
+            $(newH2).html($(this).find('restaurant').text());
+            $(newP1).html("Restaurant : " + $(this).find('city').text());
+            $(newP2).html("City : " + $(this).find('country').text());
+            $(newLi).append(newH2, newP1, newP2);
+            $('#Toppage').append(newLi);
+
+  				
+			});
+    	},
+    	complete: function() {
+            $('#Toppage').listview('refresh');
+        } 
+  	});
+    
+    YAML.load('xhr/dummy.yml', function(yaml){
+      $.each(yaml, function(i, obj){
+   				   var	newLi = $('<li></li>'),
+                		newH3 = $('<h3></h3>'),
+                		newP1 = $('<p></p>'),
+                		newP2 = $('<p></p>'),
+                		newP3 = $('<p></p>'); 
+            $(newH3).html(obj.Food);
+            $(newP1).html("Restaurant : " + obj.Restaurant);
+            $(newP2).html("City : " + obj.City);
+            $(newP3).html("State : " + obj.State)
+            $(newLi).append(newH3, newP1, newP2, newP3);
+            $('#Foodpage').append(newLi); 
+            $('#Foodpage').listview('refresh');
+    	})
+    });
+    
     //JSON Object
     function i(b, a){
         return a.numScale-b.numScale;
@@ -101,8 +139,7 @@ $(document).ready(function(){
             $(newA1).bind('click', editEntry);
             $(newA2).bind('click', deleteEntry);
             $(newDiv).append(newH3, newP1, newP2, newP3, newP4, newP5, newP6, newA1, newA2);
-            $(BUTTON +'page').append(newDiv);
-            $(BUTTON +'page').listview('refresh');          
+            $(BUTTON +'page').append(newDiv);          
         }    
         
         

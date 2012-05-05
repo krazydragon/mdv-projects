@@ -1,0 +1,67 @@
+---
+# Top Food!
+
+        
+
+1:
+    Food:   Braised Leeks with Mozzarella & a Fried Egg
+    Restaurant:  FnB
+    City: Scottsdale
+    State: Arizona
+    
+
+2:
+    Food:   Lamb Salad with Fregola
+    Restaurant:  Osteria Stellina
+    City: Point Reyes Station
+    State: California
+    
+3:
+    Food:   Smoked Pork Jowl with Pickles
+    Restaurant:  Smoke
+    City: Dallas
+    State: Texas
+    
+4:
+    Food:   Scallop Sashimi with Meyer Lemon Confit
+    Restaurant:  Forage
+    City: Salt Lake City
+    State: Utah
+    
+5:
+    Food:   Vegan Charcuterie
+    Restaurant:  Gather
+    City: Berkeley
+    State: California
+
+6:
+    Food:   Pappardelle with Sea Urchin and Cauliflower
+    Restaurant:  Saison
+    City: San Francisco
+    State: Califonia
+    
+
+7:
+    Food:   Pork Rillette Hand Pies
+    Restaurant:  Olympic Provisions
+    City: Portlan
+    State: Oregon
+    
+8:
+    Food:   Malted Custard French Toast
+    Restaurant:  Jam
+    City: Chicago
+    State: Illinois
+    
+9:
+    Food:   Pasta with Lamb Ragù
+    Restaurant:  Coppa
+    City: Boston
+    State: Massachusetts
+    
+10:
+    Food:   Island Duck with Mulberry Mustard
+    Restaurant:  Torrisi Italian Specialties
+    City: New York City
+    State: New York  
+...

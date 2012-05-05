@@ -24,6 +24,7 @@ function editEntry(){
     
 function deleteEntry(){
 	var key = $(this).attr('restid');
+	console.log(key);
 	$db.openDoc(key, { success: function(doc) {  
        $db.removeDoc(doc, { success: function() {     
        }})  
