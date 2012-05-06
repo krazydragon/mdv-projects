@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+	<ToptopWorld>
+		<top>
+			<restaurant>Per Se</restaurant>
+			<city>New York</city>
+			<country>USA</country>
+		</top>
+		<top>
+			<restaurant>Le Chateaubriand</restaurant>
+			<city>Paris</city>
+			<country>France</country>
+		</top>
+		<top>
+			<restaurant>Arzak</restaurant>
+			<city>San Sebastián</city>
+			<country>Spain</country>
+		</top>
+		<top>
+			<restaurant>Buffalo, N.Y.</restaurant>
+			<city>São Paulo</city>
+			<country>Brazil</country>
+		</top>
+		<top>
+			<restaurant>Alinea</restaurant>
+			<city>Chicago</city>
+			<country>USA</country>
+		</top>
+		<top>
+			<restaurant>The Fat Duck</restaurant>
+			<city>Bray</city>
+			<country>England</country>
+		</top>
+		<top>
+			<restaurant>Osteria Francescana</restaurant>
+			<city>Modena</city>
+			<country>Italy</country>
+		</top>
+		<top>
+			<restaurant>Mugaritz</restaurant>
+			<city>Errenteria</city>
+			<country>Spain</country>
+		</top>
+		<top>
+			<restaurant>El Celler de Can Roca</restaurant>
+			<city>Girona</city>
+			<country>Spain</country>
+		</top>
+		<top>
+			<restaurant>Norma</restaurant>
+			<city>Copenhagon</city>
+			<country>Denmark</country>
+		</top>
+	</ToptopWorld>

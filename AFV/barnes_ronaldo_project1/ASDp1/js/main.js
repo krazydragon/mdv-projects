@@ -1,6 +1,6 @@
-// Project 2
+// Project 1
 // Author: Ronaldo Barnes
-// Created for: ASD Online 0112
+// Created for: AVF Online 0205
 
 
     
@@ -235,3 +235,4 @@ $(document).ready(function(){
     
 
 });
+

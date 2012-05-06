@@ -19,14 +19,77 @@ $(document).ready(function(){
     	type: 'GET',
     	dataType: 'json',
     	success: function(json){
-    		$.each(json.Restaurants, function(i, obj){    
-            	localStorage.setItem(i,  JSON.stringify(obj))
-        	})
-        }
-        })     
-          
+    		$.each(json.Restaurants, function(i, obj){
+   				   var	newLi = $('<li></li>'),
+                		newH3 = $('<h3></h3>'),
+                		newP1 = $('<p></p>'),
+                		newP2 = $('<p></p>'),
+                		newP3 = $('<p></p>'),
+                		newP4 = $('<p></p>'),
+                		newP5 = $('<p></p>'),
+                		newP6 = $('<p></p>'); 
+            $(newH3).html(obj.restaurant);
+            $(newP1).html("Location : " + obj.place);
+            $(newP2).html("Date : " + obj.date);
+            $(newP3).html("Type of Restaurant : " + obj.types);
+            $(newP4).html("Kind of food served : " + obj.food);
+            $(newP5).html("On a scale of 1-10 how good was it? : " + obj.numScale);
+            $(newP6).html("Comments : " + obj.comments);
+            $(newLi).append(newH3, newP1, newP2, newP3, newP4, newP5, newP6);
+            $('#Recentpage').append(newLi); 
+                
+        })},
+    	complete: function() {
+            $('#Recentpage').listview('refresh');
+        }     
+        
+       
+
+            
+    });
     
-          
+       $.ajax({
+    	url: 'xhr/dummy.xml',
+    	type: 'GET',
+    	dataType: "xml",
+    	success: function(xml){
+        		$(xml).find("top").each(function(){
+        		var	newLi = $('<li></li>'),
+                		newH2 = $('<h2></h2>'),
+                		newP1 = $('<p></p>'),
+                		newP2 = $('<p></p>'),
+                		newP3 = $('<p></p>');
+            $(newH2).html($(this).find('restaurant').text());
+            $(newP1).html("Restaurant : " + $(this).find('city').text());
+            $(newP2).html("City : " + $(this).find('country').text());
+            $(newLi).append(newH2, newP1, newP2);
+            $('#Toppage').append(newLi);
+
+  				
+			});
+    	},
+    	complete: function() {
+            $('#Toppage').listview('refresh');
+        } 
+  	});
+    
+    YAML.load('xhr/dummy.yml', function(yaml){
+      $.each(yaml, function(i, obj){
+   				   var	newLi = $('<li></li>'),
+                		newH3 = $('<h3></h3>'),
+                		newP1 = $('<p></p>'),
+                		newP2 = $('<p></p>'),
+                		newP3 = $('<p></p>'); 
+            $(newH3).html(obj.Food);
+            $(newP1).html("Restaurant : " + obj.Restaurant);
+            $(newP2).html("City : " + obj.City);
+            $(newP3).html("State : " + obj.State)
+            $(newLi).append(newH3, newP1, newP2, newP3);
+            $('#Foodpage').append(newLi); 
+            $('#Foodpage').listview('refresh');
+    	})
+    });
+    
     //JSON Object
     function i(b, a){
         return a.numScale-b.numScale;
@@ -64,8 +127,8 @@ $(document).ready(function(){
                 newP4 = $('<p></p>'),
                 newP5 = $('<p></p>'),
                 newP6 = $('<p></p>'),
-                newA1 = $('<a href="#addRest" data-role="button"  id="' + id + '" group="' + BUTTON + '" data-icon="back">Edit</a>'),
-                newA2 = $('<a href="#main" data-role="button"  id="' + id + '" group="' + BUTTON + '" data-icon="delete">Delete</a>');   
+                newA1 = $('<a href="#" data-role="button"  id="' + id + '"data-icon="back">Edit</a>'),
+                newA2 = $('<a href="#" data-role="button"  id="' + id + '"data-icon="delete">Delete</a>');   
             $(newH3).html(info[d].restaurant);
             $(newP1).html("Location : " + info[d].place);
             $(newP2).html("Date : " + info[d].date);
@@ -78,38 +141,19 @@ $(document).ready(function(){
             $(newDiv).append(newH3, newP1, newP2, newP3, newP4, newP5, newP6, newA1, newA2);
             $(BUTTON +'page').append(newDiv);          
         }    
-        $(BUTTON +'page').listview('refresh');
+        
         
     }
     
     function editEntry(){
     	
-       var key = $(this).attr('id'),
-       	   temp = localStorage.getItem(key),
-       	   obj = JSON.parse(temp),
-       	   foodAry = obj.food.split(" ");
-		foodAry.reverse();
-		foodAry.pop();
-        $('#fav').val(obj.fav);
-        $('#restaurant').val(obj.restaurant);
-		$('#place').val(obj.place);
-		$('#date').val(obj.date);
-		$('#types').val(obj.types);
-		$('#food').val(obj.food);
-		$('#numScale').val(obj.numScale);
-		$('#comments').val(obj.comments);
-		for(var d=0; d<foodAry.length; d++){
-			var f = foodAry[d];
-		$('#food').setAttribute(f, "checked");
-		}
+       console.log($(this).attr('id'));
     }
     
     function deleteEntry(){
-    	var key = $(this).attr('id'),
-    		group = $(this).attr('id');
-    	
+    	var key = $(this).attr('id');
+    	console.log(key);
     	localStorage.removeItem(key);
-    	$('main').listview('refresh');
     }
     
     //Poulate correct info when button is pressed
