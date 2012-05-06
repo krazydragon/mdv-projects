@@ -7,7 +7,7 @@
 
 	<meta charset="utf-8">
 	
-	<title>AVF DEMO APP</title>
+	<title>My Restaurant Tracker</title>
 	
 	<!--  Mobile viewport optimized: j.mp/bplateviewport -->
 	<meta name="HandheldFriendly" content="True">
@@ -27,101 +27,319 @@
 	<script src="js/libs/modernizr.custom.min.js"></script>
 	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i8n/jquery.mobile.datebox.i8n.en.js"></script>
 	<script src="js/libs/jquery.validate.min.js"></script>
-	<script type="text/javascript" src="js/libs/jquery.couch.js"></script>
+	<script type="text/javascript" src="js/libs/yaml.js"></script>
 	<script src="js/main.js" type="text/javascript"></script>
 
-
 </head>
-<body>
+<body background="images/background.jpg">
 	<!--Main Page-->
 	<div data-role="page" id="main" data-theme="b" data-title="Restaurant Tracker">
 		<div data-role="header" data-theme="b">
-			<div class="ui-grid-b">
-				<div class="ui-block-a"><h3>Ronaldo Barnes</h3></div>
-				<div class="ui-block-b"><h1>AVF Demo APP</h1></div>
-				<div class="ui-block-c"><h3>AVF1205</h3></div>
-			</div><!-- /grid-b -->
+			<img src="images/rt_headern.png"/>
 		</div>		
 		<div data-role="content">
-			<div class="ui-grid-b">
-				<div class="ui-block-a">
-					<h3>Androd</h3>
-					<ul data-role="listview" data-inset="true">
-						<li>Accelerometer</li>
-						<li>Camera</li>
-						<li>Compass</li>
-						<li>Contacts</li>
-						<li>File</li>
-						<li>GPS</li>
-						<li>Media</li>
-						<li>Network</li>
-						<li>Notifications</li>
-						<li>Storage</li>
-					</ul>
-				</div>
-				<div class="ui-block-b">
-					<h3>Both</h3>
-					<ul data-role="listview" data-inset="true">
-						<li>Accelerometer</li>
-						<li>Camera</li>
-						<li>Compass</li>
-						<li>Contacts</li>
-						<li>File</li>
-						<li>GPS</li>
-						<li>Media</li>
-						<li>Network</li>
-						<li>Notifications</li>
-						<li>Storage</li>
-					</ul>
-				</div>
-				<div class="ui-block-c">
-					<h3>Apple</h3>
-					<ul data-role="listview" data-inset="true">
-						<li>Accelerometer</li>
-						<li>Camera</li>
-						<li>Compass</li>
-						<li>Contacts</li>
-						<li>File</li>
-						<li>GPS</li>
-						<li>Media</li>
-						<li>Network</li>
-						<li>Notifications</li>
-						<li>Storage</li>
-					</ul>
-				</div>
-			</div><!-- /grid-b -->
-			<div class="ui-grid-a">
-				<div class="ui-block-a">
-					<div data-role="collapsible">
-   						<h3>CRUD</h3>
-   						<a href="http://krazydragon.github.com/mdv-projects/AFV/barnes_ronaldo_project1/AFVp1/tracker.html">
-							<p>Old CRUD app</p>
-						</a>
-						<a href="#">
-							<p>New CRUD app</p>
-						</a>
-					</div>	
-				</div>
-				<div class="ui-block-b">
-					<div data-role="collapsible">
-   						<h3>Research</h3>
-   						<a href="http://course.online.fullsail.edu/index.cfm?fuseaction=lms.activitiesDiscussion&activityId=719001&deliveryId=1443739">
-							<p>Week 1 Discussion: Industry Research and Project Intent</p>
-						</a>
-						<a href="http://course.online.fullsail.edu/index.cfm?fuseaction=lms.activitiesDiscussion&activityId=719008&deliveryId=1443746">
-							<p>Week 2 Discussion: Accessibility</p>
-						</a>
-						<a href="http://course.online.fullsail.edu/index.cfm?fuseaction=lms.activitiesDiscussion&activityId=719013&deliveryId=1443751">
-							<p>Week 3 Discussion - Market Research</p>
-						</a>
-					</div>
-				</div>
-			</div><!-- /grid-a -->
+			<ul data-role="listview" data-inset="true" data-theme="b">
+				<li><a href="#addRest" id="addEntry">
+					<img src="images/RT.png"/>
+					<h3>Track Restaurant</h3>
+					<p>Track a new restaurant.</p>
+				</a></li>
+				<li><a href="#familyPage" id="FamilyButton">
+					<img src="images/family.png"/>
+					<h3>Family</h3>
+					<p>Family oriented restaurants.</p>
+				</a></li>
+				<li><a href="#outsidePage" id="OutsideButton">
+					<img src="images/outside.png" />
+					<h3>Outside</h3>
+					<p>Places to eat outside</p>
+				</a></li>
+				<li><a href="#barPage" id="BarButton">
+					<img src="images/bar.png"/>
+					<h3>Bar</h3>
+					<p>No kids allowed</p>
+				</a></li>
+				<li><a href="#sportsPage" id="SportsButton">
+					<img src="images/sports.png"/>
+					<h3>Sports</h3>
+					<p>Places to watch the game.</p>
+				</a></li>
+				<li><a href="#otherPage" id="OtherButton">
+					<img src="images/other.png"/>
+					<h3>Other</h3>
+					<p>Unique Restaurants. </p>
+				</a></li>
+				<li><a href="#allPages" id="AllButton">
+					<img src="images/all.png"/>
+					<h3>All</h3>
+					<p>Search All Restaurants. </p>
+				</a></li>
+			</ul>
 		</div>	
 		<div data-role="footer">
-				
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#main" id="wipeInfo" data-icon="delete">Clear</a></li>
+				</ul>
+			</div><!-- /navbar -->
 		</div>
 	</div>
-</body>
+	<!--Family Page-->
+	<div data-role="page" id="familyPage" data-theme="b" data-title="Restaurant Tracker">
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<div data-role="navbar">
+				<ul>
+					<li><img src="images/rt_header.png"/></li>
+					<li><h3>Family</h3></li>
+					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+		<div data-role="content" >
+			<div data-role="collapsible-set" id="FAMpage">
+			
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed">
+		</div>
+	</div>
+	<!--Recent Page-->
+	<div data-role="page" id="recentPage" data-theme="b" data-title="Resent">	
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<div data-role="navbar">
+				<ul>
+					<li><img src="images/rt_header.png"/></li>
+					<li><h3>Resent</h3></li>
+					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+		<div data-role="content" >
+			<ol data-role="listview" data-inset="true" data-theme="a" id="Recentpage">
+				
+			</ol>
+		</div>
+		<<div data-role="footer" data-position="fixed">
+		</div>
+	</div>
+	<!--Top Restaurant Page-->
+	<div data-role="page" id="topRestPage" data-theme="b" data-title="Top">	
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<div data-role="navbar">
+				<ul>
+					<li><img src="images/rt_header.png"/></li>
+					<li><h3>Top</h3></li>
+					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+		<div data-role="content" >
+			<ol data-role="listview" data-inset="true" data-theme="a" id="Toppage">
+				
+			</ol>
+		</div>
+		<<div data-role="footer" data-position="fixed">
+		</div>
+	</div>
+	<!--Top Food Page-->
+	<div data-role="page" id="foodPage" data-theme="b" data-title="Food">	
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<div data-role="navbar">
+				<ul>
+					<li><img src="images/rt_header.png"/></li>
+					<li><h3>Dishes</h3></li>
+					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+		<div data-role="content" >
+			<ol data-role="listview" data-inset="true" data-theme="a" id="Foodpage">
+				
+			</ol>
+		</div>
+		<<div data-role="footer" data-position="fixed">
+		</div>
+	</div>
+	<!--Outside Page-->
+	<div data-role="page" id="outsidePage" data-theme="b" data-title="Restaurant Tracker">
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<div data-role="navbar">
+				<ul>
+					<li><img src="images/rt_header.png"/></li>
+					<li><h3>Outside</h3></li>
+					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+		<div data-role="content" >
+			<div data-role="collapsible-set"  id="OUTpage">
+			
+			</div>		
+		</div>
+		<div data-role="footer" data-position="fixed">
+		</div>
+	</div>
+	<!--Bar Page-->
+	<div data-role="page" id="barPage" data-theme="b">
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<div data-role="navbar">
+				<ul>
+					<li><img src="images/rt_header.png"/></li>
+					<li><h3>Bar</h3></li>
+					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+		<div data-role="content" >
+			<div data-role="collapsible-set" id="BARpage">
+				
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed">
+		</div>
+	</div>
+	<!--Sports Page-->
+	<div data-role="page" id="sportsPage" data-theme="b" data-title="Restaurant Tracker">		
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<div data-role="navbar">
+				<ul>
+					<li><img src="images/rt_header.png"/></li>
+					<li><h3>Sports</h3></li>
+					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+		<div data-role="content" >
+			<div data-role="collapsible-set" id="SPOpage">
+				
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed">
+		</div>
+	</div>
+	<!--Other Page-->
+	<div data-role="page" id="otherPage" data-theme="b" data-title="Restaurant Tracker">	
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<div data-role="navbar">
+				<ul>
+					<li><img src="images/rt_header.png"/></li>
+					<li><h3>Other</h3></li>
+					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+		<div data-role="content" >
+			<div data-role="collapsible-set" id="OTHpage">
+				
+			</div>
+		</div>
+		<<div data-role="footer" data-position="fixed">
+		</div>
+	</div>
+	<!--All Page-->	
+	<div data-role="page" id="allPages" data-theme="b" data-title="Restaurant Tracker">
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<div data-role="navbar">
+				<ul>
+					<li><img src="images/rt_header.png"/></li>
+					<li><h3>All</h3></li>
+					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+		<div data-role="content" >
+			<div>
+				<ul data-role="listview" id="ALLpage" data-filter="true">
+				</ul>
+			</div>
+		</div>
+		<div data-role="footer" data-position="fixed">
+		</div>
+	</div>
+	<!--Tracker Page-->	
+	<div data-role="page" id="addRest" data-theme="b" data-title="Restaurant Tracker">
+		<div data-role="header" data-position="fixed"  data-theme="b" >
+			<div data-role="navbar">
+				<ul>
+					<li><img src="images/rt_header.png"/></li>
+					<li><h3>New Entry</h3></li>
+					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+		<div data-role="content" >
+			<form action="index.html" id="restForm">
+				<h2>Track A New Restaurant</h2>
+				<em>* Required</em>
+				<div data-role="fieldcontain">
+					<label for="place"><em>* </em>What city are you in&#63;</label>
+					<input type="text" name="place" id="place" placeholder="Tacoma,WA" class="required">
+					<p>Example: Tacoma, Wa</p>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="resturant"><em>* </em>Name of the Restaurant&#63</label>
+					<input type="text" name="restaurant" placeholder="The Rock" id="restaurant" class="required">
+					<p>Example: The Rock</p>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="date"><em>* </em>Date&#63</label>
+					<input name="date" id="date" type="date" class="required" data-role="datebox" data-options='{"mode": "calbox", "disableManualInput": true}'  data-theme="b">
+				</div>
+				<div data-role="fieldcontain">
+					<label for="types"><em>* </em>What kind of Restaurant was it&#63;</label>
+					<select name="types" id="types" data-native-menu=false class="required">
+	   					<option data-placeholder="true">---Pick A Type of Restaurant---</option>	
+	   					<optgroup label="Restarurant Types">			
+	   						<option value="Family">Family</option>
+	  						<option value="Sports">Sports</option>
+	   						<option value="Bar">Bar</option>
+	  						<option value="Outside">Outside</option>
+	  						<option value="Other">Other</option>
+	  					</optgroup>
+					</select>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="food"><em>* </em>What did you have&#63;</label>
+					<select name="food" id="food" multiple="multiple" data-native-menu=false class="required">
+	   					<option data-placeholder="true">---What did you have?---</option>	
+	   					<optgroup label="Food Types">			
+	   						<option value="Appetizers">Appetizers</option>
+	  						<option value="Meat">Meat</option>
+	   						<option value="Seafood">Seafood</option>
+	  						<option value="Vegetables">Vegetables</option>
+	  						<option value="Dessert">Dessert</option>
+	  						<option value="Other">Other</option>
+	  					</optgroup>
+					</select>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="numScale">On a scale of 1 &#45; 10 how was it&#63;</label>
+					<input name="numScale" id="numScale" type="range" min="1" max="10" value="7"/>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="comments">What would you say about the food&#63;</label>
+					<textarea name="comments" id="comments"></textarea>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="favorite">Add to favorites&#63;</label>
+					<select data-role="slider" id="fav">
+						<option value="No">No</option>
+						<option value="Yes">Yes</option>
+					</select>
+				</div>
+				<div data-role="fieldcontain">
+					<div class="ui-grid-a">
+						<div class="ui-block-a"><input type="submit" value="Submit" id="submit" ></div>
+						<div class="ui-block-b"><input type="reset" value="Reset" data-corners="false" data-shadow="false" data-theme="c"></div>
+					</div><!-- /grid-a -->
+				</div>
+				</form>
+			</div>
+			<div data-role="footer" data-position="fixed">
+			</div>
+			
+	</body>
 </html>
