@@ -7,7 +7,7 @@
 
 
 function editEntry(){
-	var key = $(this).attr('restid');
+	var key = $(this).attr('id');
 	$db.openDoc(key, {success: function(obj) {
         $('#fav').val() = obj.fav;
         $('#restaurant').val() = obj.restaurant;
@@ -23,7 +23,7 @@ function editEntry(){
     
     
 function deleteEntry(){
-	var key = $(this).attr('restid');
+	var key = $(this).attr('id');
 	console.log(key);
 	$db.openDoc(key, { success: function(doc) {  
        $db.removeDoc(doc, { success: function() {     
