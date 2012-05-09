@@ -22,7 +22,7 @@
 	    
 	    
 	function deleteEntry(){
-		var key = $(this).attr('id');
+		var key = $(this).attr('docId');
 		console.log(key);
 		$db.openDoc(key, { success: function(doc) {  
 	       $db.removeDoc(doc, { success: function() {     
@@ -30,9 +30,9 @@
 	      }});
 	    }
 
-
+ 
 	$('#main').live("pageshow", function(){   
-		
+		$('#mainLinks').children().remove();
 		var obj = {
 					"Family" : "Family oriented restaurants.", 
 					"Outside": "Places to eat outside",
@@ -95,7 +95,7 @@ $('#Categories').live("pageshow", function(){
 				var	newLi = $('<li></li>'),
              		newA = $('<a></a>', {
                             href: "#entryPage?" + obj.id,
-                            restId : obj.id
+                            id : obj.id
                             }),
              		newH3 = $('<h3></h3>'),
              		newP = $('<p></p>'); 
@@ -111,9 +111,10 @@ $('#Categories').live("pageshow", function(){
   });
   
   $('#entryPage').live("pageshow", function(){ 
-  		$('#Entry').children().remove();  
+  		$('#Entry').children().remove();
 		var keyData = $(this).data("url"),
 			key = keyData.split('?');
+		console.log(key[1]);
 	    $db.openDoc( key[1], { 
 	    	success: function(obj) {
 	    		var	newLi = $('<li></li>'),
@@ -124,8 +125,8 @@ $('#Categories').live("pageshow", function(){
                 		newP4 = $('<p></p>'),
                 		newP5 = $('<p></p>'),
                 		newP6 = $('<p></p>');
-                		newA1 = $('<a href="#addRest" data-role="button"  id="' + key + '"data-icon="back">Edit</a>'),
-                		newA2 = $('<a href="#main" data-role="button"  id="' + key + '"data-icon="delete">Delete</a>')
+                		newA1 = $('<a href="#" data-role="button" id="' + key[1] + '" data-icon="back">Edit</a>'),
+                		newA2 = $('<a href="#" data-role="button" docId="' + key[1] + '" data-icon="delete">Delete</a>')
 	       	 $(newH2).html(obj.restaurant);
              $(newP1).html("Location : " + obj.place);
              $(newP2).html("Date : " + obj.date);
@@ -133,8 +134,8 @@ $('#Categories').live("pageshow", function(){
              $(newP4).html("Kind of food served : " + obj.food);
              $(newP5).html("On a scale of 1-10 how good was it? : " + obj.numScale);
              $(newP6).html("Comments : " + obj.comments);
-             //$(newA1).bind('click', editEntry);
-             //$(newA2).bind('click', deleteEntry);
+             $(newA1).bind('click', editEntry);
+             $(newA2).bind('click', deleteEntry);
              $(newLi).append(newH2, newP1, newP2, newP3, newP4, newP5, newP6, newA1, newA2);
             $('#Entry').append(newLi)
     		$('#Entry').listview('refresh');
@@ -143,4 +144,28 @@ $('#Categories').live("pageshow", function(){
 	       
 	     });	
   
-
+  $(document).ready(function() {   
+		$('#Entry').click(function(event) {  
+	  		  var $tgt = $(event.target);  
+	  		  if ($tgt.is('a')) {  
+	  		     id = $tgt.attr("id");  
+	  		     if ($tgt.hasClass("edit")) {  
+	  		      // TODO: implement edit functionality     
+	  		     }  
+	  		     if ($tgt.hasClass("delete")) {  
+	  		      html = '<span class="deleteconfirm">Sure? <a href="#" class="dodelete">Yes</a> <a href="#" class="canceldelete">No</a></span>';  
+	  		      $tgt.parent().append(html);  
+	  		     }  
+	  		     if ($tgt.hasClass("dodelete")) {  
+	  		      $db.openDoc(id, { success: function(doc) {  
+	  		       $db.removeDoc(doc, { success: function() {  
+	  		        $tgt.parents("div.address").remove();       
+	  		       }})  
+	  		      }});        
+	  		     }  
+	  		     if ($tgt.hasClass("canceldelete")) {  
+	  		      $tgt.parents("span.deleteconfirm").remove();  
+	  		     }  
+	  		    }  
+	  		   });	     
+	  });
