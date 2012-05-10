@@ -36,7 +36,17 @@ function deleteEntry(){
 
 
 $('#main').live("pageshow", function(){   
-	
+	$.couch.login({
+        name: "happedstometedfusbyelant",
+        password: "P6D6NJcHL33Xv5KpLDArXKSE",
+        success: function(data) {
+            console.log(data);
+        },
+        error: function(status) {
+            console.log(status);
+        }
+    });
+
 	var obj = {
 				"Family" : "Family oriented restaurants.", 
 				"Outside": "Places to eat outside",
