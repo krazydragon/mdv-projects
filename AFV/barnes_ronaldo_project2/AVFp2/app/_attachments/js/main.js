@@ -3,7 +3,11 @@
 // Created for: AVF Online 0205
 
 
- document.addEventListener("deviceready", onDeviceReady, false);
+
+	
+
+
+ 	document.addEventListener("deviceready", onDeviceReady, false);
 
     // Cordova is ready
     //
