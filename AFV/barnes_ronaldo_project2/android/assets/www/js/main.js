@@ -3,8 +3,8 @@
 // Created for: AVF Online 0205
 
 
-document.addEventListener("deviceready", onDeviceReady, false);
-
+	document.addEventListener("deviceready", onDeviceReady, false);
+	
    
     function onDeviceReady() {
     	
@@ -22,8 +22,26 @@ document.addEventListener("deviceready", onDeviceReady, false);
             'I work!',  
             alertDismissed,         
             'Alert',            
-            'Click'                  
+            'Back'                  
         );
     } 
-    
- 
+    $('#Geolocation').live("pageshow", function(){
+        navigator.geolocation.getCurrentPosition(displayMap, noMap);
+                           
+        
+    });
+
+    function displayMap(position){       
+           var lat = position.coords.latitude,
+           long = position.coords.longitude,
+           gpsData = (lat +","+ long);
+       
+       alert(gpsData);
+       $('#map_canvas').gmap({'zoom': 15,'center': gpsData});
+   }
+                        
+          
+
+    function noMap(error) {
+        alert('Can\'t retrieve position.\nError: ' + error);
+    };

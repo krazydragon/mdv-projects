@@ -1,9 +1,13 @@
 /*
-Project 4
+Project 2
 Author: Ronaldo Barnes
-Created for: ASD Online 0112
+Created for: AVF Online 0205
 */
 
+
+  html { height: 100% }
+  body { height: 100%}
+  #map_canvas { height: 100% }
 
 
 div ul {
