@@ -1,7 +1,7 @@
 <!doctype html>
-<!--Project 4-->
+<!--Project 2-->
 <!--Author: Ronaldo Barnes -->
-<!--Created for:ASD 0112 -->	  
+<!--Created for:AVF 0205 -->	  
 <html lang="en">
 <head>
 
@@ -23,21 +23,13 @@
 	<link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.css" /> 
 	
 	
-	<!-- JavaScript -->
-	<script src="js/libs/modernizr.custom.min.js"></script>
-	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.js"></script>
-	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.js"></script>
-	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i8n/jquery.mobile.datebox.i8n.en.js"></script>
-	<script src="js/libs/jquery.validate.min.js"></script>
-	<script type="text/javascript" src="js/libs/jquery.couch.js"></script>
-	<script src="js/main.js" type="text/javascript"></script>
+	
 
 
 </head>
 <body background="images/background.jpg">
-	<!--Main Page-->
-	<div data-role="page" id="main" data-theme="b" data-title="Restaurant Tracker">
+	<!--default Page-->
+	<div data-role="page" id="default" data-theme="b" data-title="Restaurant Tracker">
 		<div data-role="header" data-theme="b">
 			<img src="images/rt_headern.png"/>
 		</div>		
@@ -54,20 +46,37 @@
 			
 		</div>
 	</div>
+	<div data-role="page" id="Categories" data-theme="b" data-title="Restaurants">
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<div data-role="navbar">
+				<ul>
+					<li><img src="images/rt_header.png"/></li>
+					<li><h3>Family</h3></li>
+					<li><a href="#default" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+				</ul>
+			</div><!-- /navbar -->
+		</div>
+		<div data-role="content" >
+			<ul data-role="listview" data-inset="true" data-theme="a" id="Category">
+				
+			</ul>
+		</div>
+		<div data-role="footer" data-position="fixed">
+		</div>
+		</div>
+		
+	</div>
 	<div data-role="page" id="entryPage" data-theme="b" data-title="Resent">	
 		<div data-role="header" data-position="fixed" data-theme="b">
 			<div data-role="navbar">
 				<ul>
 					<li><img src="images/rt_header.png"/></li>
 					<li><h3>Resent</h3></li>
-					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+					<li><a href="index.html" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
 				</ul>
 			</div><!-- /navbar -->
 		</div>
-		<div data-role="content" >
-			<ul data-role="listview" data-inset="true" data-theme="a" id="Entry">
-				
-			</ul>
+		<div data-role="content" id="entryContent">
 		</div>
 		<div data-role="footer" data-position="fixed">
 		</div>
@@ -78,7 +87,7 @@
 			<div data-role="navbar">
 				<ul>
 					<li><h3>New Entry</h3></li>
-					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+					<li><a href="#default" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
 				</ul>
 			</div><!-- /navbar -->
 		</div>
@@ -154,4 +163,13 @@
 			</div>
 		</div>	
 	</body>
+	<!-- JavaScript -->
+	<script src="js/libs/modernizr.custom.min.js"></script>
+	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.js"></script>
+	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i8n/jquery.mobile.datebox.i8n.en.js"></script>
+	<script src="js/libs/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="js/libs/jquery.couch.js"></script>
+	<script src="js/main.js" type="text/javascript"></script>
 </html>
