@@ -1,6 +1,6 @@
 
 <!doctype html>
-<!--Project 1-->
+<!--Project 3-->
 <!--Author: Ronaldo Barnes -->
 <!--Created for:AVF 0205 -->	  
 <html lang="en">
@@ -56,10 +56,18 @@
                         <h3>GPS</h3>
                         <p></p>
                     </a></li>
+                    <li><a href="#Camera">
+                        <h3>Camera</h3>
+                        <p></p>
+                    </a></li>
                 </ul>
 				
                 
-            </div>	
+            </div>
+            <video id="movie" width="320" height="240" controls onclick="this.play();>
+                <source src="video/Demovid.webm" type='video/webm; codecs="vp8, vorbis"' />
+                <source src="video/Demovid.mp4" />
+				</video>
             <div class="ui-grid-a">
                     <div class="ui-block-a">
                             <a href="http://krazydragon.github.com/mdv-projects/AFV/barnes_ronaldo_project1/AFVp1/index.html" data-role="button">Old CRUD app</a>                     	
@@ -68,10 +76,6 @@
                         <a href="#Research" data-role="button">Research</a>
                     </div>
                 </div><!-- /grid-a -->
-                <video id="movie" width="320" height="240" controls onclick="this.play();>
-  					<source src="video/Demovid.webm" type='video/webm; codecs="vp8, vorbis"' />
-					<source src="video/Demovid.mp4" />
-				</video>
             <div data-role="footer">
                 		
             </div>
@@ -93,6 +97,26 @@
             <div data-role="footer" data-position="fixed">
             </div>
         </div>
+       
+        <!-- Camera Page -->
+        <div data-role="page" id="Camera" data-theme="b" data-title="GPS">	
+            <div data-role="header" data-position="fixed" data-theme="b">
+                <div data-role="navbar">
+                    <ul>
+                        <li><img src="images/rt_header.png"/></li>
+                        <li><h3>Camera</h3></li>
+                        <li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+                    </ul>
+            </div><!-- /navbar -->
+            </div>
+            <div data-role="content">
+                <button onclick="capturePhoto();">Capture Photo</button> <br>
+                <img style="display:none;width:60px;height:60px;" id="demoImage" src="" />
+            </div>
+            <div data-role="footer" data-position="fixed">
+            </div>
+        </div>
+
         <!-- Research Page -->
         <div data-role="page" id="Research" data-theme="b" data-title="GPS">	
             <div data-role="header" data-position="fixed" data-theme="b">
