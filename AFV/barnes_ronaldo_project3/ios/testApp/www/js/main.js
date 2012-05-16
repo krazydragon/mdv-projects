@@ -26,7 +26,7 @@ function showAlert() {
                                  );
 } 
 $('#Geolocation').live("pageshow", function(){
-                       navigator.geolocation.getCurrentPosition(displayMap, noMap);
+                       navigator.geolocation.getCurrentPosition(displayMap, notWork);
                        
                        
                        });
@@ -40,9 +40,7 @@ function displayMap(position){
     $('#map_canvas').gmap({'zoom': 8,'center': gpsData});
 }
 
-function noMap(error) {
-    alert('Can\'t retrieve position.\nError: ' + error);
-};
+
 
 $('#Camera').live("pageshow", function(){
                   pictureSource=navigator.camera.PictureSourceType;
@@ -50,18 +48,41 @@ $('#Camera').live("pageshow", function(){
                   });
 
 
-function getPhoto(imageData) {
+function getPhoto(demoData) {
     var demoImage = $('#demoImage');
     
     demoImage.style.display = 'block';
     
-    demoImage.src = imageData;
+    demoImage.src = demoData;
 }
 
 function capturePhoto() {
-    navigator.camera.getPicture(getPhoto, camFail, { quality: 50, allowEdit: true, destinationType: navigator.camera.DestinationType.FILE_URI});
+    navigator.camera.getPicture(getPhoto, notWork, { quality: 50, allowEdit: true, destinationType: navigator.camera.DestinationType.FILE_URI});
 }
 
-function camFail(error) {
-    alert('Failed because: ' + error);
+function notWork(error) {
+    navigator.notification.alert(error);
 }
+
+function contacts_success(contacts) {
+    $('#contacts-output').html("<strong>" + contacts.length + "</strong> contacts returned.");
+    for (var i = 0; i < contacts.length ; i++) {        
+        if (contacts[i].name && contacts[i].name.formatted) {
+            $('#contacts-output').append("<br/>Contact " + (i+1) + " is <strong>" +
+                                         contacts[i].name.formatted + "</strong>");
+            break;
+        }
+    }
+}
+function contacts_fail (error) {
+    $('#contacts-output').html("<strong>Error getting contacts.</strong>");
+}
+function get_contacts() {
+    var obj = new ContactFindOptions();
+    obj.filter = "";
+    obj.multiple = true;
+    navigator.contacts.find(
+                            [ "displayName", "name" ], contacts_success,
+                            contacts_fail, obj);
+}
+

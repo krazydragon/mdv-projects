@@ -60,14 +60,18 @@
                         <h3>Camera</h3>
                         <p></p>
                     </a></li>
+                    <li><a href="#Contacts">
+                        <h3>Contacts</h3>
+                        <p></p>
+                    </a></li>
                 </ul>
 				
                 
             </div>
-            <video id="movie" width="320" height="240" controls onclick="this.play();>
+            <video id="movie" width="320" height="240" controls onclick="this.play()";>
                 <source src="video/Demovid.webm" type='video/webm; codecs="vp8, vorbis"' />
                 <source src="video/Demovid.mp4" />
-				</video>
+            </video>
                 <div class="ui-grid-a">
                 <div class="ui-block-a">
                 <a href="http://krazydragon.github.com/mdv-projects/AFV/barnes_ronaldo_project1/AFVp1/index.html" data-role="button">Old CRUD app</a>                     	
@@ -116,6 +120,28 @@
                 <div data-role="footer" data-position="fixed">
                 </div>
                 </div>
+                
+                <!-- Contacts Page -->
+                <div data-role="page" id="Contacts" data-theme="b" data-title="GPS">	
+                <div data-role="header" data-position="fixed" data-theme="b">
+                <div data-role="navbar">
+                <ul>
+                <li><img src="images/rt_header.png"/></li>
+                <li><h3>Contacts</h3></li>
+                <li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+                </ul>
+                </div><!-- /navbar -->
+                </div>
+                <div data-role="content">
+                <div data-role="button" onclick="get_contacts();">Check Contacts</div>
+   				<div id="contacts-output"></div>
+                </div>
+                <div data-role="footer" data-position="fixed">
+                </div>
+                </div>
+                
+                
+                
                 
                 <!-- Research Page -->
                 <div data-role="page" id="Research" data-theme="b" data-title="GPS">	
