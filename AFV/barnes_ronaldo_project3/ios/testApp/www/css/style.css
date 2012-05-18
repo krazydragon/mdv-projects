@@ -1,20 +1,21 @@
 /*
-Project 3
+Project 2
 Author: Ronaldo Barnes
 Created for: AVF Online 0205
 */
 
-#map_canvas {
-    height:500px;
-    width:500px;
-    }
-#movie {
-    margin-top:75px;
-    margin-bottom:75px;
-    margin-right:250px;
-    margin-left:250px;
-    }
 
+  html { height: 100% }
+  body { height: 100%}
+#map_canvas {
+    height:250px;
+    width:250px;
+    }
+#demoImage {
+	display:none;
+	width:250px;
+	height:250px;
+	}
 div ul {
 	background-color: : #3f92d2;
 	}

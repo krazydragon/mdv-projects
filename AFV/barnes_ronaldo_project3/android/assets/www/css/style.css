@@ -7,9 +7,15 @@ Created for: AVF Online 0205
 
   html { height: 100% }
   body { height: 100%}
-  #map_canvas { height: 100% }
-
-
+#map_canvas {
+    height:250px;
+    width:250px;
+    }
+#demoImage {
+	display:none;
+	width:250px;
+	height:250px;
+	}
 div ul {
 	background-color: : #3f92d2;
 	}
