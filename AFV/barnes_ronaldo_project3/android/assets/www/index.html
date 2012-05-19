@@ -20,6 +20,8 @@
                         <!-- StyleSheets under here -->
                         <link rel="stylesheet" href="css/jquery.mobile-1.1.0.min.css" type="text/css"/>
                         <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+
                         
                         
                         <!-- JavaScript -->
@@ -71,11 +73,7 @@
 				
                 
             </div>
-            <div style="position:relative;width:480px;height:272px;">
-            	<video controls="controls" width="480" height="272"  onclick="if(/Android/.test(navigator.userAgent))this.play();">
-					<source src="video/Demovid.webm" type="video/webm" />
-					<source src="video/Demovid.mp4" type="video/mp4" />
-            	</video>
+            
             <div class="ui-grid-a">
          	   <div class="ui-block-a">
         		    <a href="http://krazydragon.github.com/mdv-projects/AFV/barnes_ronaldo_project1/AFVp1/index.html" data-role="button">Old CRUD app</a>                     	
@@ -101,6 +99,7 @@
             </div>
             <div data-role="content">
             	<button onclick="getGPS();">Find Location</button>
+            	
             	<div id="map_canvas"></div>
             </div>
             <div data-role="footer" data-position="fixed">

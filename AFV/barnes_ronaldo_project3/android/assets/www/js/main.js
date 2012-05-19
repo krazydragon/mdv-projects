@@ -33,10 +33,15 @@ function getGPS(){
 function displayMap(position){
     var lat = position.coords.latitude,
     long = position.coords.longitude,
-    gpsData = (lat +","+ long);
+    gpsData = (lat +","+ long),
+    gpsOptions = {
+    	center:gpsData,
+        zoom: 18,
+        mapTypeId: google.maps.MapTypeId.HYBRID
+      };
     
     alert(gpsData);
-    $('#map_canvas').gmap({'zoom': 8,'center': gpsData});
+    $('#map_canvas').gmap(gpsOptions);
 }
 
 //Camera
