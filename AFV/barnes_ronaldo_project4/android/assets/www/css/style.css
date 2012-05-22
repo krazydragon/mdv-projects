@@ -1,0 +1,80 @@
+/*
+Project 3
+Author: Ronaldo Barnes
+Created for: AVF Online 0205
+*/
+
+#demoVideo{
+    width:100%;
+    }
+
+div ul {
+	background-color: : #3f92d2;
+	}
+div a {
+	font-size: small;
+	}
+div p {
+	font-size: small;
+	color: white;
+	}
+# main {background: black;}
+
+
+.ui-mobile .ui-page{
+background-image: url(../images/background.jpg);
+}
+
+#headimg{display: inline}
+
+#headid{display: inline
+}
+
+.ui-body-b {
+color:white;
+background: white;
+text-shadow: 0 1px 0;
+}
+
+.ui-body-b input{color: black;}
+
+.ui-body-b textarea{color: black;}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+ 
+ #map_canvas {
+    height:750px;
+    width:750px;
+    margin-left: auto;   
+	margin-right: auto; 
+    }
+#demoImage {
+	display:none;
+	width:640px;
+	height:480px;
+	margin-left: auto;   
+	margin-right: auto; 
+	}
+  
+ 
+}
+@media only screen and (min-device-width : 320px) and (max-device-width : 767px) {
+ 
+#map_canvas {
+    height:250px;
+    width:250px;
+    margin-left: auto;   
+	margin-right: auto; 
+    }
+#demoImage {
+	display:none;
+	width:320px;
+	height:240px;
+	margin-left: auto;   
+	margin-right: auto; 
+	}
+  
+ 
+}
+
+
