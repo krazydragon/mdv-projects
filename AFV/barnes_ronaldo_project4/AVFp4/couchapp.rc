@@ -1,0 +1,10 @@
+{
+  "env": {
+    "default": {
+      "db": "http://127.0.0.1:5984/avfp2"
+    },
+     "web": {
+      "db": "https://krazydragon:fullsail2012@krazydragon.cloudant.com/avfp2"
+    }
+  }
+}
