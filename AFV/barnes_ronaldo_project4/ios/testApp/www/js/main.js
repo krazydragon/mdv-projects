@@ -45,15 +45,13 @@ function displayMap(position){
     $('#map_canvas').gmap(gpsOptions);
 }
 
+
 //Camera
 
-$('#Camera').live("pageshow", function(){
-                  var pictureSource = navigator.camera.PictureSourceType,
-                  destinationType = navigator.camera.DestinationType;
-                  });
 
+            
 
-function takePhoto(imageData) {
+function getPhoto(imageData) {
     var demoImage = document.getElementById('demoImage');
     
     demoImage.style.display = 'block';
@@ -61,8 +59,16 @@ function takePhoto(imageData) {
     demoImage.src = imageData;
 }
 
+
 function capturePhoto() {
-    navigator.camera.getPicture(takePhoto, notWork, { quality: 50});
+    navigator.camera.getPicture(getPhoto, notWork, { quality: 50});
+}
+
+function retrievePhoto() {
+    
+    navigator.camera.getPicture(getPhoto, notWork, { quality: 50, 
+                                destinationType: navigator.camera.DestinationType.FILE_URI,
+                                sourceType: navigator.camera.PictureSourceType.SAVEDPHOTOALBUM });
 }
 
 function notWork(error) {

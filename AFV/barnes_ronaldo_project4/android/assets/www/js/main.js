@@ -63,7 +63,12 @@ function takePhoto(imageData) {
 function capturePhoto() {
     navigator.camera.getPicture(takePhoto, notWork, { quality: 50});
 }
-
+function retrievePhoto() {
+    
+    navigator.camera.getPicture(getPhoto, notWork, { quality: 50, 
+                                destinationType: navigator.camera.DestinationType.FILE_URI,
+                                sourceType: navigator.camera.PictureSourceType.SAVEDPHOTOALBUM });
+}
 function notWork(error) {
     navigator.notification.alert(error);
 }
