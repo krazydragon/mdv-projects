@@ -64,7 +64,8 @@
  
 	$('#main').live("pageshow", function(){ 
 		$('#mainLinks').children().remove();
-				
+		$('#Category').children().remove();
+		$('#Entry').children().remove();		
 		var obj = {
 					"Family" : "Family oriented restaurants.", 
 					"Outside": "Places to eat outside",
@@ -156,5 +157,39 @@ $('#Categories').live("pageshow", function(){
   });
   
   
+	$('#entryPage').live("pageshow", function(){ 
+		console.log("works!");
+		var keyData = $(this).data("url"),
+			key = keyData.split('?');
+		console.log(key[1]);
+	    $db.openDoc( key[1], { 
+	    	success: function(obj) {
+	    		var	newLi = $('<li></li>'),
+                		newH2 = $('<h2></h2>'),
+                		newP1 = $('<p></p>'),
+                		newP2 = $('<p></p>'),
+                		newP3 = $('<p></p>'),
+                		newP4 = $('<p></p>'),
+                		newP5 = $('<p></p>'),
+                		newP6 = $('<p></p>');
+                		newA1 = $('<a href="#" data-role="button" id="' + key[1] + '" data-icon="back">Edit</a>'),
+                		newA2 = $('<a href="#" data-role="button" docId="' + key[1] + '" data-icon="delete">Delete</a>')
+	       	 $(newH2).html(obj.restaurant);
+             $(newP1).html("Location : " + obj.place);
+             $(newP2).html("Date : " + obj.date);
+             $(newP3).html("Type of Restaurant : " + obj.types);
+             $(newP4).html("Kind of food served : " + obj.food);
+             $(newP5).html("On a scale of 1-10 how good was it? : " + obj.numScale);
+             $(newP6).html("Comments : " + obj.comments);
+             $(newA1).bind('click', editEntry);
+             $(newA2).bind('click', deleteEntry);
+             $(newLi).append(newH2, newP1, newP2, newP3, newP4, newP5, newP6, newA1, newA2);
+            $('#Entry').append(newLi)
+    		$('#Entry').listview('refresh');
+    		}    		
+	       });
+
+	     });	
   
- 
+
+	 	  

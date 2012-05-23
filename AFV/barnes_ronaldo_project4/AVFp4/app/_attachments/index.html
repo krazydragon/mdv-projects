@@ -1,5 +1,5 @@
 <!doctype html>
-<!--Project 4-->
+<!--Project 2-->
 <!--Author: Ronaldo Barnes -->
 <!--Created for:AVF 0205 -->	  
 <html lang="en">
@@ -18,14 +18,9 @@
 	<meta http-equiv="cleartype" content="on">
 	
 	<!-- StyleSheets under here -->
-	<script src="js/libs/modernizr.custom.min.js"></script>
-	<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.js"></script>
-	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.js"></script>
-	<script type="text/javascript" src="http://dev.jtsage.com/cdn/datebox/i8n/jquery.mobile.datebox.i8n.en.js"></script>
-	<script src="js/libs/jquery.validate.min.js"></script>
-	<script type="text/javascript" src="js/libs/yaml.js"></script>
-	<script src="js/main.js" type="text/javascript"></script> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.css" />
+	<link rel="stylesheet" href="css/style.css" type="text/css" />
+	<link rel="stylesheet" type="text/css" href="http://dev.jtsage.com/cdn/datebox/latest/jquery.mobile.datebox.min.css" /> 
 	
 	
 	
@@ -33,8 +28,8 @@
 
 </head>
 <body background="images/background.jpg">
-	<!--default Page-->
-	<div data-role="page" id="default" data-theme="b" data-title="Restaurant Tracker">
+	<!--main Page-->
+	<div data-role="page" id="main" data-theme="b" data-title="Restaurant Tracker">
 		<div data-role="header" data-theme="b">
 			<img src="images/rt_headern.png"/>
 		</div>		
@@ -57,7 +52,7 @@
 				<ul>
 					<li><img src="images/rt_header.png"/></li>
 					<li><h3>Family</h3></li>
-					<li><a href="#default" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
 				</ul>
 			</div><!-- /navbar -->
 		</div>
@@ -92,7 +87,7 @@
 			<div data-role="navbar">
 				<ul>
 					<li><h3>New Entry</h3></li>
-					<li><a href="#default" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+					<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
 				</ul>
 			</div><!-- /navbar -->
 		</div>
