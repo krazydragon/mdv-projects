@@ -27,24 +27,54 @@ function showAlert() {
 } 
 
 //GPS
-function getGPS(){
-    navigator.geolocation.getCurrentPosition(displayMap, notWork);
-}
+var geocoder,
+map,
+infowindow = new google.maps.InfoWindow(),
+marker,
+gpsData;
+
+$('#Geolocation').live("pageshow", function(){
+                       navigator.geolocation.getCurrentPosition(displayMap, notWork);
+                       });
+
 
 function displayMap(position){
-    var lat = position.coords.latitude,
-    long = position.coords.longitude,
-    gpsData = (lat +","+ long),
-    gpsOptions = {
+	lat = position.coords.latitude;
+    long = position.coords.longitude;
+    gpsData = new google.maps.LatLng(lat, long);
+    var gpsOptions = {
     center:gpsData,
-    zoom: 18,
+    zoom: 8,
     mapTypeId: google.maps.MapTypeId.HYBRID
     };
     
-    alert(gpsData);
-    $('#map_canvas').gmap(gpsOptions);
+    map = new google.maps.Map(document.getElementById('map_canvas'),gpsOptions);
+    geocoder = new google.maps.Geocoder(); 
+    
+    
 }
-
+function getAddress(){
+    geocoder.geocode({'latLng': gpsData}, function(results, status){
+                     if (status == google.maps.GeocoderStatus.OK){
+                     if (results[0]){
+                     map.setZoom(10);
+                     marker = new google.maps.Marker({
+                                                     position: gpsData,
+                                                     map: map    
+                                                     });
+                     navigator.notification.alert(
+                                                  results[0].formatted_address,  
+                                                  alertDismissed,         
+                                                  'This is where you are!',            
+                                                  'OK'                  
+                                                  );
+                     }
+                     else{alert("No results found");}
+                     }
+                     else{alert("Geocoder failed due to: " + status);
+                     }
+                     });
+}
 
 //Camera
 
