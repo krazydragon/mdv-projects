@@ -1,4 +1,4 @@
-// Project 3
+// Project 4
 // Author: Ronaldo Barnes
 // Created for: AVF Online 0205
 
@@ -137,4 +137,5 @@ function checkNetwork() {
     types[Connection.NONE]     = 'No network connection';
 
     $('#networkType').html(types[network]);
+    
 }
