@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 // Project 3
+=======
+// Project 4
+>>>>>>> master
 // Author: Ronaldo Barnes
 // Created for: AVF Online 0205
 
@@ -27,6 +31,7 @@ function showAlert() {
 } 
 
 //GPS
+<<<<<<< HEAD
 function getGPS(){
     navigator.geolocation.getCurrentPosition(displayMap, notWork);
 }
@@ -43,10 +48,60 @@ function displayMap(position){
     
     alert(gpsData);
     $('#map_canvas').gmap(gpsOptions);
+=======
+var geocoder,
+map,
+infowindow = new google.maps.InfoWindow(),
+marker,
+gpsData;
+
+$('#Geolocation').live("pageshow", function(){
+                       navigator.geolocation.getCurrentPosition(displayMap, notWork);
+                       });
+
+
+function displayMap(position){
+	lat = position.coords.latitude;
+    long = position.coords.longitude;
+    gpsData = new google.maps.LatLng(lat, long);
+    var gpsOptions = {
+    center:gpsData,
+    zoom: 8,
+    mapTypeId: google.maps.MapTypeId.HYBRID
+    };
+    
+    map = new google.maps.Map(document.getElementById('map_canvas'),gpsOptions);
+    geocoder = new google.maps.Geocoder(); 
+    
+    
+}
+function getAddress(){
+    geocoder.geocode({'latLng': gpsData}, function(results, status){
+                     if (status == google.maps.GeocoderStatus.OK){
+                     if (results[0]){
+                     map.setZoom(10);
+                     marker = new google.maps.Marker({
+                                                     position: gpsData,
+                                                     map: map    
+                                                     });
+                     navigator.notification.alert(
+                                                  results[0].formatted_address,  
+                                                  alertDismissed,         
+                                                  'This is where you are!',            
+                                                  'OK'                  
+                                                  );
+                     }
+                     else{alert("No results found");}
+                     }
+                     else{alert("Geocoder failed due to: " + status);
+                     }
+                     });
+>>>>>>> master
 }
 
 //Camera
 
+<<<<<<< HEAD
 $('#Camera').live("pageshow", function(){
                   var pictureSource = navigator.camera.PictureSourceType,
                   destinationType = navigator.camera.DestinationType;
@@ -54,6 +109,12 @@ $('#Camera').live("pageshow", function(){
 
 
 function takePhoto(imageData) {
+=======
+
+            
+
+function getPhoto(imageData) {
+>>>>>>> master
     var demoImage = document.getElementById('demoImage');
     
     demoImage.style.display = 'block';
@@ -61,8 +122,21 @@ function takePhoto(imageData) {
     demoImage.src = imageData;
 }
 
+<<<<<<< HEAD
 function capturePhoto() {
     navigator.camera.getPicture(takePhoto, notWork, { quality: 50});
+=======
+
+function capturePhoto() {
+    navigator.camera.getPicture(getPhoto, notWork, { quality: 50});
+}
+
+function retrievePhoto() {
+    
+    navigator.camera.getPicture(getPhoto, notWork, { quality: 50, 
+                                destinationType: navigator.camera.DestinationType.FILE_URI,
+                                sourceType: navigator.camera.PictureSourceType.SAVEDPHOTOALBUM });
+>>>>>>> master
 }
 
 function notWork(error) {
