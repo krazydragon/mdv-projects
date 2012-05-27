@@ -1,3 +1,4 @@
+
 // Project 4
 // Author: Ronaldo Barnes
 // Created for: AVF Online 0205
@@ -26,6 +27,24 @@ function showAlert() {
 } 
 
 //GPS
+
+function getGPS(){
+  navigator.geolocation.getCurrentPosition(displayMap, notWork);
+}
+
+function displayMap(position){
+    var lat = position.coords.latitude,
+    long = position.coords.longitude,
+    gpsData = (lat +","+ long),
+    gpsOptions = {
+    	center:gpsData,
+        zoom: 18,
+        mapTypeId: google.maps.MapTypeId.HYBRID
+      };
+    
+    alert(gpsData);
+    $('#map_canvas').gmap(gpsOptions);
+
 var geocoder,
     map,
     infowindow = new google.maps.InfoWindow(),
@@ -73,11 +92,22 @@ function getAddress(){
         else{alert("Geocoder failed due to: " + status);
         }
      });
+
 }
 
 //Camera
 
+
+$('#Camera').live("pageshow", function(){
+	var pictureSource = navigator.camera.PictureSourceType,
+        destinationType = navigator.camera.DestinationType;
+});
+
+
+function takePhoto(imageData) {
+
 function getPhoto(imageData) {
+
     var demoImage = document.getElementById('demoImage');
     
     demoImage.style.display = 'block';
@@ -85,6 +115,10 @@ function getPhoto(imageData) {
     demoImage.src = imageData;
 }
 
+
+function capturePhoto() {
+    navigator.camera.getPicture(takePhoto, notWork, { quality: 50});
+}
 
 function capturePhoto() {
     navigator.camera.getPicture(getPhoto, notWork, { quality: 50});
@@ -95,6 +129,7 @@ function retrievePhoto() {
     navigator.camera.getPicture(getPhoto, notWork, { quality: 50, 
                                 destinationType: navigator.camera.DestinationType.FILE_URI,
                                 sourceType: navigator.camera.PictureSourceType.SAVEDPHOTOALBUM });
+
 }
 
 function notWork(error) {
@@ -137,5 +172,5 @@ function checkNetwork() {
     types[Connection.NONE]     = 'No network connection';
 
     $('#networkType').html(types[network]);
-    
+
 }

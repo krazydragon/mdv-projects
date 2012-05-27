@@ -21,6 +21,9 @@
                         <link rel="stylesheet" href="css/jquery.mobile-1.1.0.min.css" type="text/css"/>
                         <link rel="stylesheet" href="css/style.css" type="text/css" />
                         
+                        
+                        
+                        
                         <!-- JavaScript -->
                         <script src="http://maps.google.com/maps/api/js?key=AIzaSyA7fGkhJhuAfWvrDgKI16qJ2JV4untYaMw&sensor=true" type="text/javascript"></script>
                         <script type="text/javascript" charset="utf-8" src="js/cordova-1.7.0.js"></script>
@@ -28,7 +31,6 @@
                         <script type="text/javascript" src="js/jquery.mobile-1.1.0.min.js"></script>
                         <script type="text/javascript" charset="utf-8" src="js/jquery.ui.map.full.min.js"></script>
                         <script src="js/main.js" type="text/javascript"></script>
-                        
                         
                         
                         
@@ -71,193 +73,187 @@
 				
                 
             </div>
-                <div>
-                    <video id="demoVideo" autobuffer controls>
-                        <source src="video/DemoVid.mp4" />
-                        <source src="video/DemoVid.webm" type='video/webm; codecs="vp8, vorbis"' />
-                    </video>
-
-                </div>
-                <div class="ui-grid-a">
-                    <div class="ui-block-a">
-                        <a href="https://krazydragon.cloudant.com/avfp2/_design/Tracker/index.html" data-role="button">CRUD app</a>                     	
-                    </div>
-                    <div class="ui-block-b">
-                        <a href="#Research" data-role="button">Research</a>
-                    </div>
-                </div><!-- /grid-a -->
-                <div data-role="footer">
-                    
-                </div>
-            </div>
-            <!-- GPS Page -->
-            <div data-role="page" id="Geolocation" data-theme="b" data-title="GPS">	
-                <div data-role="header" data-position="fixed" data-theme="b">
-                    <div data-role="navbar">
-                        <ul>
-                            <li><img src="images/rt_header.png"/></li>
-                            <li><h3>GPS</h3></li>
-                            <li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
-                        </ul>
-                    </div><!-- /navbar -->
-                </div>
-                <div data-role="content">
-                    <button onclick="getAddress();">Show Address</button>
-                    <div id="map_canvas"></div>
-                </div>
-                <div data-role="footer" data-position="fixed">
-                </div>
-            </div>
             
-            <!-- Camera Page -->
-            <div data-role="page" id="Camera" data-theme="b" data-title="GPS">	
-                <div data-role="header" data-position="fixed" data-theme="b">
-                    <div data-role="navbar">
-                        <ul>
-                            <li><img src="images/rt_header.png"/></li>
-                            <li><h3>Camera</h3></li>
-                            <li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
-                        </ul>
-                    </div><!-- /navbar -->
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+        		    <a href="https://krazydragon.cloudant.com/avfp2/_design/Tracker/index.html" data-role="button">CRUD app</a>                     	
                 </div>
-                <div data-role="content">
-                    <button onclick="capturePhoto();">Capture Photo</button> <br>
-                    <button onclick="retrievePhoto();">From Photo Album</button><br>
-                    <img  id="demoImage" src="" />
+                <div class="ui-block-b">
+                	<a href="#Research" data-role="button">Research</a>
                 </div>
-                <div data-role="footer" data-position="fixed">
-                </div>
-            </div>
-            
-            <!-- Contacts Page -->
-            <div data-role="page" id="Contacts" data-theme="b" data-title="GPS">	
-                <div data-role="header" data-position="fixed" data-theme="b">
-                    <div data-role="navbar">
-                        <ul>
-                            <li><img src="images/rt_header.png"/></li>
-                            <li><h3>Contacts</h3></li>
-                            <li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
-                        </ul>
-                    </div><!-- /navbar -->
-                </div>
-                <div data-role="content">
-                    <div data-role="button" onclick="getContacts();">Contacts</div>
-                    <div id="contactsHTML"></div>
-                </div>
-                <div data-role="footer" data-position="fixed">
-                </div>
-            </div>
-            
-            <!-- Compass Page -->
-            <div data-role="page" id="Network" data-theme="b" data-title="GPS">	
-                <div data-role="header" data-position="fixed" data-theme="b">
-                    <div data-role="navbar">
-                        <ul>
-                            <li><img src="images/rt_header.png"/></li>
-                            <li><h3>Compass</h3></li>
-                            <li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
-                        </ul>
-                    </div><!-- /navbar -->
-                </div>
-                <div data-role="content">
-                    <h2>Network</h2>
-                    <div data-role="button" onclick="checkNetwork();">Check Network Type</div>
-                    <div>Connection: <b id="networkType"></b></div>
-                </div>
+            </div><!-- /grid-a -->
+            <div data-role="footer">
                 
-                <div data-role="footer" data-position="fixed">
-                </div>
             </div>
-            <!-- Research Page -->
-            <div data-role="page" id="Research" data-theme="b" data-title="GPS">	
-                <div data-role="header" data-position="fixed" data-theme="b">
-                    <div data-role="navbar">
-                        <ul>
-                            <li><img src="images/rt_header.png"/></li>
-                            <li><h3>Research</h3></li>
-                            <li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
-                        </ul>
-                    </div><!-- /navbar -->
-                </div>
-                <div data-role="content">
-                    <div data-role="collapsible-set">
-                        <div data-role="collapsible" >
-                            <h3>Discussion 1: Industry Research and Project Intent</h3>
-                            <p>1. What types of native features (on Android and iOS devices) would you be able to implement with the use of HTML/CSS/JS only? (just a hint - iOS can be the tricky one)</p>
-                            
-                            <p>When using something like phonegap you have access to all of the features on the device so you can do pretty much anything that you can think of.</p>
-                            
-                            <p>2. For your CRUD app revision, which of these do you think you will implement?</p>
-                            
-                            <p>I think that I am going to try and redesign my app because I am planning on creating a dating app. The features that plan on usinsg are the camera, gps and contacts.</p>
-                            
-                            <p>3. Briefly describe some past 'lessons learned' regarding workflow as it relates to research, design, development, etc.</p>
-                            
-                            <p> I have learned to better plan out what I’m doing so that I have a better idea of what I have done. Also I have learned to do sections and not try and do everything at once so that if I for whatever reason do no not finish I still have a mostly functioning app and not one that is almost done but most features do not work because I was all over the place.</p>
-                            
-                            <p>4. Please describe any design intentions you may have for the AVF Demo app and the revised/new version of your CRUD app.</p>
-                            
-                            <p>I want the overall app and landing page to look better on mobile and not look just like a webpage. I want it to look like it is designed for the device that it is on. I also want a simple and easy to use user interface.</p>
-                            
-                            <p>5. If not covered above, please also describe any functionality intentions you may have for both the AVF Demo app and the revised/new version of your CRUD app.</p>
-                            
-                            <p>I want the user to be able to add information to the contacts and calendar. I also want to try and figure out how to incorporate gps data in to the app if possible to see where other users are. I am also going to use the camera so that the user can upload images to the app/web. As well as accessing media, storage and notifications.</p>
-                        </div>
+        </div>
+        <!-- GPS Page -->
+        <div data-role="page" id="Geolocation" data-theme="b" data-title="GPS">	
+       		<div data-role="header" data-position="fixed" data-theme="b">
+            	<div data-role="navbar">
+                	<ul>
+                		<li><img src="images/rt_header.png"/></li>
+                		<li><h3>GPS</h3></li>
+                		<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+                	</ul>
+                </div><!-- /navbar -->
+            </div>
+            <div data-role="content">
+            	<button onclick="getAddress();">Show Adress</button>
+                <div id="map_canvas"></div>
+            </div>
+            <div data-role="footer" data-position="fixed">
+            </div>
+       	</div>
+        
+        <!-- Camera Page -->
+        <div data-role="page" id="Camera" data-theme="b" data-title="GPS">	
+        	<div data-role="header" data-position="fixed" data-theme="b">
+                <div data-role="navbar">
+                 	<ul>
+                		<li><img src="images/rt_header.png"/></li>
+               		    <li><h3>Camera</h3></li>
+               			<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+                	</ul>
+                </div><!-- /navbar -->
+            </div>
+            <div data-role="content">
+             	<button onclick="capturePhoto();">Capture Photo</button> <br>
+             	<button onclick="retrievePhoto();">From Photo Album</button><br>
+                <img  id="demoImage" src="" />
+            </div>
+            <div data-role="footer" data-position="fixed">
+            </div>
+        </div>
+        
+        <!-- Contacts Page -->
+        <div data-role="page" id="Contacts" data-theme="b" data-title="GPS">	
+        	<div data-role="header" data-position="fixed" data-theme="b">
+            	<div data-role="navbar">
+                	<ul>
+                		<li><img src="images/rt_header.png"/></li>
+                		<li><h3>Contacts</h3></li>
+                		<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+                	</ul>
+                </div><!-- /navbar -->
+            </div>
+            <div data-role="content">
+            	<div data-role="button" onclick="getContacts();">Contacts</div>
+   				<div id="contactsHTML"></div>
+            </div>
+            <div data-role="footer" data-position="fixed">
+            </div>
+        </div>
+        
+        <!-- Compass Page -->
+        <div data-role="page" id="Network" data-theme="b" data-title="GPS">	
+        	<div data-role="header" data-position="fixed" data-theme="b">
+            	<div data-role="navbar">
+                	<ul>
+                		<li><img src="images/rt_header.png"/></li>
+                		<li><h3>Compass</h3></li>
+                		<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+                	</ul>
+                </div><!-- /navbar -->
+            </div>
+            <div data-role="content">
+   				<h2>Network</h2>
+   				<div data-role="button" onclick="checkNetwork();">Check Network Type</div>
+   				<div>Connection: <b id="networkType"></b></div>
+			</div>
+            
+            <div data-role="footer" data-position="fixed">
+            </div>
+        </div>
+        <!-- Research Page -->
+        <div data-role="page" id="Research" data-theme="b" data-title="GPS">	
+       		<div data-role="header" data-position="fixed" data-theme="b">
+            	<div data-role="navbar">
+                	<ul>
+                		<li><img src="images/rt_header.png"/></li>
+               			<li><h3>Research</h3></li>
+                		<li><a href="#main" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-direction="reverse" data-theme="b">Home</a></li>
+                	</ul>
+                </div><!-- /navbar -->
+            </div>
+            <div data-role="content">
+            	<div data-role="collapsible-set">
+  					<div data-role="collapsible" >
+                		<h3>Week 1 Discussion: Industry Research and Project Intent</h3>
+                		<p>1. What types of native features (on Android and iOS devices) would you be able to implement with the use of HTML/CSS/JS only? (just a hint - iOS can be the tricky one)</p>
                         
-                        <div data-role="collapsible">
-                            <h3>Discussion 2: Accessibility</h3>
-                            <p>1. What are some of the ways that you could change your HTML on your Demo app to be more accessible? (Remember, you can use the Section tag with jQuery, for instance)</p>
-                            
-                            <p>I would use user friendly font size, style, and color. I would also use the section tag to help separate the different sections in my app so that if someone was using a screen reader it would read the part of the app that mattered the most to the user.</p>
-                            
-                            <p>2. Visit a video service on the web (like YouTube) and search for "Screen Reader Demo" and "Mobile Screen Reader" - what are some of the common frustrations (or common support mechanisms) that you see among the examples that are given - how could you fix them (or use them)?</p>
-                            
-                            <p>The frustrations that I saw is that sometimes that they don’t work as well as they should due to issues like 3rd party app support and also just having a simple setup. Also some of the voices that they use might be hard for certain people to understand.</p>
-                            
-                            <p>3. Devices: Please list two devices (and some of their features) that are made specifically to support Accessibility.</p>
-                            
-                            <p>Multiple devices come to mind all ios devices and most android devices support Accessibility. They will let you zoom in so that you can read better. You can also get sound and vibration feedback when you touch the screen.</p>
-                            
-                            <p>4. Mobile Apps: Please list two apps (either Android or iOS, or both) that are made specifically to support Accessibility.</p>
-                            
-                            <p>On android you can download talkback, soundback, and kickback. These apps are made by google. Talkback is a screen reader that will tell you whats on the screen. Soundback gives audible feedback, and Kickback gives a vibrating feedback.</p>
-                            
-                        </div>
-                        <div data-role="collapsible">
-                            <h3>Discussion 3: Market Research</h3>
-                            <p>1. What are the 'top selling' app categories in the U.S.?<br />
-                            <br />
-                            Just from looking at the top paid apps on the android and ios markets the top categories are Games, Productivity, and utilities.<br />
-                            <br />
-                            2. What are the 'top selling' app categories in Japan?<br />
-                            <br />
-                            In Japan you see a lot of productivity apps followed of course by games.<br />
-                            <br />
-                            3. What are the 'top selling' app categories in Great Britain?<br />
-                            The top paid apps came from Games and Utilities.<br />
-                            <br />
-                            4. Based on your three answers above, what might you infer about each of the markets listed?<br />
-                            <br />
-                            If you include free apps social apps also top the list. Looking at the data and the number of downloads it looks like all over the world people download a ton of apps that help keep people on there phones and not on the computers at home. Mobile is going to be here for a long time and I think that people are going to stick with phones and tablets and get away from desktops and laptops.<br />
-                            <br />
-                            5.What percentage of Android users have the latest/greatest OS in the U.S? In Japan? In Great Britain? How might these differences impact development?<br />
-                            <br />
-                            It is around 4.9% of android are on ice cream sandwich, and the majority is still on gingerbread witch is about 64%. Android has always been one software version behind as long as I can remember. The newest most up to date version doesn’t really take off until the next one comes out. When developing for android I’d try to make my app for the most current version and make it backwards compatible if I could. If not I’d do it for the previous version.<br />
-                            <br />
-                            6. What is the average cost and bandwidth limits per user (in general) in each of the three markets? How may this impact development?<br />
-                            <br />
-                            If you get a smart phone now in the US it will cost $30 for 2 – 4 gigabytes of data with the option to purchase more for more money but some carriers still offer the unlimited plan. In the UK it looks like it is bundled into your plan for £55 for example but that also includes 3000 minutes and 3000 texts in that example. And in Japan you can get unlimited for about $68.80. The price for data each month and the users data limit impact development in a couple of ways. First say your user only has a certain amount of data that they can use then if your app has bigger files they might not download it because they could be charged if they don’t use something else like Wi-Fi to download it.<br />
-                            <br />
-                            7. And, finally, what would be your suggested strategy in project topic and global market choice? Feel free to have a first and second choice.<br />
-                            <br />
-                            I’d try and make a productivity app that would be easy and simple to use that would help people keep track of their lives. I’d also make a game that would be complex and simple so that a player wouldn’t have to spend much time on it if they were busy or spend a lot of time if they had it.</p>                            
-                        </div>
+               			<p>When using something like phonegap you have access to all of the features on the device so you can do pretty much anything that you can think of.</p>
                         
-                    </div>
+                		<p>2. For your CRUD app revision, which of these do you think you will implement?</p>
+                        
+                		<p>I think that I am going to try and redesign my app because I am planning on creating a dating app. The features that plan on usinsg are the camera, gps and contacts.</p>
+                        
+                		<p>3. Briefly describe some past 'lessons learned' regarding workflow as it relates to research, design, development, etc.</p>
+                        
+                		<p> I have learned to better plan out what I’m doing so that I have a better idea of what I have done. Also I have learned to do sections and not try and do everything at once so that if I for whatever reason do no not finish I still have a mostly functioning app and not one that is almost done but most features do not work because I was all over the place.</p>
+                        
+                		<p>4. Please describe any design intentions you may have for the AVF Demo app and the revised/new version of your CRUD app.</p>
+                        
+                		<p>I want the overall app and landing page to look better on mobile and not look just like a webpage. I want it to look like it is designed for the device that it is on. I also want a simple and easy to use user interface.</p>
+                        
+                		<p>5. If not covered above, please also describe any functionality intentions you may have for both the AVF Demo app and the revised/new version of your CRUD app.</p>
+                        
+                		<p>I want the user to be able to add information to the contacts and calendar. I also want to try and figure out how to incorporate gps data in to the app if possible to see where other users are. I am also going to use the camera so that the user can upload images to the app/web. As well as accessing media, storage and notifications.</p>
+                	</div>
                     
-                </div>
-                <div data-role="footer" data-position="fixed">
-                </div>
+                	<div data-role="collapsible">
+                		<h3>Week 2 Discussion: Accessibility</h3>
+                		<p>1. What are some of the ways that you could change your HTML on your Demo app to be more accessible? (Remember, you can use the Section tag with jQuery, for instance)</p>
+                        
+                		<p>I would use user friendly font size, style, and color. I would also use the section tag to help separate the different sections in my app so that if someone was using a screen reader it would read the part of the app that mattered the most to the user.</p>
+                        
+                		<p>2. Visit a video service on the web (like YouTube) and search for "Screen Reader Demo" and "Mobile Screen Reader" - what are some of the common frustrations (or common support mechanisms) that you see among the examples that are given - how could you fix them (or use them)?</p>
+                        
+                		<p>The frustrations that I saw is that sometimes that they don’t work as well as they should due to issues like 3rd party app support and also just having a simple setup. Also some of the voices that they use might be hard for certain people to understand.</p>
+                        
+                		<p>3. Devices: Please list two devices (and some of their features) that are made specifically to support Accessibility.</p>
+                        
+                		<p>Multiple devices come to mind all ios devices and most android devices support Accessibility. They will let you zoom in so that you can read better. You can also get sound and vibration feedback when you touch the screen.</p>
+                        
+                		<p>4. Mobile Apps: Please list two apps (either Android or iOS, or both) that are made specifically to support Accessibility.</p>
+                        
+                		<p>On android you can download talkback, soundback, and kickback. These apps are made by google. Talkback is a screen reader that will tell you whats on the screen. Soundback gives audible feedback, and Kickback gives a vibrating feedback.</p>
+                	</div>
+                	<div data-role="collapsible">
+                        <h3>Discussion 3: Market Research</h3>
+                        <p>1. What are the 'top selling' app categories in the U.S.?<br />
+                        <br />
+                        Just from looking at the top paid apps on the android and ios markets the top categories are Games, Productivity, and utilities.<br />
+                        <br />
+                        2. What are the 'top selling' app categories in Japan?<br />
+                        <br />
+                        In Japan you see a lot of productivity apps followed of course by games.<br />
+                        <br />
+                        3. What are the 'top selling' app categories in Great Britain?<br />
+                        The top paid apps came from Games and Utilities.<br />
+                        <br />
+                        4. Based on your three answers above, what might you infer about each of the markets listed?<br />
+                        <br />
+                        If you include free apps social apps also top the list. Looking at the data and the number of downloads it looks like all over the world people download a ton of apps that help keep people on there phones and not on the computers at home. Mobile is going to be here for a long time and I think that people are going to stick with phones and tablets and get away from desktops and laptops.<br />
+                        <br />
+                        5.What percentage of Android users have the latest/greatest OS in the U.S? In Japan? In Great Britain? How might these differences impact development?<br />
+                        <br />
+                        It is around 4.9% of android are on ice cream sandwich, and the majority is still on gingerbread witch is about 64%. Android has always been one software version behind as long as I can remember. The newest most up to date version doesn’t really take off until the next one comes out. When developing for android I’d try to make my app for the most current version and make it backwards compatible if I could. If not I’d do it for the previous version.<br />
+                        <br />
+                        6. What is the average cost and bandwidth limits per user (in general) in each of the three markets? How may this impact development?<br />
+                        <br />
+                        If you get a smart phone now in the US it will cost $30 for 2 – 4 gigabytes of data with the option to purchase more for more money but some carriers still offer the unlimited plan. In the UK it looks like it is bundled into your plan for £55 for example but that also includes 3000 minutes and 3000 texts in that example. And in Japan you can get unlimited for about $68.80. The price for data each month and the users data limit impact development in a couple of ways. First say your user only has a certain amount of data that they can use then if your app has bigger files they might not download it because they could be charged if they don’t use something else like Wi-Fi to download it.<br />
+                        <br />
+                        7. And, finally, what would be your suggested strategy in project topic and global market choice? Feel free to have a first and second choice.<br />
+                        <br />
+                        I’d try and make a productivity app that would be easy and simple to use that would help people keep track of their lives. I’d also make a game that would be complex and simple so that a player wouldn’t have to spend much time on it if they were busy or spend a lot of time if they had it.</p>                            
+                    </div>
+                	
+                    
+				</div>
+                
             </div>
-            </body>
+            <div data-role="footer" data-position="fixed">
+            </div>
+        </div>
+    </body>
 </html>
